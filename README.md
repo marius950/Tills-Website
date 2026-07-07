@@ -23,15 +23,16 @@ Website-Konzept (Google Doc / `website-konzept-draft.md.docx`).
 
 ## Vor dem Livegang (Checkliste)
 
-- [ ] Alle Platzhalter in `src/config.ts` ersetzen
-- [ ] Doctolib-Link eintragen (`doctolibAktiv: true`)
+- [ ] Alle Platzhalter in `src/config.ts` ersetzen (Adresse, Telefon, E-Mail, Dauer, Zeiten)
+- [x] Doctolib-Link eingetragen — alle „Termin buchen"-Buttons verlinken direkt zu Doctolib
+- [ ] Nutzungsrechte für das Till-Portrait (`till-portrait.webp`, FC-St.-Pauli-Motiv) klären —
+      Vereins-/Fotografenfotos dürfen nicht automatisch kommerziell genutzt werden
 - [ ] Echte Fotos einfügen — alle Bilder in `public/images/` sind **Unsplash-Platzhalter**
       (Unsplash-Lizenz, frei nutzbar; Praxis-/Personenfotos auf der Website sind mit
-      „Platzhalter-Foto (Unsplash)" gekennzeichnet). Seitenfotos (Hero, Portrait, Praxisraum)
-      sollten durch professionelle Fotos von Till ersetzt werden; die Wissen-Artikelbilder
-      können bleiben oder ebenfalls ersetzt werden. Quellen:
+      „Platzhalter-Foto (Unsplash)" gekennzeichnet). Ausnahme: `till-portrait.webp` ist echt.
+      Seitenfotos (Hero, Praxisraum) sollten durch professionelle Fotos von Till ersetzt
+      werden; die Wissen-Artikelbilder können bleiben oder ebenfalls ersetzt werden. Quellen:
       [Hero](https://unsplash.com/photos/uLWW09LLG04) ·
-      [Portrait](https://unsplash.com/photos/bBuUjB98PPY) ·
       [Praxisraum](https://unsplash.com/photos/oAvwAKFiU7Q) ·
       [Rücken](https://unsplash.com/photos/UhzeAgXvGSs) ·
       [Nacken](https://unsplash.com/photos/aotrm-bpAAk) ·

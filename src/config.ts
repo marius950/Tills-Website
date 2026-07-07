@@ -10,7 +10,7 @@ export const praxis = {
   plzOrt: '[PLZ Ort]',
   telefon: '[Telefonnummer]',
   email: '[E-Mail-Adresse]',
-  doctolib: '#doctolib-link-einfuegen',
+  doctolib: 'https://www.doctolib.de/osteopath/hamburg/schneider-till',
   preis: '130 €',
   dauer: '[Dauer einfügen]',
   behandlungszeiten: '[Behandlungszeiten einfügen – z. B. Mo–Fr 8:00–19:00 Uhr]',
@@ -20,4 +20,4 @@ export const praxis = {
 };
 
 // true, sobald der echte Doctolib-Link eingetragen ist
-export const doctolibAktiv = false;
+export const doctolibAktiv = true;

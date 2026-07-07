@@ -1,5 +1,7 @@
 ---
-// Dezenter CTA-Baustein nach inhaltlichen Abschnitten
+// Dezenter CTA-Baustein nach inhaltlichen Abschnitten – verlinkt direkt zu Doctolib
+import { praxis } from '../config';
+
 interface Props {
   text?: string;
   button?: string;
@@ -9,7 +11,7 @@ const { text, button = 'Termin buchen' } = Astro.props;
 
 <div class="cta-block">
   {text && <p>{text}</p>}
-  <a href="/terminbuchung/" class="btn btn--primary">{button}</a>
+  <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">{button}</a>
 </div>
 
 <style>
