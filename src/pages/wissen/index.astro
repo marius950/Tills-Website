@@ -8,7 +8,7 @@ const artikel = (await getCollection('wissen')).sort(
 );
 
 // Alphabetische Themenliste („alle Themen auf einen Blick")
-const themen = [...artikel].sort((a, b) => a.data.title.localeCompare(b.data.title, 'de'));
+const themen = [...artikel].sort((a, b) => a.data.kategorie.localeCompare(b.data.kategorie, 'de'));
 
 const datumFormat = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
 ---
