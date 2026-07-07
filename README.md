@@ -17,7 +17,7 @@ Website-Konzept (Google Doc / `website-konzept-draft.md.docx`).
 - **Praxisdaten & Platzhalter:** `src/config.ts` — alle `[Platzhalter]` hier ersetzen.
   Noch offene Platzhalter werden auf der Website automatisch gelb markiert.
 - **Doctolib:** Link in `src/config.ts` eintragen und `doctolibAktiv: true` setzen.
-- **Blogartikel:** Markdown-Dateien in `src/content/blog/` (Frontmatter siehe Beispielartikel).
+- **Wissen-Artikel (Blog):** Markdown-Dateien in `src/content/wissen/` (Frontmatter siehe Beispielartikel). Texte in du-Form!
 - **Texte der Seiten:** `src/pages/*.astro`
 - **Design-Tokens (Farben, Typo):** `src/styles/global.css`
 
@@ -28,7 +28,7 @@ Website-Konzept (Google Doc / `website-konzept-draft.md.docx`).
 - [ ] Echte Fotos einfügen — die Bilder in `public/images/` sind **Unsplash-Platzhalter**
       (auf der Website mit „Platzhalter-Foto (Unsplash)" gekennzeichnet) und müssen durch
       professionelle Fotos von Till/der Praxis ersetzt werden. Quellen:
-      [Hero](https://unsplash.com/photos/a9pFSC8dTlo) ·
+      [Hero](https://unsplash.com/photos/uLWW09LLG04) ·
       [Portrait](https://unsplash.com/photos/bBuUjB98PPY) ·
       [Praxisraum](https://unsplash.com/photos/oAvwAKFiU7Q) ·
       [Blog](https://unsplash.com/photos/UhzeAgXvGSs) (Unsplash-Lizenz, frei nutzbar)

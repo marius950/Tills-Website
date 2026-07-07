@@ -78,40 +78,39 @@ const ablauf = [
   title={`Osteopathie in ${praxis.standort} | Praxis Till Schneider`}
   description={`Evidenzbewusste Osteopathie bei Schmerzen, Stress & funktionellen Beschwerden in ${praxis.standort}. Physiotherapeut, Heilpraktiker & Osteopath. Jetzt Termin online buchen.`}
 >
-  <!-- Hero -->
+  <!-- Hero: großes Statement + vollbreites Bild (Referenz: osteopathiewerkstatt.de) -->
   <section class="section hero">
-    <div class="wrap hero-grid">
-      <div>
-        <h1>Osteopathie, die <em>Zusammenhänge</em> versteht.</h1>
-        <p class="hero-sub">
-          Evidenzbewusste osteopathische Behandlung bei Schmerzen, Stress und funktionellen
-          Beschwerden – individuell, verständlich und auf Augenhöhe. In <Ph value={praxis.standort} />.
-        </p>
-        <p>
-          Schmerzen haben selten nur eine Ursache. Als Osteopath und Physiotherapeut schaue ich
-          genau hin: Wo kommen deine Beschwerden her, was hängt womit zusammen – und was können wir
-          gemeinsam dagegen tun? Ohne leere Versprechen, dafür mit Erfahrung, Sorgfalt und einem
-          Behandlungsansatz, der sich an aktuellem Wissen orientiert.
-        </p>
-        <div class="hero-buttons">
-          <a href="/terminbuchung/" class="btn btn--primary">Termin buchen</a>
-          <a href="/was-ist-osteopathie/" class="btn btn--secondary">Mehr über Osteopathie erfahren</a>
-        </div>
-        <ul class="badges">
-          <li>Staatl. gepr. Physiotherapeut</li>
-          <li>Heilpraktiker</li>
-          <li>Osteopath (BAO-geprüft, 1350+ UE)</li>
-          <li>5 Jahre NLZ FC St. Pauli</li>
-        </ul>
+    <div class="wrap">
+      <p class="eyebrow">Osteopathie in <Ph value={praxis.standort} /></p>
+      <h1 class="hero-title">Osteopathie, die <em>Zusammenhänge</em> versteht.</h1>
+      <p class="hero-sub">
+        Evidenzbewusste osteopathische Behandlung bei Schmerzen, Stress und funktionellen
+        Beschwerden – individuell, verständlich und auf Augenhöhe.
+      </p>
+      <div class="hero-buttons">
+        <a href="/terminbuchung/" class="btn btn--primary">Termin buchen</a>
+        <a href="/was-ist-osteopathie/" class="btn btn--secondary">Mehr über Osteopathie erfahren</a>
       </div>
+      <ul class="badges">
+        <li>Staatl. gepr. Physiotherapeut</li>
+        <li>Heilpraktiker</li>
+        <li>Osteopath (BAO-geprüft, 1350+ UE)</li>
+        <li>5 Jahre NLZ FC St. Pauli</li>
+      </ul>
       <figure class="photo-wrap hero-photo">
         <img
-          src="/images/hero-behandlung.jpg"
-          alt="Osteopathische Behandlung – Hände auf dem Rücken einer Patientin"
+          src="/images/hero-breit.jpg"
+          alt="Osteopathische Behandlung in der Praxis"
           loading="eager"
         />
         <figcaption class="photo-note">Platzhalter-Foto (Unsplash)</figcaption>
       </figure>
+      <p class="hero-intro">
+        Schmerzen haben selten nur eine Ursache. Als Osteopath und Physiotherapeut schaue ich
+        genau hin: Wo kommen deine Beschwerden her, was hängt womit zusammen – und was können wir
+        gemeinsam dagegen tun? Ohne leere Versprechen, dafür mit Erfahrung, Sorgfalt und einem
+        Behandlungsansatz, der sich an aktuellem Wissen orientiert.
+      </p>
     </div>
   </section>
 
@@ -297,20 +296,16 @@ const ablauf = [
 </Base>
 
 <style>
-  .hero-grid {
-    display: grid;
-    gap: 2.5rem;
-    align-items: center;
-  }
-
-  @media (min-width: 900px) {
-    .hero-grid { grid-template-columns: 1.15fr 1fr; }
+  .hero-title {
+    font-size: clamp(2.4rem, 6.5vw, 4.3rem);
+    max-width: 1000px;
   }
 
   .hero-sub {
-    font-size: 1.25rem;
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
     font-weight: 500;
-    margin-block: 1.25rem 1rem;
+    max-width: 720px;
+    margin-block: 1.5rem 1.75rem;
     text-wrap: pretty;
   }
 
@@ -318,11 +313,36 @@ const ablauf = [
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-top: 1.75rem;
+  }
+
+  .hero-photo {
+    margin-top: clamp(2rem, 5vw, 3.5rem);
   }
 
   .hero-photo img {
-    max-height: 620px;
+    aspect-ratio: 16 / 8;
+    max-height: 640px;
+  }
+
+  @media (max-width: 640px) {
+    .hero-photo img { aspect-ratio: 4 / 3; }
+  }
+
+  .hero-intro {
+    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+    max-width: 720px;
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  /* Über-mich-Teaser: zweispaltiges Layout */
+  .hero-grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr 1.15fr; }
   }
 
   .teaser-photo img {

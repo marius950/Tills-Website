@@ -116,7 +116,7 @@ img {
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 999px;
   padding: 0.85rem 1.6rem;
   transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   cursor: pointer;
@@ -294,6 +294,32 @@ img {
 
 .faq-item .faq-body {
   padding-bottom: 1.25rem;
+}
+
+/* ---------- Scroll-Reveal-Animationen ----------
+   Elemente bekommen die Klasse .reveal per JS (Base.astro) –
+   ohne JS bleibt alles sichtbar (Progressive Enhancement). */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* ---------- Kursiver Serifen-Akzent in Headlines ---------- */

@@ -1,0 +1,158 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+
+const artikel = (await getCollection('wissen')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Alphabetische Themenliste („alle Themen auf einen Blick")
+const themen = [...artikel].sort((a, b) => a.data.title.localeCompare(b.data.title, 'de'));
+
+const datumFormat = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
+---
+
+<Base
+  title="Wissen | Osteopathie, Schmerzen & Regeneration – Till Schneider"
+  description="Verständliche Artikel über Rückenschmerzen, Stress, Regeneration und Osteopathie – evidenzbewusst geschrieben von Osteopath Till Schneider."
+>
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Wissen</span>
+      <h1>Wissen, das <em>weiterhilft</em>.</h1>
+      <p class="content mt-2">
+        Verständliche, evidenzbewusste Artikel zu Beschwerdebildern, Osteopathie und Regeneration
+        – ohne Werbesprache und ohne Heilversprechen.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--beige themen-liste">
+    <div class="wrap">
+      <h2>Alle Themen auf einen Blick</h2>
+      <ul class="themen">
+        {themen.map((t) => (
+          <li><a href={`/wissen/${t.id}/`}>{t.data.kategorie}</a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--3">
+        {artikel.map((a) => (
+          <article class="card artikel-card">
+            <a href={`/wissen/${a.id}/`} class="artikel-link">
+              {a.data.bild ? (
+                <figure class="photo-wrap artikel-bild">
+                  <img src={a.data.bild} alt="" loading="lazy" />
+                </figure>
+              ) : (
+                <div class="img-placeholder artikel-bild" role="img" aria-label="Artikelbild-Platzhalter">
+                  [Artikelbild]
+                </div>
+              )}
+              <p class="artikel-meta">
+                {a.data.kategorie} · {datumFormat.format(a.data.pubDate)} · {a.data.lesedauer}
+                {a.data.entwurf && <span class="ph">Entwurf</span>}
+              </p>
+              <h2 class="artikel-titel">{a.data.title}</h2>
+              <p>{a.data.description}</p>
+              <span class="mehr">Mehr erfahren →</span>
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <CtaBlock text="Beschwerden, die du kennst?" button="Termin vereinbaren" />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .themen-liste h2 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+  }
+
+  .themen {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .themen a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: var(--bg);
+    border: 1px solid rgba(28, 27, 26, 0.12);
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .themen a:hover {
+    background: var(--dark);
+    color: #f5f2ec;
+  }
+
+  .artikel-card {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .artikel-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+    padding: 0 0 1.5rem;
+    text-decoration: none;
+  }
+
+  .artikel-link > :global(:not(.artikel-bild)) {
+    margin-inline: 1.5rem;
+  }
+
+  .artikel-bild {
+    min-height: 180px;
+    margin-bottom: 0.75rem;
+  }
+
+  .artikel-bild img {
+    height: 180px;
+    border-radius: 0;
+    transition: transform 0.4s ease;
+  }
+
+  .artikel-card:hover .artikel-bild img {
+    transform: scale(1.03);
+  }
+
+  .artikel-meta {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .artikel-titel {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  .artikel-card:hover .artikel-titel {
+    color: var(--primary);
+  }
+
+  .mehr {
+    margin-top: auto;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--primary);
+  }
+</style>

@@ -4,7 +4,7 @@ import Base from '../../layouts/Base.astro';
 import CtaBlock from '../../components/CtaBlock.astro';
 
 export async function getStaticPaths() {
-  const artikel = await getCollection('blog');
+  const artikel = await getCollection('wissen');
   return artikel.map((a) => ({ params: { slug: a.id }, props: { artikel: a } }));
 }
 
@@ -13,7 +13,7 @@ const { Content } = await render(artikel);
 const datumFormat = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
 ---
 
-<Base title={`${artikel.data.title} | Blog – Till Schneider`} description={artikel.data.description}>
+<Base title={`${artikel.data.title} | Wissen – Till Schneider`} description={artikel.data.description}>
   <article class="section">
     <div class="wrap content-center">
       <p class="artikel-meta">
