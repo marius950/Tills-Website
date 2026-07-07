@@ -1,5 +1,5 @@
 ---
-title: 'Rückenschmerzen im Alltag: Ursachen verstehen – und was Sie selbst tun können'
+title: 'Rückenschmerzen im Alltag: Ursachen verstehen – und was du selbst tun kannst'
 description: 'Warum Rückenschmerzen selten nur eine Ursache haben, welche Rolle Bewegung, Alltag und Stress spielen – und wann Osteopathie unterstützend sinnvoll sein kann.'
 pubDate: 2026-07-07
 lesedauer: '6 Min.'

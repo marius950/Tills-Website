@@ -42,34 +42,34 @@ const prinzipien = [
   },
   {
     titel: 'Verständlich.',
-    text: 'Sie sollen nicht nur behandelt werden, sondern verstehen, was in Ihrem Körper passiert. Ich erkläre Ihnen meine Einschätzung in klarer Sprache – und was Sie selbst tun können, um Ihre Beschwerden zu verbessern.',
+    text: 'Du sollst nicht nur behandelt werden, sondern verstehen, was in deinem Körper passiert. Ich erkläre dir meine Einschätzung in klarer Sprache – und was du selbst tun kannst, um deine Beschwerden zu verbessern.',
   },
   {
     titel: 'Verantwortungsvoll.',
-    text: 'Wenn ich der Meinung bin, dass Sie bei einer Ärztin, einem Arzt oder in einer anderen Behandlungsform besser aufgehoben sind, sage ich Ihnen das offen.',
+    text: 'Wenn ich der Meinung bin, dass du bei einer Ärztin, einem Arzt oder in einer anderen Behandlungsform besser aufgehoben bist, sage ich dir das offen.',
   },
 ];
 
 const ablauf = [
   {
     titel: 'Gespräch (Anamnese).',
-    text: 'Wir nehmen uns Zeit für Ihre Geschichte: Beschwerden, Vorerkrankungen, Alltag, Belastungen. Vorhandene Befunde und Arztberichte sind dabei sehr hilfreich.',
+    text: 'Wir nehmen uns Zeit für deine Geschichte: Beschwerden, Vorerkrankungen, Alltag, Belastungen. Vorhandene Befunde und Arztberichte sind dabei sehr hilfreich.',
   },
   {
     titel: 'Untersuchung.',
-    text: 'Ich untersuche Sie gründlich – mit Blick auf Beweglichkeit, Spannungsverhältnisse und mögliche Zusammenhänge zwischen verschiedenen Körperregionen.',
+    text: 'Ich untersuche dich gründlich – mit Blick auf Beweglichkeit, Spannungsverhältnisse und mögliche Zusammenhänge zwischen verschiedenen Körperregionen.',
   },
   {
     titel: 'Einordnung.',
-    text: 'Ich erkläre Ihnen verständlich, was mir auffällt, wie ich Ihre Beschwerden einordne – und ob und wie Osteopathie Sie aus meiner Sicht unterstützen kann. Falls eine ärztliche Abklärung sinnvoll ist, bespreche ich das offen mit Ihnen.',
+    text: 'Ich erkläre dir verständlich, was mir auffällt, wie ich deine Beschwerden einordne – und ob und wie Osteopathie dich aus meiner Sicht unterstützen kann. Falls eine ärztliche Abklärung sinnvoll ist, bespreche ich das offen mit dir.',
   },
   {
     titel: 'Behandlung.',
-    text: 'Die osteopathische Behandlung erfolgt mit den Händen – mit gezielten, in der Regel sanften Techniken, abgestimmt auf Ihr Beschwerdebild.',
+    text: 'Die osteopathische Behandlung erfolgt mit den Händen – mit gezielten, in der Regel sanften Techniken, abgestimmt auf dein Beschwerdebild.',
   },
   {
     titel: 'Ausblick.',
-    text: 'Zum Abschluss besprechen wir, wie es weitergeht: ob und wann Folgetermine sinnvoll sind und was Sie selbst tun können.',
+    text: 'Zum Abschluss besprechen wir, wie es weitergeht: ob und wann Folgetermine sinnvoll sind und was du selbst tun kannst.',
   },
 ];
 ---
@@ -89,7 +89,7 @@ const ablauf = [
         </p>
         <p>
           Schmerzen haben selten nur eine Ursache. Als Osteopath und Physiotherapeut schaue ich
-          genau hin: Wo kommen Ihre Beschwerden her, was hängt womit zusammen – und was können wir
+          genau hin: Wo kommen deine Beschwerden her, was hängt womit zusammen – und was können wir
           gemeinsam dagegen tun? Ohne leere Versprechen, dafür mit Erfahrung, Sorgfalt und einem
           Behandlungsansatz, der sich an aktuellem Wissen orientiert.
         </p>
@@ -140,7 +140,7 @@ const ablauf = [
         <p>
           <strong>Wichtig:</strong> Osteopathie ersetzt keine ärztliche Diagnostik. Bei unklaren,
           akuten oder ernsthaften Beschwerden ist eine ärztliche Abklärung der richtige erste
-          Schritt – und wenn nötig, sage ich Ihnen das auch genau so.
+          Schritt – und wenn nötig, sage ich dir das auch genau so.
         </p>
       </div>
 
@@ -180,8 +180,8 @@ const ablauf = [
       </ul>
       <p>
         Ich behandle Privatpatient:innen und Selbstzahlende. Einige gesetzliche Krankenkassen
-        bezuschussen osteopathische Behandlungen anteilig – Näheres dazu erfahren Sie direkt bei
-        Ihrer Krankenkasse.
+        bezuschussen osteopathische Behandlungen anteilig – Näheres dazu erfährst du direkt bei
+        deiner Krankenkasse.
       </p>
     </div>
   </section>
@@ -189,7 +189,7 @@ const ablauf = [
   <!-- Ablauf der ersten Behandlung -->
   <section class="section">
     <div class="wrap content-center">
-      <span class="eyebrow">Ihr erster Termin</span>
+      <span class="eyebrow">Dein erster Termin</span>
       <h2>Ablauf der ersten Behandlung</h2>
       <ol class="steps mt-2">
         {ablauf.map((s) => (
@@ -199,7 +199,7 @@ const ablauf = [
           </li>
         ))}
       </ol>
-      <p class="mt-2">Planen Sie für den ersten Termin etwa <Ph value={praxis.dauer} /> ein.</p>
+      <p class="mt-2">Plane für den ersten Termin etwa <Ph value={praxis.dauer} /> ein.</p>
       <CtaBlock />
     </div>
   </section>
@@ -234,7 +234,7 @@ const ablauf = [
         Eine osteopathische Behandlung kostet <strong>{praxis.preis}</strong> (Dauer:
         <Ph value={praxis.dauer} />). Ich behandle Privatpatient:innen und Selbstzahlende. Einige
         gesetzliche Krankenkassen bezuschussen osteopathische Behandlungen anteilig – bitte
-        informieren Sie sich vorab direkt bei Ihrer Krankenkasse über Voraussetzungen und
+        informiere dich vorab direkt bei deiner Krankenkasse über Voraussetzungen und
         Erstattungshöhe.
       </p>
       <a href="/terminbuchung/" class="btn btn--secondary">Alle Infos zu Preisen und Ablauf</a>
@@ -251,7 +251,7 @@ const ablauf = [
           <summary>Brauche ich eine ärztliche Überweisung?</summary>
           <div class="faq-body">
             <p>
-              Nein. Als Heilpraktiker darf ich Sie auch ohne Verordnung behandeln. Bei unklaren
+              Nein. Als Heilpraktiker darf ich dich auch ohne Verordnung behandeln. Bei unklaren
               Beschwerden empfehle ich dennoch eine ärztliche Abklärung vorab.
             </p>
           </div>
@@ -260,7 +260,7 @@ const ablauf = [
           <summary>Wie viele Behandlungen brauche ich?</summary>
           <div class="faq-body">
             <p>
-              Das hängt vom Beschwerdebild ab. Nach dem ersten Termin gebe ich Ihnen eine ehrliche
+              Das hängt vom Beschwerdebild ab. Nach dem ersten Termin gebe ich dir eine ehrliche
               Einschätzung.
             </p>
           </div>
@@ -270,7 +270,7 @@ const ablauf = [
           <div class="faq-body">
             <p>
               Osteopathische Techniken sind in der Regel sanft. Ich arbeite immer in Abstimmung mit
-              Ihnen.
+              dir.
             </p>
           </div>
         </details>
@@ -282,13 +282,13 @@ const ablauf = [
   <!-- Abschluss-CTA (dunkler Block) -->
   <section class="section section--dark">
     <div class="wrap content-center center">
-      <h2>Bereit für Ihren ersten Termin?</h2>
+      <h2>Bereit für deinen ersten Termin?</h2>
       <p class="mt-2">
-        Buchen Sie Ihren Termin bequem online über Doctolib – rund um die Uhr, ohne Warteschleife.
+        Buch dir deinen Termin bequem online über Doctolib – rund um die Uhr, ohne Warteschleife.
       </p>
       <a href="/terminbuchung/" class="btn btn--primary">Termin über Doctolib buchen</a>
       <p class="small mt-2">
-        Sie haben vorab Fragen? Rufen Sie mich an oder schreiben Sie mir:<br />
+        Du hast vorab Fragen? Ruf mich an oder schreib mir:<br />
         {praxis.name} · <Ph value={praxis.strasse} /> · <Ph value={praxis.plzOrt} /><br />
         Telefon: <Ph value={praxis.telefon} /> · E-Mail: <Ph value={praxis.email} />
       </p>

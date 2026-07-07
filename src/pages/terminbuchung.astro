@@ -10,7 +10,7 @@ const checkliste = [
   },
   {
     titel: 'Eine aktuelle Medikamentenliste',
-    text: 'falls Sie regelmäßig Medikamente einnehmen',
+    text: 'falls du regelmäßig Medikamente einnimmst',
   },
   {
     titel: 'Ein großes Handtuch',
@@ -18,22 +18,22 @@ const checkliste = [
   },
   {
     titel: 'Bequeme Kleidung',
-    text: 'in der Sie sich gut bewegen können; für die Untersuchung ist es hilfreich, wenn Sie sich bis auf die Unterwäsche frei machen können – das besprechen wir aber immer gemeinsam und in Ihrem Tempo',
+    text: 'in der du dich gut bewegen kannst; für die Untersuchung ist es hilfreich, wenn du dich bis auf die Unterwäsche frei machen kannst – das besprechen wir aber immer gemeinsam und in deinem Tempo',
   },
 ];
 ---
 
 <Base
   title={`Termin buchen | Osteopathie ${praxis.standort} – online via Doctolib`}
-  description={`Osteopathie-Termin in ${praxis.standort} online buchen – rund um die Uhr über Doctolib. Plus: Was Sie zum ersten Termin mitbringen sollten & alle Infos zu Kosten.`}
+  description={`Osteopathie-Termin in ${praxis.standort} online buchen – rund um die Uhr über Doctolib. Plus: Was du zum ersten Termin mitbringen solltest & alle Infos zu Kosten.`}
 >
   <section class="section">
     <div class="wrap content-center">
       <span class="eyebrow">Terminbuchung</span>
       <h1>Termin online buchen – einfach über Doctolib</h1>
       <p class="mt-2">
-        Meine Termine vergebe ich über Doctolib. Dort sehen Sie alle verfügbaren Zeiten in
-        Echtzeit, buchen in wenigen Klicks und erhalten automatisch eine Bestätigung und
+        Meine Termine vergebe ich über Doctolib. Dort siehst du alle verfügbaren Zeiten in
+        Echtzeit, buchst in wenigen Klicks und erhältst automatisch eine Bestätigung und
         Erinnerung – rund um die Uhr, ohne Anruf und ohne Warteschleife.
       </p>
 
@@ -53,16 +53,16 @@ const checkliste = [
       )}
 
       <p class="mt-2 small">
-        Sie können nicht online buchen oder haben Fragen vorab? Rufen Sie mich an unter
-        <Ph value={praxis.telefon} /> oder schreiben Sie an <Ph value={praxis.email} />.
+        Du kannst nicht online buchen oder hast Fragen vorab? Ruf mich an unter
+        <Ph value={praxis.telefon} /> oder schreib an <Ph value={praxis.email} />.
       </p>
     </div>
   </section>
 
   <section class="section section--beige">
     <div class="wrap content-center">
-      <h2>Was Sie zum ersten Termin mitbringen sollten</h2>
-      <p class="mt-2">Damit wir die Zeit optimal nutzen können, bringen Sie bitte Folgendes mit:</p>
+      <h2>Was du zum ersten Termin mitbringen solltest</h2>
+      <p class="mt-2">Damit wir die Zeit optimal nutzen können, bring bitte Folgendes mit:</p>
       <div class="grid grid--2">
         {checkliste.map((c) => (
           <div class="card">
@@ -72,7 +72,7 @@ const checkliste = [
         ))}
       </div>
       <p class="mt-2">
-        Sie müssen nichts weiter vorbereiten. Kommen Sie am besten ein paar Minuten früher, damit
+        Du musst nichts weiter vorbereiten. Komm am besten ein paar Minuten früher, damit
         wir entspannt starten können.
       </p>
     </div>
@@ -82,7 +82,7 @@ const checkliste = [
     <div class="wrap content-center">
       <h2>Termin absagen oder verschieben</h2>
       <p class="mt-2">
-        Manchmal kommt etwas dazwischen – das ist kein Problem. Bitte sagen Sie Ihren Termin
+        Manchmal kommt etwas dazwischen – das ist kein Problem. Bitte sag deinen Termin
         <strong>spätestens 24 Stunden vorher</strong> ab, entweder direkt über Doctolib oder
         telefonisch. So kann ich den Termin an andere Patient:innen vergeben. Bei kurzfristigeren
         Absagen ohne wichtigen Grund behalte ich mir vor, ein Ausfallhonorar zu berechnen.
@@ -112,8 +112,8 @@ const checkliste = [
         </tbody>
       </table>
       <p>
-        Die Abrechnung erfolgt nach der Gebührenordnung für Heilpraktiker (GebüH). Sie erhalten
-        nach jeder Behandlung eine Rechnung, die Sie – je nach Versicherung – einreichen können.
+        Die Abrechnung erfolgt nach der Gebührenordnung für Heilpraktiker (GebüH). Du erhältst
+        nach jeder Behandlung eine Rechnung, die du – je nach Versicherung – einreichen kannst.
       </p>
 
       <h3>Wer kann sich behandeln lassen?</h3>
@@ -125,9 +125,9 @@ const checkliste = [
       <h3>Gesetzlich versichert?</h3>
       <p>
         Einige gesetzliche Krankenkassen bezuschussen osteopathische Behandlungen anteilig. Ob und
-        in welcher Höhe Ihre Krankenkasse sich beteiligt, ist unterschiedlich geregelt.
+        in welcher Höhe deine Krankenkasse sich beteiligt, ist unterschiedlich geregelt.
         <strong>
-          Bitte informieren Sie sich vorab direkt bei Ihrer Krankenkasse über Voraussetzungen und
+          Bitte informiere dich vorab direkt bei deiner Krankenkasse über Voraussetzungen und
           Erstattungshöhe
         </strong>
         – häufig wird z. B. eine ärztliche Empfehlung vorausgesetzt.
