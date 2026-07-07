@@ -1,0 +1,160 @@
+---
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import { praxis, doctolibAktiv } from '../config';
+
+const checkliste = [
+  {
+    titel: 'Vorhandene Befunde und Arztberichte',
+    text: 'z. B. Röntgen-, MRT- oder CT-Befunde, OP-Berichte, Laborwerte, sofern vorhanden',
+  },
+  {
+    titel: 'Eine aktuelle Medikamentenliste',
+    text: 'falls Sie regelmäßig Medikamente einnehmen',
+  },
+  {
+    titel: 'Ein großes Handtuch',
+    text: 'für die Behandlungsliege',
+  },
+  {
+    titel: 'Bequeme Kleidung',
+    text: 'in der Sie sich gut bewegen können; für die Untersuchung ist es hilfreich, wenn Sie sich bis auf die Unterwäsche frei machen können – das besprechen wir aber immer gemeinsam und in Ihrem Tempo',
+  },
+];
+---
+
+<Base
+  title={`Termin buchen | Osteopathie ${praxis.standort} – online via Doctolib`}
+  description={`Osteopathie-Termin in ${praxis.standort} online buchen – rund um die Uhr über Doctolib. Plus: Was Sie zum ersten Termin mitbringen sollten & alle Infos zu Kosten.`}
+>
+  <section class="section">
+    <div class="wrap content-center">
+      <span class="eyebrow">Terminbuchung</span>
+      <h1>Termin online buchen – einfach über Doctolib</h1>
+      <p class="mt-2">
+        Meine Termine vergebe ich über Doctolib. Dort sehen Sie alle verfügbaren Zeiten in
+        Echtzeit, buchen in wenigen Klicks und erhalten automatisch eine Bestätigung und
+        Erinnerung – rund um die Uhr, ohne Anruf und ohne Warteschleife.
+      </p>
+
+      {doctolibAktiv ? (
+        <a href={praxis.doctolib} class="btn btn--primary" target="_blank" rel="noopener">
+          Jetzt Termin über Doctolib buchen
+        </a>
+      ) : (
+        <div class="notice">
+          <p>
+            <strong><span class="ph">[Doctolib-Link einfügen]</span></strong> – sobald der Link in
+            <code>src/config.ts</code> eingetragen und <code>doctolibAktiv</code> auf
+            <code>true</code> gesetzt ist, erscheint hier der Buchungs-Button. Optional kann das
+            Doctolib-Widget direkt eingebettet werden (kein Medienbruch).
+          </p>
+        </div>
+      )}
+
+      <p class="mt-2 small">
+        Sie können nicht online buchen oder haben Fragen vorab? Rufen Sie mich an unter
+        <Ph value={praxis.telefon} /> oder schreiben Sie an <Ph value={praxis.email} />.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--beige">
+    <div class="wrap content-center">
+      <h2>Was Sie zum ersten Termin mitbringen sollten</h2>
+      <p class="mt-2">Damit wir die Zeit optimal nutzen können, bringen Sie bitte Folgendes mit:</p>
+      <div class="grid grid--2">
+        {checkliste.map((c) => (
+          <div class="card">
+            <h3>{c.titel}</h3>
+            <p>{c.text}</p>
+          </div>
+        ))}
+      </div>
+      <p class="mt-2">
+        Sie müssen nichts weiter vorbereiten. Kommen Sie am besten ein paar Minuten früher, damit
+        wir entspannt starten können.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap content-center">
+      <h2>Termin absagen oder verschieben</h2>
+      <p class="mt-2">
+        Manchmal kommt etwas dazwischen – das ist kein Problem. Bitte sagen Sie Ihren Termin
+        <strong>spätestens 24 Stunden vorher</strong> ab, entweder direkt über Doctolib oder
+        telefonisch. So kann ich den Termin an andere Patient:innen vergeben. Bei kurzfristigeren
+        Absagen ohne wichtigen Grund behalte ich mir vor, ein Ausfallhonorar zu berechnen.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--beige">
+    <div class="wrap content-center">
+      <h2>Kosten &amp; Erstattung</h2>
+
+      <h3 class="mt-2">Preise</h3>
+      <table class="preis-tabelle">
+        <thead>
+          <tr>
+            <th>Leistung</th>
+            <th>Dauer</th>
+            <th>Preis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Osteopathische Behandlung</td>
+            <td><Ph value={praxis.dauer} /></td>
+            <td>{praxis.preis}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Die Abrechnung erfolgt nach der Gebührenordnung für Heilpraktiker (GebüH). Sie erhalten
+        nach jeder Behandlung eine Rechnung, die Sie – je nach Versicherung – einreichen können.
+      </p>
+
+      <h3>Wer kann sich behandeln lassen?</h3>
+      <p>
+        Ich behandle <strong>Privatpatient:innen und Selbstzahlende</strong>. Privatversicherte
+        und Zusatzversicherte klären die Erstattung am besten vorab mit ihrer Versicherung.
+      </p>
+
+      <h3>Gesetzlich versichert?</h3>
+      <p>
+        Einige gesetzliche Krankenkassen bezuschussen osteopathische Behandlungen anteilig. Ob und
+        in welcher Höhe Ihre Krankenkasse sich beteiligt, ist unterschiedlich geregelt.
+        <strong>
+          Bitte informieren Sie sich vorab direkt bei Ihrer Krankenkasse über Voraussetzungen und
+          Erstattungshöhe
+        </strong>
+        – häufig wird z. B. eine ärztliche Empfehlung vorausgesetzt.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .preis-tabelle {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block: 1rem 1.5rem;
+    background: var(--bg);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .preis-tabelle th,
+  .preis-tabelle td {
+    text-align: left;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid rgba(28, 27, 26, 0.1);
+  }
+
+  .preis-tabelle th {
+    font-family: var(--font-head);
+    font-size: 1.05rem;
+  }
+</style>

@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import { praxis } from '../config';
+---
+
+<Base title="Impressum | Praxis für Osteopathie Till Schneider" description="Impressum der Praxis für Osteopathie Till Schneider.">
+  <section class="section">
+    <div class="wrap content-center">
+      <h1>Impressum</h1>
+
+      <div class="notice mt-2">
+        <p>
+          <strong>Platzhalter-Seite.</strong> Das Impressum muss vor Veröffentlichung vollständig
+          und rechtssicher erstellt werden (Angaben nach § 5 DDG, Berufsbezeichnung,
+          Aufsichtsbehörde für Heilpraktiker, ggf. Kammer-/Berufsordnungsangaben). Empfehlung:
+          anwaltlich prüfen lassen oder einen geprüften Impressum-Generator verwenden.
+        </p>
+      </div>
+
+      <h2 class="mt-2">Angaben gemäß § 5 DDG</h2>
+      <p>
+        {praxis.name}<br />
+        {praxis.inhaber}<br />
+        <Ph value={praxis.strasse} /><br />
+        <Ph value={praxis.plzOrt} />
+      </p>
+      <p>
+        Telefon: <Ph value={praxis.telefon} /><br />
+        E-Mail: <Ph value={praxis.email} />
+      </p>
+
+      <h2>Berufsbezeichnung</h2>
+      <p>
+        Staatlich geprüfter Physiotherapeut, Heilpraktiker (verliehen in der Bundesrepublik
+        Deutschland). <span class="ph">[Zuständige Aufsichtsbehörde einfügen]</span>
+      </p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,162 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import { praxis } from '../config';
+
+const werdegang = [
+  { jahr: '2019', text: 'Staatsexamen zum Physiotherapeuten' },
+  { jahr: '2019–2024', text: 'Physiotherapeut im Nachwuchsleistungszentrum (NLZ) des FC St. Pauli' },
+  { jahr: '2021', text: 'Beginn der Osteopathie-Ausbildung und des Studiums Bachelor of Science Osteopathie' },
+  { jahr: '2025', text: 'Erhalt der Heilpraktikererlaubnis' },
+  { jahr: '2026', text: 'Abschluss der Osteopathie-Ausbildung mit BAO-Prüfung' },
+];
+
+const qualifikationen = [
+  'Staatlich geprüfter Physiotherapeut',
+  'Staatlich geprüfter Heilpraktiker',
+  'Ausgebildeter Osteopath (über 1350 Unterrichtseinheiten, BAO-geprüft)',
+  'Bachelor of Science Osteopathie (in Ausbildung)',
+];
+
+const fortbildungen = [
+  'Sportphysiotherapie (DOSB-anerkannt)',
+  'Manuelle Therapie OW I',
+  'Präventionskurs „360° Rückentraining mit dem Tube"',
+];
+---
+
+<Base
+  title={`Über mich | Till Schneider – Osteopath in ${praxis.standort}`}
+  description="Osteopath, staatlich geprüfter Physiotherapeut & Heilpraktiker. 5 Jahre Physiotherapeut im NLZ des FC St. Pauli. Lernen Sie meinen Behandlungsansatz kennen."
+>
+  <section class="section">
+    <div class="wrap intro-grid">
+      <div>
+        <span class="eyebrow">Über mich</span>
+        <h1>Moin, ich bin Till Schneider.</h1>
+        <p class="lead mt-2">
+          Osteopath, staatlich geprüfter Physiotherapeut und Heilpraktiker – und überzeugt davon,
+          dass gute Behandlung damit anfängt, richtig zuzuhören.
+        </p>
+        <p>
+          Bevor ich mich der Osteopathie zugewandt habe, habe ich fünf Jahre als Physiotherapeut im
+          Nachwuchsleistungszentrum des FC St. Pauli gearbeitet. Wer junge Leistungssportler
+          betreut, lernt zwei Dinge sehr schnell: Erstens, dass der Körper kein Baukasten aus
+          Einzelteilen ist. Und zweitens, dass Behandlung nur dann nachhaltig wirkt, wenn man die
+          Ursachen versteht – nicht nur die Symptome.
+        </p>
+        <p>Genau diese Haltung bringe ich heute in meine osteopathische Arbeit ein.</p>
+      </div>
+      <div class="img-placeholder" role="img" aria-label="Foto-Platzhalter">[Portraitfoto Till Schneider]</div>
+    </div>
+  </section>
+
+  <section class="section section--beige">
+    <div class="wrap content-center">
+      <h2>Warum Osteopathie?</h2>
+      <p class="mt-2">
+        Osteopathie fängt für mich da an, wo Physiotherapie aufhört – und beide ergänzen sich
+        hervorragend. Während die Physiotherapie gezielt an Bewegung, Kraft und Funktion arbeitet,
+        erweitert die Osteopathie den Blick auf Zusammenhänge im Körper: Wie beeinflussen sich
+        verschiedene Regionen gegenseitig? Warum kehren Beschwerden immer wieder zurück, obwohl
+        die betroffene Stelle längst behandelt wurde?
+      </p>
+      <p>
+        Durch meine Erfahrung in beiden Bereichen verbinde ich funktionelles Arbeiten mit einem
+        ganzheitlichen, evidenzbewussten Behandlungsansatz. Das heißt konkret: Ich nutze das Beste
+        aus beiden Welten – und bleibe dabei auf dem Boden dessen, was fachlich gut begründbar ist.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap content-center">
+      <h2>Mein Werdegang</h2>
+      <ul class="timeline mt-2">
+        {werdegang.map((w) => (
+          <li>
+            <span class="jahr">{w.jahr}</span>
+            {w.text}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--beige">
+    <div class="wrap content-center">
+      <div class="grid grid--2">
+        <div>
+          <h2>Qualifikationen</h2>
+          <ul class="mt-2 check-list">
+            {qualifikationen.map((q) => <li>{q}</li>)}
+          </ul>
+        </div>
+        <div>
+          <h2>Fortbildungen</h2>
+          <ul class="mt-2 check-list">
+            {fortbildungen.map((f) => <li>{f}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap content-center">
+      <h2>Meine Behandlungsphilosophie</h2>
+      <p class="mt-2">
+        Meine Behandlungsphilosophie basiert auf einem evidenzbewussten und individuellen Ansatz.
+        Mir ist wichtig, Beschwerden nicht isoliert zu betrachten, sondern mögliche Zusammenhänge
+        im Körper zu erkennen, einzuordnen – und verständlich zu erklären.
+      </p>
+      <p>
+        Ich möchte, dass Sie nicht nur behandelt werden, sondern verstehen, was in Ihrem Körper
+        passiert. Und dass Sie wissen, was ich tun kann – und was Sie selbst tun können, um eine
+        Verbesserung Ihrer Beschwerden zu erreichen. Denn die besten Ergebnisse entstehen dann,
+        wenn wir gemeinsam an einem Strang ziehen.
+      </p>
+      <p>
+        Was Sie bei mir nicht bekommen: Wunderversprechen, Pauschalerklärungen oder Behandlungen
+        nach Schema F. Was Sie bekommen: Zeit, Sorgfalt, eine ehrliche Einschätzung – und einen
+        Behandlungsplan, der zu Ihnen passt.
+      </p>
+      <CtaBlock text="Klingt nach dem richtigen Ansatz für Sie?" button="Termin über Doctolib buchen" />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .intro-grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 900px) {
+    .intro-grid { grid-template-columns: 1.2fr 1fr; }
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .check-list {
+    list-style: none;
+  }
+
+  .check-list li {
+    position: relative;
+    padding-left: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+    font-weight: 700;
+  }
+</style>

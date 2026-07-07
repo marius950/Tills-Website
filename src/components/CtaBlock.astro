@@ -1,0 +1,26 @@
+---
+// Dezenter CTA-Baustein nach inhaltlichen Abschnitten
+interface Props {
+  text?: string;
+  button?: string;
+}
+const { text, button = 'Termin buchen' } = Astro.props;
+---
+
+<div class="cta-block">
+  {text && <p>{text}</p>}
+  <a href="/terminbuchung/" class="btn btn--primary">{button}</a>
+</div>
+
+<style>
+  .cta-block {
+    margin-block: 2.5rem 0;
+    text-align: center;
+  }
+
+  .cta-block p {
+    font-family: var(--font-head);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+</style>

@@ -1,0 +1,83 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+
+export async function getStaticPaths() {
+  const artikel = await getCollection('blog');
+  return artikel.map((a) => ({ params: { slug: a.id }, props: { artikel: a } }));
+}
+
+const { artikel } = Astro.props;
+const { Content } = await render(artikel);
+const datumFormat = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
+---
+
+<Base title={`${artikel.data.title} | Blog – Till Schneider`} description={artikel.data.description}>
+  <article class="section">
+    <div class="wrap content-center">
+      <p class="artikel-meta">
+        {artikel.data.kategorie} · {datumFormat.format(artikel.data.pubDate)} · Lesedauer:
+        {artikel.data.lesedauer}
+        {artikel.data.entwurf && <span class="ph">Entwurf</span>}
+      </p>
+      <h1>{artikel.data.title}</h1>
+
+      <div class="artikel-inhalt mt-2">
+        <Content />
+      </div>
+
+      <!-- Autorenbox -->
+      <div class="card autorenbox mt-2">
+        <p>
+          <strong>Über den Autor:</strong> Till Schneider ist Osteopath, staatlich geprüfter
+          Physiotherapeut und Heilpraktiker. Fünf Jahre arbeitete er als Physiotherapeut im
+          Nachwuchsleistungszentrum des FC St. Pauli.
+          <a href="/ueber-mich/">Mehr über mich →</a>
+        </p>
+      </div>
+
+      <!-- Pflicht-Disclaimer laut rechtlichem Leitfaden -->
+      <p class="small disclaimer">
+        Dieser Artikel dient der allgemeinen Information und ersetzt keine ärztliche Beratung,
+        Diagnose oder Behandlung. Bei akuten oder unklaren Beschwerden wenden Sie sich bitte an
+        Ihre Ärztin oder Ihren Arzt.
+      </p>
+
+      <CtaBlock text="Beschwerden, die Sie kennen?" button="Termin vereinbaren" />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .artikel-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .artikel-inhalt :global(h2) {
+    margin-block: 2rem 0.75rem;
+    font-size: 1.5rem;
+  }
+
+  .artikel-inhalt :global(blockquote) {
+    border-left: 3px solid var(--secondary);
+    background: var(--bg-accent);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin-block: 1.5rem;
+  }
+
+  .artikel-inhalt :global(blockquote p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .autorenbox p { margin: 0; }
+
+  .disclaimer {
+    border-top: 1px solid rgba(28, 27, 26, 0.12);
+    padding-top: 1rem;
+    margin-top: 2rem;
+  }
+</style>

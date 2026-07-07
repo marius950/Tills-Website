@@ -1,0 +1,138 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import Ph from '../components/Ph.astro';
+import { praxis } from '../config';
+
+const gruppen = [
+  {
+    titel: 'Erster Termin',
+    fragen: [
+      {
+        f: 'Was passiert beim ersten Termin?',
+        a: `Der erste Termin beginnt mit einem ausführlichen Gespräch über Ihre Beschwerden, Ihre Krankengeschichte und Ihren Alltag. Danach untersuche ich Sie gründlich – mit Blick auf Beweglichkeit, Spannungsverhältnisse und mögliche Zusammenhänge. Anschließend erkläre ich Ihnen meine Einschätzung in verständlicher Sprache, und wir besprechen gemeinsam das weitere Vorgehen. In der Regel beginnt die Behandlung bereits im ersten Termin. Planen Sie insgesamt etwa ${praxis.dauer} ein.`,
+      },
+      {
+        f: 'Brauche ich eine ärztliche Verordnung?',
+        a: 'Nein. Als staatlich geprüfter Heilpraktiker darf ich Sie auch ohne ärztliche Verordnung untersuchen und behandeln. Bei unklaren, akuten oder ernsthaften Beschwerden empfehle ich dennoch, diese zunächst ärztlich abklären zu lassen. Hinweis: Wenn Ihre gesetzliche Krankenkasse osteopathische Behandlungen bezuschusst, verlangt sie dafür häufig eine ärztliche Empfehlung – fragen Sie im Zweifel vorab bei Ihrer Kasse nach.',
+      },
+      {
+        f: 'Was sollte ich zum Termin mitbringen?',
+        a: 'Vorhandene Befunde und Arztberichte (z. B. Röntgen- oder MRT-Befunde), eine aktuelle Medikamentenliste, ein großes Handtuch und bequeme Kleidung. Alle Details finden Sie auf der Seite Terminbuchung.',
+      },
+    ],
+  },
+  {
+    titel: 'Kosten & Organisation',
+    fragen: [
+      {
+        f: 'Was kostet eine Behandlung?',
+        a: `Eine osteopathische Behandlung kostet ${praxis.preis} (Dauer: ${praxis.dauer}). Sie erhalten nach jeder Behandlung eine Rechnung nach der Gebührenordnung für Heilpraktiker (GebüH), die Sie – je nach Versicherung – zur Erstattung einreichen können.`,
+      },
+      {
+        f: 'Übernimmt meine Krankenkasse die Kosten?',
+        a: 'Das hängt von Ihrer Versicherung ab. Private Krankenversicherungen und viele Zusatzversicherungen erstatten osteopathische Behandlungen ganz oder teilweise – ein Blick in Ihren Tarif oder eine kurze Nachfrage lohnt sich. Einige gesetzliche Krankenkassen bezuschussen Osteopathie anteilig; Voraussetzungen und Erstattungshöhe sind unterschiedlich. Bitte informieren Sie sich vorab direkt bei Ihrer Krankenkasse.',
+      },
+      {
+        f: 'Behandeln Sie auch gesetzlich Versicherte?',
+        a: 'Ja – als Selbstzahlende. Die Behandlung läuft dann auf eigene Rechnung. Einige gesetzliche Krankenkassen beteiligen sich anteilig an den Kosten; bitte klären Sie Voraussetzungen und Erstattungshöhe vorab direkt mit Ihrer Kasse.',
+      },
+    ],
+  },
+  {
+    titel: 'Behandlung',
+    fragen: [
+      {
+        f: 'Wie viele Behandlungen sind notwendig?',
+        a: 'Das lässt sich seriös nicht pauschal beantworten – es hängt von Ihrem Beschwerdebild, dessen Dauer und Ihrer individuellen Situation ab. Häufig zeigt sich schon nach wenigen Terminen, ob und wie gut die Behandlung anschlägt. Nach dem ersten Termin gebe ich Ihnen eine ehrliche Einschätzung. Mein Anspruch ist, so viele Termine wie nötig und so wenige wie möglich.',
+      },
+      {
+        f: 'Ist Osteopathie schmerzhaft?',
+        a: 'Osteopathische Techniken sind in der Regel sanft. Manche Handgriffe können an verspannten oder empfindlichen Stellen kurzzeitig unangenehm sein – ich arbeite aber immer in Abstimmung mit Ihnen und passe die Behandlung an. Nach einer Behandlung kann der Körper vorübergehend reagieren, etwa mit einem Gefühl wie Muskelkater. Das klingt üblicherweise nach kurzer Zeit wieder ab.',
+      },
+      {
+        f: 'Für welche Beschwerden kann Osteopathie geeignet sein?',
+        a: 'Je nach Beschwerdebild kann Osteopathie unterstützend eingesetzt werden – zum Beispiel bei Rücken-, Nacken- und Schulterschmerzen, Verspannungen, Bewegungseinschränkungen, spannungsbedingten Kopfschmerzen, Kieferbeschwerden, stressbedingten körperlichen Beschwerden und funktionellen Beschwerden ohne eindeutigen strukturellen Befund. Ob Osteopathie in Ihrem Fall sinnvoll sein kann, lässt sich am besten im ersten Termin einschätzen.',
+      },
+      {
+        f: 'Wann sollte ich meine Beschwerden vorher ärztlich abklären lassen?',
+        a: 'Immer dann, wenn Beschwerden akut, stark, unklar oder ungewöhnlich sind – insbesondere nach Unfällen, bei rasch zunehmenden Schmerzen oder bei Begleitsymptomen wie Fieber, ungewolltem Gewichtsverlust, Taubheitsgefühlen oder Lähmungserscheinungen. Osteopathie ersetzt keine ärztliche Diagnostik. Im Zweifel gilt: erst ärztlich abklären, dann behandeln. Wenn sich im Termin Hinweise auf einen Abklärungsbedarf ergeben, sage ich Ihnen das offen.',
+      },
+    ],
+  },
+  {
+    titel: 'Buchung',
+    fragen: [
+      {
+        f: 'Wie läuft die Terminbuchung über Doctolib?',
+        a: 'Klicken Sie auf „Termin buchen", wählen Sie eine freie Zeit aus und bestätigen Sie die Buchung – bei der ersten Buchung legen Sie ein kostenloses Doctolib-Konto an. Sie erhalten automatisch eine Bestätigung per E-Mail und eine Erinnerung vor dem Termin. Buchen ist rund um die Uhr möglich.',
+      },
+      {
+        f: 'Wie kann ich einen Termin absagen oder verschieben?',
+        a: 'Am einfachsten direkt über Doctolib (in Ihrer Terminbestätigung oder Ihrem Konto) – oder telefonisch. Bitte spätestens 24 Stunden vorher, damit ich den Termin anderweitig vergeben kann. Bei kurzfristigeren Absagen ohne wichtigen Grund kann ein Ausfallhonorar anfallen.',
+      },
+    ],
+  },
+];
+
+// FAQ-Schema für Google-Rich-Snippets (FAQPage, schema.org)
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: gruppen.flatMap((g) =>
+    g.fragen.map((frage) => ({
+      '@type': 'Question',
+      name: frage.f,
+      acceptedAnswer: { '@type': 'Answer', text: frage.a },
+    }))
+  ),
+};
+---
+
+<Base
+  title="FAQ Osteopathie: Kosten, Ablauf & Krankenkasse | Praxis Till Schneider"
+  description="Antworten auf häufige Fragen: Was kostet Osteopathie? Zahlt die Krankenkasse? Was passiert beim ersten Termin? Ehrlich und verständlich beantwortet."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="section">
+    <div class="wrap content-center">
+      <span class="eyebrow">FAQ</span>
+      <h1>Häufige Fragen</h1>
+
+      {gruppen.map((g) => (
+        <div class="faq-gruppe">
+          <h2>{g.titel}</h2>
+          {g.fragen.map((frage) => (
+            <details class="faq-item">
+              <summary>{frage.f}</summary>
+              <div class="faq-body">
+                <p>{frage.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      ))}
+
+      <div class="notice mt-2">
+        <p>
+          <strong>Ihre Frage war nicht dabei?</strong> Schreiben Sie mir an
+          <Ph value={praxis.email} /> – ich antworte so schnell wie möglich.
+        </p>
+      </div>
+
+      <CtaBlock button="Termin über Doctolib buchen" />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .faq-gruppe {
+    margin-top: 2.5rem;
+  }
+
+  .faq-gruppe h2 {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+  }
+</style>

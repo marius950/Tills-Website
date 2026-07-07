@@ -1,0 +1,11 @@
+---
+// Rendert Praxisdaten aus src/config.ts.
+// Noch nicht ersetzte Platzhalter ([…]) werden gelb markiert –
+// sobald echte Werte in config.ts stehen, verschwindet die Markierung automatisch.
+interface Props {
+  value: string;
+}
+const { value } = Astro.props;
+const isPlaceholder = value.startsWith('[');
+---
+{isPlaceholder ? <span class="ph">{value}</span> : value}

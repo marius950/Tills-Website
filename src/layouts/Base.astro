@@ -1,0 +1,56 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/fraunces';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { praxis } from '../config';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+// LocalBusiness-Schema (Abschnitt 5.3 des Konzepts) – Platzhalter vor Livegang ersetzen
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalBusiness',
+  name: praxis.name,
+  founder: praxis.inhaber,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: praxis.strasse,
+    addressLocality: praxis.plzOrt,
+    addressCountry: 'DE',
+  },
+  telephone: praxis.telefon,
+  email: praxis.email,
+  url: Astro.site?.toString(),
+  priceRange: praxis.preis,
+};
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

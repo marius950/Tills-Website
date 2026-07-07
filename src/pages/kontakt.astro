@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import { praxis } from '../config';
+---
+
+<Base
+  title={`Kontakt & Anfahrt | Osteopathie-Praxis Till Schneider, ${praxis.standort}`}
+  description={`So erreichen Sie die Praxis für Osteopathie in ${praxis.standort}: Adresse, Anfahrt, Behandlungszeiten & Kontakt. Termine bequem online über Doctolib buchen.`}
+>
+  <section class="section">
+    <div class="wrap content-center">
+      <span class="eyebrow">Kontakt</span>
+      <h1>So erreichen Sie mich</h1>
+
+      <div class="grid grid--2 mt-2">
+        <div class="card">
+          <h3>{praxis.name}</h3>
+          <p>
+            <Ph value={praxis.strasse} /><br />
+            <Ph value={praxis.plzOrt} />, <Ph value={praxis.standort} />
+          </p>
+          <p>
+            <strong>Telefon:</strong> <Ph value={praxis.telefon} /><br />
+            <strong>E-Mail:</strong> <Ph value={praxis.email} />
+          </p>
+        </div>
+        <div class="card">
+          <h3>Behandlungszeiten</h3>
+          <p><Ph value={praxis.behandlungszeiten} /></p>
+          <p>Termine nach Vereinbarung.</p>
+        </div>
+      </div>
+
+      <p class="mt-2">
+        Während der Behandlungen kann ich nicht ans Telefon gehen – sprechen Sie mir gerne auf die
+        Mailbox oder schreiben Sie eine E-Mail. Ich melde mich so schnell wie möglich zurück.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--beige">
+    <div class="wrap content-center">
+      <h2>Termine</h2>
+      <p class="mt-2">
+        Termine buchen Sie am einfachsten direkt online über Doctolib – dort sehen Sie alle freien
+        Zeiten in Echtzeit:
+      </p>
+      <a href="/terminbuchung/" class="btn btn--primary">Termin über Doctolib buchen</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap content-center">
+      <h2>Anfahrt</h2>
+      <div class="img-placeholder mt-2" role="img" aria-label="Karten-Platzhalter">
+        [Karte einbinden – Hinweis: Google Maps erst nach Cookie-Consent laden]
+      </div>
+      <ul class="mt-2 anfahrt-liste">
+        <li><strong>Mit Bus &amp; Bahn:</strong> <Ph value={praxis.oepnv} /></li>
+        <li><strong>Mit dem Rad:</strong> <Ph value={praxis.fahrrad} /></li>
+        <li><strong>Mit dem Auto:</strong> <Ph value={praxis.auto} /></li>
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .anfahrt-liste {
+    list-style: none;
+  }
+
+  .anfahrt-liste li {
+    padding-block: 0.4rem;
+  }
+</style>

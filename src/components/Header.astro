@@ -1,0 +1,182 @@
+---
+import { praxis } from '../config';
+
+const nav = [
+  { href: '/', label: 'Start' },
+  { href: '/ueber-mich/', label: 'Über mich' },
+  { href: '/was-ist-osteopathie/', label: 'Was ist Osteopathie?' },
+  { href: '/faq/', label: 'FAQ' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/kontakt/', label: 'Kontakt' },
+];
+
+const current = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="/" class="logo">Till Schneider<span class="logo-sub">Osteopathie</span></a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+      <ul>
+        {nav.map((item) => (
+          <li>
+            <a href={item.href} aria-current={current === item.href ? 'page' : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+        <li class="nav-cta-mobile">
+          <a href="/terminbuchung/" class="btn btn--primary">Termin buchen</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a href="/terminbuchung/" class="btn btn--primary header-cta">Termin buchen</a>
+
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="main-nav" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobiler Sticky-CTA am unteren Bildschirmrand -->
+<a href="/terminbuchung/" class="btn btn--primary sticky-cta">Termin buchen</a>
+
+<script>
+  const burger = document.getElementById('burger');
+  const navEl = document.getElementById('main-nav');
+  burger?.addEventListener('click', () => {
+    const open = navEl?.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(!!open));
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 247, 242, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(28, 27, 26, 0.08);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 0.85rem;
+  }
+
+  .logo {
+    font-family: var(--font-head);
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-sub {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--secondary);
+  }
+
+  .main-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    list-style: none;
+  }
+
+  .main-nav a:not(.btn) {
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+    padding-block: 0.25rem;
+    border-bottom: 2px solid transparent;
+  }
+
+  .main-nav a:not(.btn):hover,
+  .main-nav a[aria-current='page']:not(.btn) {
+    border-bottom-color: var(--primary);
+  }
+
+  .nav-cta-mobile { display: none; }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  .burger span {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+  }
+
+  .sticky-cta { display: none; }
+
+  @media (max-width: 900px) {
+    .header-cta { display: none; }
+    .burger { display: flex; }
+
+    .main-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid rgba(28, 27, 26, 0.1);
+      padding: 1rem 1.25rem 1.5rem;
+    }
+
+    .main-nav.open { display: block; }
+
+    .main-nav ul {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.25rem;
+    }
+
+    .main-nav a:not(.btn) {
+      display: block;
+      padding: 0.6rem 0;
+      font-size: 1.05rem;
+    }
+
+    .nav-cta-mobile {
+      display: block;
+      margin-top: 0.75rem;
+    }
+
+    .nav-cta-mobile .btn { display: block; }
+
+    .sticky-cta {
+      display: block;
+      position: fixed;
+      bottom: 0.75rem;
+      left: 1rem;
+      right: 1rem;
+      z-index: 40;
+      box-shadow: 0 4px 16px rgba(28, 27, 26, 0.25);
+    }
+
+    /* Platz für den Sticky-Button am Seitenende */
+    :global(body) { padding-bottom: 4.5rem; }
+  }
+</style>

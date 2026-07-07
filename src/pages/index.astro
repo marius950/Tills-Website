@@ -1,0 +1,313 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import Ph from '../components/Ph.astro';
+import { praxis } from '../config';
+
+const beschwerden = [
+  {
+    titel: 'Rücken- und Nackenschmerzen',
+    text: 'Ob akut oder immer wiederkehrend.',
+  },
+  {
+    titel: 'Verspannungen & Bewegungseinschränkungen',
+    text: 'Wenn der Körper nicht mehr mitmacht wie gewohnt.',
+  },
+  {
+    titel: 'Kopfschmerzen & Kieferbeschwerden',
+    text: 'Oft mit Verspannungen im Nacken- und Kieferbereich verbunden.',
+  },
+  {
+    titel: 'Stressbedingte Beschwerden',
+    text: 'Wenn Anspannung sich körperlich bemerkbar macht.',
+  },
+  {
+    titel: 'Beschwerden nach Sport & Belastung',
+    text: 'Von der Regeneration bis zur Rückkehr ins Training.',
+  },
+  {
+    titel: 'Funktionelle Beschwerden',
+    text: 'Beschwerden ohne eindeutigen strukturellen Befund, die den Alltag trotzdem spürbar einschränken.',
+  },
+];
+
+const prinzipien = [
+  {
+    titel: 'Evidenzbewusst.',
+    text: 'Ich arbeite auf Grundlage meiner Ausbildung als Physiotherapeut, Heilpraktiker und Osteopath – und orientiere mich an dem, was wissenschaftlich gut begründbar ist. Was ich nicht seriös einordnen kann, verspreche ich auch nicht.',
+  },
+  {
+    titel: 'Individuell.',
+    text: 'Keine zwei Körper sind gleich, keine zwei Beschwerden auch nicht. Am Anfang jeder Behandlung stehen ein ausführliches Gespräch und eine gründliche Untersuchung – erst dann entscheiden wir gemeinsam, wie es weitergeht.',
+  },
+  {
+    titel: 'Verständlich.',
+    text: 'Sie sollen nicht nur behandelt werden, sondern verstehen, was in Ihrem Körper passiert. Ich erkläre Ihnen meine Einschätzung in klarer Sprache – und was Sie selbst tun können, um Ihre Beschwerden zu verbessern.',
+  },
+  {
+    titel: 'Verantwortungsvoll.',
+    text: 'Wenn ich der Meinung bin, dass Sie bei einer Ärztin, einem Arzt oder in einer anderen Behandlungsform besser aufgehoben sind, sage ich Ihnen das offen.',
+  },
+];
+
+const ablauf = [
+  {
+    titel: 'Gespräch (Anamnese).',
+    text: 'Wir nehmen uns Zeit für Ihre Geschichte: Beschwerden, Vorerkrankungen, Alltag, Belastungen. Vorhandene Befunde und Arztberichte sind dabei sehr hilfreich.',
+  },
+  {
+    titel: 'Untersuchung.',
+    text: 'Ich untersuche Sie gründlich – mit Blick auf Beweglichkeit, Spannungsverhältnisse und mögliche Zusammenhänge zwischen verschiedenen Körperregionen.',
+  },
+  {
+    titel: 'Einordnung.',
+    text: 'Ich erkläre Ihnen verständlich, was mir auffällt, wie ich Ihre Beschwerden einordne – und ob und wie Osteopathie Sie aus meiner Sicht unterstützen kann. Falls eine ärztliche Abklärung sinnvoll ist, bespreche ich das offen mit Ihnen.',
+  },
+  {
+    titel: 'Behandlung.',
+    text: 'Die osteopathische Behandlung erfolgt mit den Händen – mit gezielten, in der Regel sanften Techniken, abgestimmt auf Ihr Beschwerdebild.',
+  },
+  {
+    titel: 'Ausblick.',
+    text: 'Zum Abschluss besprechen wir, wie es weitergeht: ob und wann Folgetermine sinnvoll sind und was Sie selbst tun können.',
+  },
+];
+---
+
+<Base
+  title={`Osteopathie in ${praxis.standort} | Praxis Till Schneider`}
+  description={`Evidenzbewusste Osteopathie bei Schmerzen, Stress & funktionellen Beschwerden in ${praxis.standort}. Physiotherapeut, Heilpraktiker & Osteopath. Jetzt Termin online buchen.`}
+>
+  <!-- Hero -->
+  <section class="section hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Osteopathie, die Zusammenhänge versteht.</h1>
+        <p class="hero-sub">
+          Evidenzbewusste osteopathische Behandlung bei Schmerzen, Stress und funktionellen
+          Beschwerden – individuell, verständlich und auf Augenhöhe. In <Ph value={praxis.standort} />.
+        </p>
+        <p>
+          Schmerzen haben selten nur eine Ursache. Als Osteopath und Physiotherapeut schaue ich
+          genau hin: Wo kommen Ihre Beschwerden her, was hängt womit zusammen – und was können wir
+          gemeinsam dagegen tun? Ohne leere Versprechen, dafür mit Erfahrung, Sorgfalt und einem
+          Behandlungsansatz, der sich an aktuellem Wissen orientiert.
+        </p>
+        <div class="hero-buttons">
+          <a href="/terminbuchung/" class="btn btn--primary">Termin buchen</a>
+          <a href="/was-ist-osteopathie/" class="btn btn--secondary">Mehr über Osteopathie erfahren</a>
+        </div>
+      </div>
+      <div class="img-placeholder" role="img" aria-label="Foto-Platzhalter">
+        [Foto: ruhige Behandlungssituation oder Portrait]
+      </div>
+    </div>
+  </section>
+
+  <!-- Wobei Osteopathie unterstützen kann -->
+  <section class="section section--beige">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Beschwerdebilder</span>
+        <h2>Wobei Osteopathie unterstützen kann</h2>
+        <p class="content">
+          Osteopathie kann – je nach Beschwerdebild – eine sinnvolle Ergänzung zu anderen
+          Behandlungsformen sein. Häufige Gründe, warum Patient:innen zu mir kommen:
+        </p>
+      </div>
+
+      <div class="grid grid--3">
+        {beschwerden.map((b) => (
+          <div class="card">
+            <h3>{b.titel}</h3>
+            <p>{b.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="notice content-center mt-2">
+        <p>
+          <strong>Wichtig:</strong> Osteopathie ersetzt keine ärztliche Diagnostik. Bei unklaren,
+          akuten oder ernsthaften Beschwerden ist eine ärztliche Abklärung der richtige erste
+          Schritt – und wenn nötig, sage ich Ihnen das auch genau so.
+        </p>
+      </div>
+
+      <CtaBlock />
+    </div>
+  </section>
+
+  <!-- So arbeite ich -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Arbeitsweise</span>
+        <h2>So arbeite ich</h2>
+      </div>
+      <div class="grid grid--2">
+        {prinzipien.map((p) => (
+          <div>
+            <h3>{p.titel}</h3>
+            <p>{p.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Für wen geeignet -->
+  <section class="section section--beige">
+    <div class="wrap content-center">
+      <span class="eyebrow">Zielgruppen</span>
+      <h2>Für wen ist die Behandlung geeignet?</h2>
+      <p class="mt-2">Osteopathie kann Menschen in ganz unterschiedlichen Lebenssituationen unterstützen:</p>
+      <ul>
+        <li><strong>Berufstätige</strong>, die durch langes Sitzen, einseitige Belastung oder Stress körperliche Beschwerden entwickelt haben</li>
+        <li><strong>Sportlich Aktive</strong>, die Belastungsbeschwerden angehen, ihre Regeneration verbessern oder nach einer Verletzung zurück ins Training finden möchten</li>
+        <li><strong>Menschen mit wiederkehrenden Beschwerden</strong>, bei denen bisherige Behandlungen nur kurzfristig geholfen haben</li>
+        <li><strong>Alle, die ihren Körper besser verstehen möchten</strong> – und eine Behandlung suchen, die erklärt statt nur anwendet</li>
+      </ul>
+      <p>
+        Ich behandle Privatpatient:innen und Selbstzahlende. Einige gesetzliche Krankenkassen
+        bezuschussen osteopathische Behandlungen anteilig – Näheres dazu erfahren Sie direkt bei
+        Ihrer Krankenkasse.
+      </p>
+    </div>
+  </section>
+
+  <!-- Ablauf der ersten Behandlung -->
+  <section class="section">
+    <div class="wrap content-center">
+      <span class="eyebrow">Ihr erster Termin</span>
+      <h2>Ablauf der ersten Behandlung</h2>
+      <ol class="steps mt-2">
+        {ablauf.map((s) => (
+          <li>
+            <strong>{s.titel}</strong>
+            {s.text}
+          </li>
+        ))}
+      </ol>
+      <p class="mt-2">Planen Sie für den ersten Termin etwa <Ph value={praxis.dauer} /> ein.</p>
+      <CtaBlock />
+    </div>
+  </section>
+
+  <!-- Über mich Teaser -->
+  <section class="section section--beige">
+    <div class="wrap hero-grid">
+      <div class="img-placeholder" role="img" aria-label="Foto-Platzhalter">
+        [Portraitfoto Till Schneider]
+      </div>
+      <div>
+        <span class="eyebrow">Über mich</span>
+        <h2>Till Schneider – Osteopath, Physiotherapeut, Heilpraktiker</h2>
+        <p class="mt-2">
+          Fünf Jahre habe ich als Physiotherapeut im Nachwuchsleistungszentrum des FC St. Pauli
+          gearbeitet – und dabei gelernt, wie viel möglich ist, wenn man Körper ernst nimmt und
+          genau hinschaut. Die Osteopathie erweitert diesen Blick: weg vom einzelnen Symptom, hin
+          zu den Zusammenhängen. Genau so arbeite ich heute in meiner Praxis.
+        </p>
+        <a href="/ueber-mich/" class="btn btn--secondary">Mehr über mich erfahren</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preis-Teaser -->
+  <section class="section">
+    <div class="wrap content-center center">
+      <span class="eyebrow">Kosten &amp; Erstattung</span>
+      <h2>Transparent von Anfang an</h2>
+      <p class="mt-2">
+        Eine osteopathische Behandlung kostet <strong>{praxis.preis}</strong> (Dauer:
+        <Ph value={praxis.dauer} />). Ich behandle Privatpatient:innen und Selbstzahlende. Einige
+        gesetzliche Krankenkassen bezuschussen osteopathische Behandlungen anteilig – bitte
+        informieren Sie sich vorab direkt bei Ihrer Krankenkasse über Voraussetzungen und
+        Erstattungshöhe.
+      </p>
+      <a href="/terminbuchung/" class="btn btn--secondary">Alle Infos zu Preisen und Ablauf</a>
+    </div>
+  </section>
+
+  <!-- FAQ-Teaser -->
+  <section class="section section--beige">
+    <div class="wrap content-center">
+      <span class="eyebrow">Gut zu wissen</span>
+      <h2>Häufige Fragen</h2>
+      <div class="mt-2">
+        <details class="faq-item">
+          <summary>Brauche ich eine ärztliche Überweisung?</summary>
+          <div class="faq-body">
+            <p>
+              Nein. Als Heilpraktiker darf ich Sie auch ohne Verordnung behandeln. Bei unklaren
+              Beschwerden empfehle ich dennoch eine ärztliche Abklärung vorab.
+            </p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Wie viele Behandlungen brauche ich?</summary>
+          <div class="faq-body">
+            <p>
+              Das hängt vom Beschwerdebild ab. Nach dem ersten Termin gebe ich Ihnen eine ehrliche
+              Einschätzung.
+            </p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Ist die Behandlung schmerzhaft?</summary>
+          <div class="faq-body">
+            <p>
+              Osteopathische Techniken sind in der Regel sanft. Ich arbeite immer in Abstimmung mit
+              Ihnen.
+            </p>
+          </div>
+        </details>
+      </div>
+      <p class="mt-2"><a href="/faq/">Alle Fragen &amp; Antworten →</a></p>
+    </div>
+  </section>
+
+  <!-- Abschluss-CTA (dunkler Block) -->
+  <section class="section section--dark">
+    <div class="wrap content-center center">
+      <h2>Bereit für Ihren ersten Termin?</h2>
+      <p class="mt-2">
+        Buchen Sie Ihren Termin bequem online über Doctolib – rund um die Uhr, ohne Warteschleife.
+      </p>
+      <a href="/terminbuchung/" class="btn btn--primary">Termin über Doctolib buchen</a>
+      <p class="small mt-2">
+        Sie haben vorab Fragen? Rufen Sie mich an oder schreiben Sie mir:<br />
+        {praxis.name} · <Ph value={praxis.strasse} /> · <Ph value={praxis.plzOrt} /><br />
+        Telefon: <Ph value={praxis.telefon} /> · E-Mail: <Ph value={praxis.email} />
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero-grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .hero-grid { grid-template-columns: 1.15fr 1fr; }
+  }
+
+  .hero-sub {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-block: 1.25rem 1rem;
+    text-wrap: pretty;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  .img-placeholder { min-height: 340px; }
+</style>
