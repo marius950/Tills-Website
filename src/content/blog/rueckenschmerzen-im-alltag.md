@@ -4,6 +4,7 @@ description: 'Warum Rückenschmerzen selten nur eine Ursache haben, welche Rolle
 pubDate: 2026-07-07
 lesedauer: '6 Min.'
 kategorie: 'Rücken'
+bild: '/images/blog-ruecken.jpg'
 entwurf: true
 ---
 

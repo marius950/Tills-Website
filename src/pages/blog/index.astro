@@ -24,9 +24,15 @@ const datumFormat = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
       <div class="grid grid--3 mt-2">
         {artikel.map((a) => (
           <article class="card artikel-card">
-            <div class="img-placeholder artikel-bild" role="img" aria-label="Artikelbild-Platzhalter">
-              [Artikelbild]
-            </div>
+            {a.data.bild ? (
+              <figure class="photo-wrap artikel-bild">
+                <img src={a.data.bild} alt="" loading="lazy" />
+              </figure>
+            ) : (
+              <div class="img-placeholder artikel-bild" role="img" aria-label="Artikelbild-Platzhalter">
+                [Artikelbild]
+              </div>
+            )}
             <p class="artikel-meta">
               {a.data.kategorie} · {datumFormat.format(a.data.pubDate)} · {a.data.lesedauer}
               {a.data.entwurf && <span class="ph">Entwurf</span>}
@@ -52,6 +58,11 @@ const datumFormat = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
   .artikel-bild {
     min-height: 160px;
     margin-bottom: 0.5rem;
+  }
+
+  .artikel-bild img {
+    height: 160px;
+    border-radius: 8px;
   }
 
   .artikel-meta {

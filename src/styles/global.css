@@ -296,6 +296,60 @@ img {
   padding-bottom: 1.25rem;
 }
 
+/* ---------- Kursiver Serifen-Akzent in Headlines ---------- */
+
+h1 em,
+h2 em {
+  font-style: italic;
+  font-weight: 480;
+}
+
+/* ---------- Qualifikations-Badges ---------- */
+
+.badges {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+}
+
+.badges li {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--secondary);
+  background: var(--bg-accent);
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ---------- Fotos (Platzhalter-Stockfotos) ---------- */
+
+.photo-wrap {
+  position: relative;
+  margin: 0;
+}
+
+.photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.photo-note {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  background: rgba(28, 27, 26, 0.65);
+  color: #fff;
+  font-size: 0.68rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+}
+
 /* ---------- Platzhalter-Markierung ---------- */
 
 .ph {

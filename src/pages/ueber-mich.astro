@@ -47,7 +47,10 @@ const fortbildungen = [
         </p>
         <p>Genau diese Haltung bringe ich heute in meine osteopathische Arbeit ein.</p>
       </div>
-      <div class="img-placeholder" role="img" aria-label="Foto-Platzhalter">[Portraitfoto Till Schneider]</div>
+      <figure class="photo-wrap intro-photo">
+        <img src="/images/portrait-teaser.jpg" alt="Portrait (Platzhalter für Foto von Till Schneider)" loading="eager" />
+        <figcaption class="photo-note">Platzhalter-Foto (Unsplash)</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -66,6 +69,10 @@ const fortbildungen = [
         ganzheitlichen, evidenzbewussten Behandlungsansatz. Das heißt konkret: Ich nutze das Beste
         aus beiden Welten – und bleibe dabei auf dem Boden dessen, was fachlich gut begründbar ist.
       </p>
+      <figure class="photo-wrap praxis-photo mt-2">
+        <img src="/images/praxisraum.jpg" alt="Behandlungsraum mit Liege (Platzhalter für Praxisfoto)" loading="lazy" />
+        <figcaption class="photo-note">Platzhalter-Foto (Unsplash)</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -140,6 +147,14 @@ const fortbildungen = [
   .lead {
     font-size: 1.25rem;
     font-weight: 500;
+  }
+
+  .intro-photo img {
+    max-height: 520px;
+  }
+
+  .praxis-photo img {
+    max-height: 420px;
   }
 
   .check-list {

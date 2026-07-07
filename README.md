@@ -25,7 +25,13 @@ Website-Konzept (Google Doc / `website-konzept-draft.md.docx`).
 
 - [ ] Alle Platzhalter in `src/config.ts` ersetzen
 - [ ] Doctolib-Link eintragen (`doctolibAktiv: true`)
-- [ ] Echte Fotos einfügen (ersetzen die `.img-placeholder`-Blöcke)
+- [ ] Echte Fotos einfügen — die Bilder in `public/images/` sind **Unsplash-Platzhalter**
+      (auf der Website mit „Platzhalter-Foto (Unsplash)" gekennzeichnet) und müssen durch
+      professionelle Fotos von Till/der Praxis ersetzt werden. Quellen:
+      [Hero](https://unsplash.com/photos/a9pFSC8dTlo) ·
+      [Portrait](https://unsplash.com/photos/bBuUjB98PPY) ·
+      [Praxisraum](https://unsplash.com/photos/oAvwAKFiU7Q) ·
+      [Blog](https://unsplash.com/photos/UhzeAgXvGSs) (Unsplash-Lizenz, frei nutzbar)
 - [ ] Impressum vollständig erstellen (`src/pages/impressum.astro`) — anwaltlich prüfen
 - [ ] Datenschutzerklärung erstellen (`src/pages/datenschutz.astro`)
 - [ ] Domain in `astro.config.mjs` (`site:`) eintragen
