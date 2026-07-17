@@ -324,6 +324,12 @@ img {
   }
 }
 
+/* Keine Kursivschrift auf der gesamten Website – Betonungen erscheinen aufrecht (halbfett) */
+em, i {
+  font-style: normal;
+  font-weight: 600;
+}
+
 /* ---------- Qualifikations-Badges ---------- */
 
 .badges {
