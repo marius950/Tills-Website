@@ -1,76 +1,162 @@
 ---
 import Base from '../layouts/Base.astro';
+import StandortKarten from '../components/StandortKarten.astro';
 import Ph from '../components/Ph.astro';
-import { praxis } from '../config';
+import { praxis, hamburg, moelln } from '../config';
 ---
 
 <Base
-  title={`Kontakt & Anfahrt | Osteopathie-Praxis Till Schneider, ${praxis.standort}`}
-  description={`So erreichst du die Praxis für Osteopathie in ${praxis.standort}: Adresse, Anfahrt, Behandlungszeiten & Kontakt. Termine bequem online über Doctolib buchen.`}
+  title="Kontakt & Standorte | Osteopathie-Praxis Till Schneider"
+  description="So erreichst du die Osteopathie-Praxis Till Schneider in Hamburg und Mölln: Adressen, Anfahrt und Kontakt. Termine in Hamburg online über Doctolib, in Mölln telefonisch."
 >
   <section class="section">
-    <div class="wrap content-center">
-      <span class="eyebrow">Kontakt</span>
-      <h1>So erreichst du mich</h1>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Kontakt</span>
+        <h1>Zwei Standorte: Hamburg &amp; Mölln</h1>
+        <p class="content">
+          Wähle deinen Standort. Termine für Hamburg buchst du online über Doctolib,
+          Termine für Mölln vereinbarst du telefonisch.
+        </p>
+      </div>
+      <StandortKarten variante="anker" />
+    </div>
+  </section>
 
-      <div class="grid grid--2 mt-2">
-        <div class="card">
-          <h3>{praxis.name}</h3>
+  <!-- Standort Hamburg -->
+  <section class="section section--beige" id="hamburg">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Standort Hamburg</span>
+        <h2>Praxis Hamburg</h2>
+      </div>
+
+      <div class="standort-detail">
+        <div class="standort-info">
+          <h3>Adresse</h3>
           <p>
-            <Ph value={praxis.strasse} /><br />
-            <Ph value={praxis.plzOrt} />, <Ph value={praxis.standort} />
+            {hamburg.adresse[0]}<br />
+            {hamburg.adresse[1]}<br />
+            {hamburg.adresse[2]}
           </p>
-          <p>
-            <strong>Telefon:</strong> <Ph value={praxis.telefon} /><br />
-            <strong>E-Mail:</strong> <Ph value={praxis.email} />
-          </p>
-        </div>
-        <div class="card">
+
+          <h3>Terminbuchung</h3>
+          <p>Termine für Hamburg buchst du online über Doctolib.</p>
+          <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">
+            Termin in Hamburg buchen
+          </a>
+
           <h3>Behandlungszeiten</h3>
-          <p><Ph value={praxis.behandlungszeiten} /></p>
-          <p>Termine nach Vereinbarung.</p>
+          <p><Ph value={praxis.behandlungszeiten} /><br />Termine nach Vereinbarung.</p>
+
+          <h3>E-Mail</h3>
+          <p><Ph value={praxis.email} /></p>
+        </div>
+
+        <div class="standort-fotos">
+          <figure class="photo-wrap">
+            <img src="/images/hamburg-praxis-1.jpg" alt="Behandlungsraum der Praxis The Plaece in Hamburg" loading="lazy" />
+          </figure>
+          <div class="foto-paar">
+            <figure class="photo-wrap">
+              <img src="/images/hamburg-praxis-2.jpg" alt="Behandlungsraum mit Liege, Praxis The Plaece Hamburg" loading="lazy" />
+            </figure>
+            <figure class="photo-wrap">
+              <img src="/images/hamburg-praxis-3.jpg" alt="Trainings- und Behandlungsbereich, Praxis The Plaece Hamburg" loading="lazy" />
+            </figure>
+          </div>
         </div>
       </div>
-
-      <p class="mt-2">
-        Während der Behandlungen kann ich nicht ans Telefon gehen – sprich mir gerne auf die
-        Mailbox oder schreib eine E-Mail. Ich melde mich so schnell wie möglich zurück.
-      </p>
     </div>
   </section>
 
-  <section class="section section--beige">
-    <div class="wrap content-center">
-      <h2>Termine</h2>
-      <p class="mt-2">
-        Termine buchst du am einfachsten direkt online über Doctolib – dort siehst du alle freien
-        Zeiten in Echtzeit:
-      </p>
-      <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">Termin über Doctolib buchen</a>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap content-center">
-      <h2>Anfahrt</h2>
-      <div class="img-placeholder mt-2" role="img" aria-label="Karten-Platzhalter">
-        [Karte einbinden – Hinweis: Google Maps erst nach Cookie-Consent laden]
+  <!-- Standort Mölln -->
+  <section class="section" id="moelln">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Standort Mölln</span>
+        <h2>Praxis Mölln</h2>
       </div>
-      <ul class="mt-2 anfahrt-liste">
-        <li><strong>Mit Bus &amp; Bahn:</strong> <Ph value={praxis.oepnv} /></li>
-        <li><strong>Mit dem Rad:</strong> <Ph value={praxis.fahrrad} /></li>
-        <li><strong>Mit dem Auto:</strong> <Ph value={praxis.auto} /></li>
-      </ul>
+
+      <div class="standort-detail">
+        <div class="standort-info">
+          <h3>Adresse</h3>
+          <p>
+            {moelln.adresse[0]}<br />
+            {moelln.adresse[1]}
+          </p>
+
+          <h3>Terminbuchung</h3>
+          <p>Termine für Mölln können telefonisch vereinbart werden.</p>
+          <a href={moelln.telefonLink} class="btn btn--primary">Jetzt anrufen</a>
+
+          <h3>Kontakt</h3>
+          <p>
+            Telefon: <a href={moelln.telefonLink}>{moelln.telefon}</a><br />
+            E-Mail: <a href={`mailto:${moelln.email}`}>{moelln.email}</a>
+          </p>
+        </div>
+
+        <div class="standort-fotos">
+          <div class="img-placeholder" role="img" aria-label="Praxisfoto-Platzhalter Mölln">
+            [Praxisfoto Osteopathie-Praxis Dr. med. Frank Wehnert einfügen]
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </Base>
 
 <style>
-  .anfahrt-liste {
-    list-style: none;
+  .standort-detail {
+    display: grid;
+    gap: 2rem;
+    align-items: start;
   }
 
-  .anfahrt-liste li {
-    padding-block: 0.4rem;
+  @media (min-width: 900px) {
+    .standort-detail { grid-template-columns: 1fr 1.1fr; }
+  }
+
+  .standort-info h3 {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .standort-info h3:first-child {
+    margin-top: 0;
+  }
+
+  .standort-info p {
+    margin: 0;
+  }
+
+  .standort-info .btn {
+    margin-top: 0.25rem;
+  }
+
+  .standort-fotos {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .standort-fotos .photo-wrap img {
+    border-radius: 10px;
+    max-height: 420px;
+  }
+
+  .foto-paar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .foto-paar .photo-wrap img {
+    max-height: 260px;
+  }
+
+  .standort-fotos .img-placeholder {
+    min-height: 320px;
   }
 </style>

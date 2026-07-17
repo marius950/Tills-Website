@@ -9,8 +9,9 @@
   --dark: #262421;        /* Anthrazit – Footer, Kontrastblöcke */
   --muted: #5d5850;
 
-  --font-head: 'Fraunces Variable', Georgia, serif;
+  /* Eine einheitliche, schlichte Schriftfamilie für die gesamte Website */
   --font-body: 'Inter Variable', system-ui, -apple-system, sans-serif;
+  --font-head: var(--font-body);
 
   --content-width: 720px;
   --wide-width: 1120px;
@@ -43,7 +44,8 @@ body {
 
 h1, h2, h3, h4 {
   font-family: var(--font-head);
-  font-weight: 560;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   line-height: 1.15;
   text-wrap: balance;
 }
@@ -320,14 +322,6 @@ img {
     transform: none;
     transition: none;
   }
-}
-
-/* ---------- Kursiver Serifen-Akzent in Headlines ---------- */
-
-h1 em,
-h2 em {
-  font-style: italic;
-  font-weight: 480;
 }
 
 /* ---------- Qualifikations-Badges ---------- */

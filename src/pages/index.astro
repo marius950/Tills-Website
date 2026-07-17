@@ -1,8 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import CtaBlock from '../components/CtaBlock.astro';
+import StandortKarten from '../components/StandortKarten.astro';
 import Ph from '../components/Ph.astro';
-import { praxis } from '../config';
+import { praxis, hamburg, moelln } from '../config';
 
 const beschwerden = [
   {
@@ -34,15 +35,15 @@ const beschwerden = [
 const prinzipien = [
   {
     titel: 'Evidenzbewusst.',
-    text: 'Ich arbeite auf Grundlage meiner Ausbildung als Physiotherapeut, Heilpraktiker und Osteopath – und orientiere mich an dem, was wissenschaftlich gut begründbar ist. Was ich nicht seriös einordnen kann, verspreche ich auch nicht.',
+    text: 'Ich arbeite auf Grundlage meiner Ausbildung als Physiotherapeut, Heilpraktiker und Osteopath und orientiere mich an dem, was wissenschaftlich gut begründbar ist. Was ich nicht seriös einordnen kann, verspreche ich auch nicht.',
   },
   {
     titel: 'Individuell.',
-    text: 'Keine zwei Körper sind gleich, keine zwei Beschwerden auch nicht. Am Anfang jeder Behandlung stehen ein ausführliches Gespräch und eine gründliche Untersuchung – erst dann entscheiden wir gemeinsam, wie es weitergeht.',
+    text: 'Jede Beschwerde hat ihre eigene Geschichte. Deshalb stehen am Anfang jeder Behandlung ein ausführliches Gespräch, eine gründliche Untersuchung und eine verständliche Einordnung deiner Beschwerden.',
   },
   {
     titel: 'Verständlich.',
-    text: 'Du sollst nicht nur behandelt werden, sondern verstehen, was in deinem Körper passiert. Ich erkläre dir meine Einschätzung in klarer Sprache – und was du selbst tun kannst, um deine Beschwerden zu verbessern.',
+    text: 'Du sollst nicht nur behandelt werden, sondern verstehen, was in deinem Körper passiert. Ich erkläre dir meine Einschätzung in klarer Sprache und zeige dir, was du selbst tun kannst, um deine Beschwerden zu verbessern.',
   },
   {
     titel: 'Verantwortungsvoll.',
@@ -57,15 +58,15 @@ const ablauf = [
   },
   {
     titel: 'Untersuchung.',
-    text: 'Ich untersuche dich gründlich – mit Blick auf Beweglichkeit, Spannungsverhältnisse und mögliche Zusammenhänge zwischen verschiedenen Körperregionen.',
+    text: 'Ich untersuche dich gründlich, mit Blick auf Beweglichkeit, Spannungsverhältnisse und mögliche Zusammenhänge zwischen verschiedenen Körperregionen.',
   },
   {
     titel: 'Einordnung.',
-    text: 'Ich erkläre dir verständlich, was mir auffällt, wie ich deine Beschwerden einordne – und ob und wie Osteopathie dich aus meiner Sicht unterstützen kann. Falls eine ärztliche Abklärung sinnvoll ist, bespreche ich das offen mit dir.',
+    text: 'Ich erkläre dir verständlich, was mir auffällt, wie ich deine Beschwerden einordne und ob Osteopathie dich aus meiner Sicht unterstützen kann. Falls eine ärztliche Abklärung sinnvoll ist, bespreche ich das offen mit dir.',
   },
   {
     titel: 'Behandlung.',
-    text: 'Die osteopathische Behandlung erfolgt mit den Händen – mit gezielten, in der Regel sanften Techniken, abgestimmt auf dein Beschwerdebild.',
+    text: 'Die osteopathische Behandlung erfolgt mit den Händen: mit gezielten, in der Regel sanften Techniken, abgestimmt auf dein Beschwerdebild.',
   },
   {
     titel: 'Ausblick.',
@@ -75,20 +76,20 @@ const ablauf = [
 ---
 
 <Base
-  title={`Osteopathie in ${praxis.standort} | Praxis Till Schneider`}
-  description={`Evidenzbewusste Osteopathie bei Schmerzen, Stress & funktionellen Beschwerden in ${praxis.standort}. Physiotherapeut, Heilpraktiker & Osteopath. Jetzt Termin online buchen.`}
+  title="Osteopathie in Hamburg & Mölln | Praxis Till Schneider"
+  description="Evidenzbewusste Osteopathie bei Schmerzen, Stress & funktionellen Beschwerden in Hamburg und Mölln. Physiotherapeut, Heilpraktiker & Osteopath. Jetzt Termin buchen."
 >
   <!-- Hero: großes Statement + vollbreites Bild (Referenz: osteopathiewerkstatt.de) -->
   <section class="section hero">
     <div class="wrap">
-      <p class="eyebrow">Osteopathie in <Ph value={praxis.standort} /></p>
-      <h1 class="hero-title">Osteopathie, die <em>Zusammenhänge</em> versteht.</h1>
+      <p class="eyebrow">Osteopathie in Hamburg &amp; Mölln</p>
+      <h1 class="hero-title">Osteopathie, die Zusammenhänge versteht.</h1>
       <p class="hero-sub">
         Evidenzbewusste osteopathische Behandlung bei Schmerzen, Stress und funktionellen
-        Beschwerden – individuell, verständlich und auf Augenhöhe.
+        Beschwerden. Individuell, verständlich und auf Augenhöhe.
       </p>
       <div class="hero-buttons">
-        <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">Termin buchen</a>
+        <a href="#termin" class="btn btn--primary">Termin buchen</a>
         <a href="/was-ist-osteopathie/" class="btn btn--secondary">Mehr über Osteopathie erfahren</a>
       </div>
       <ul class="badges">
@@ -99,18 +100,32 @@ const ablauf = [
       </ul>
       <figure class="photo-wrap hero-photo">
         <img
-          src="/images/hero-breit.jpg"
-          alt="Osteopathische Behandlung in der Praxis"
+          src="/images/hamburg-praxis-1.jpg"
+          alt="Behandlungsraum der Osteopathie-Praxis in Hamburg"
           loading="eager"
         />
-        <figcaption class="photo-note">Platzhalter-Foto (Unsplash)</figcaption>
       </figure>
       <p class="hero-intro">
         Schmerzen haben selten nur eine Ursache. Als Osteopath und Physiotherapeut schaue ich
-        genau hin: Wo kommen deine Beschwerden her, was hängt womit zusammen – und was können wir
+        genau hin: Wo kommen deine Beschwerden her, was hängt womit zusammen und was können wir
         gemeinsam dagegen tun? Ohne leere Versprechen, dafür mit Erfahrung, Sorgfalt und einem
         Behandlungsansatz, der sich an aktuellem Wissen orientiert.
       </p>
+    </div>
+  </section>
+
+  <!-- Standortauswahl / Terminbuchung -->
+  <section class="section section--beige" id="termin">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Zwei Standorte</span>
+        <h2>Hamburg &amp; Mölln</h2>
+        <p class="content">
+          Ich behandle an zwei Standorten. Termine für Hamburg buchst du online über Doctolib,
+          Termine für Mölln vereinbarst du telefonisch.
+        </p>
+      </div>
+      <StandortKarten variante="buchung" />
     </div>
   </section>
 
@@ -121,7 +136,7 @@ const ablauf = [
         <span class="eyebrow">Beschwerdebilder</span>
         <h2>Wobei Osteopathie unterstützen kann</h2>
         <p class="content">
-          Osteopathie kann – je nach Beschwerdebild – eine sinnvolle Ergänzung zu anderen
+          Osteopathie kann je nach Beschwerdebild eine sinnvolle Ergänzung zu anderen
           Behandlungsformen sein. Häufige Gründe, warum Patient:innen zu mir kommen:
         </p>
       </div>
@@ -139,7 +154,7 @@ const ablauf = [
         <p>
           <strong>Wichtig:</strong> Osteopathie ersetzt keine ärztliche Diagnostik. Bei unklaren,
           akuten oder ernsthaften Beschwerden ist eine ärztliche Abklärung der richtige erste
-          Schritt – und wenn nötig, sage ich dir das auch genau so.
+          Schritt. Und wenn nötig, sage ich dir das auch genau so.
         </p>
       </div>
 
@@ -175,11 +190,11 @@ const ablauf = [
         <li><strong>Berufstätige</strong>, die durch langes Sitzen, einseitige Belastung oder Stress körperliche Beschwerden entwickelt haben</li>
         <li><strong>Sportlich Aktive</strong>, die Belastungsbeschwerden angehen, ihre Regeneration verbessern oder nach einer Verletzung zurück ins Training finden möchten</li>
         <li><strong>Menschen mit wiederkehrenden Beschwerden</strong>, bei denen bisherige Behandlungen nur kurzfristig geholfen haben</li>
-        <li><strong>Alle, die ihren Körper besser verstehen möchten</strong> – und eine Behandlung suchen, die erklärt statt nur anwendet</li>
+        <li><strong>Alle, die ihren Körper besser verstehen möchten</strong> und eine Behandlung suchen, die erklärt statt nur anwendet</li>
       </ul>
       <p>
         Ich behandle Privatpatient:innen und Selbstzahlende. Einige gesetzliche Krankenkassen
-        bezuschussen osteopathische Behandlungen anteilig – Näheres dazu erfährst du direkt bei
+        bezuschussen osteopathische Behandlungen anteilig. Näheres dazu erfährst du direkt bei
         deiner Krankenkasse.
       </p>
     </div>
@@ -198,7 +213,7 @@ const ablauf = [
           </li>
         ))}
       </ol>
-      <p class="mt-2">Plane für den ersten Termin etwa <Ph value={praxis.dauer} /> ein.</p>
+      <p class="mt-2">Eine osteopathische Behandlung dauert {praxis.dauer}.</p>
       <CtaBlock />
     </div>
   </section>
@@ -207,16 +222,16 @@ const ablauf = [
   <section class="section section--beige">
     <div class="wrap hero-grid">
       <figure class="photo-wrap teaser-photo">
-        <img src="/images/till-portrait.webp" alt="Till Schneider im Millerntor-Stadion" loading="lazy" />
+        <img src="/images/till-portrait.jpg" alt="Till Schneider, Osteopath in Hamburg und Mölln" loading="lazy" />
       </figure>
       <div>
         <span class="eyebrow">Über mich</span>
-        <h2>Till Schneider – Osteopath, Physiotherapeut, Heilpraktiker</h2>
+        <h2>Till Schneider: Osteopath, Physiotherapeut und Heilpraktiker</h2>
         <p class="mt-2">
-          Fünf Jahre habe ich als Physiotherapeut im Nachwuchsleistungszentrum des FC St. Pauli
-          gearbeitet – und dabei gelernt, wie viel möglich ist, wenn man Körper ernst nimmt und
-          genau hinschaut. Die Osteopathie erweitert diesen Blick: weg vom einzelnen Symptom, hin
-          zu den Zusammenhängen. Genau so arbeite ich heute in meiner Praxis.
+          Als Physiotherapeut habe ich unter anderem in den Nachwuchsleistungszentren der Hamburg
+          Towers und des FC St. Pauli gearbeitet und dabei gelernt, wie viel möglich ist, wenn man
+          Körper ernst nimmt und genau hinschaut. Die Osteopathie erweitert diesen Blick: weg vom
+          einzelnen Symptom, hin zu den Zusammenhängen. Genau so arbeite ich heute in meiner Praxis.
         </p>
         <a href="/ueber-mich/" class="btn btn--secondary">Mehr über mich erfahren</a>
       </div>
@@ -229,11 +244,10 @@ const ablauf = [
       <span class="eyebrow">Kosten &amp; Erstattung</span>
       <h2>Transparent von Anfang an</h2>
       <p class="mt-2">
-        Eine osteopathische Behandlung kostet <strong>{praxis.preis}</strong> (Dauer:
-        <Ph value={praxis.dauer} />). Ich behandle Privatpatient:innen und Selbstzahlende. Einige
-        gesetzliche Krankenkassen bezuschussen osteopathische Behandlungen anteilig – bitte
-        informiere dich vorab direkt bei deiner Krankenkasse über Voraussetzungen und
-        Erstattungshöhe.
+        Eine osteopathische Behandlung kostet <strong>{praxis.preis}</strong> und dauert
+        {praxis.dauer}. Ich behandle Privatpatient:innen und Selbstzahlende. Einige gesetzliche
+        Krankenkassen bezuschussen osteopathische Behandlungen anteilig. Bitte informiere dich
+        vorab direkt bei deiner Krankenkasse über Voraussetzungen und Erstattungshöhe.
       </p>
       <a href="/terminbuchung/" class="btn btn--secondary">Alle Infos zu Preisen und Ablauf</a>
     </div>
@@ -282,13 +296,15 @@ const ablauf = [
     <div class="wrap content-center center">
       <h2>Bereit für deinen ersten Termin?</h2>
       <p class="mt-2">
-        Buch dir deinen Termin bequem online über Doctolib – rund um die Uhr, ohne Warteschleife.
+        Termine für Hamburg buchst du online über Doctolib. Termine für Mölln vereinbarst du
+        telefonisch unter <a href={moelln.telefonLink} class="cta-tel">{moelln.telefon}</a>.
       </p>
-      <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">Termin über Doctolib buchen</a>
+      <a href="#termin" class="btn btn--primary">Termin buchen</a>
       <p class="small mt-2">
-        Du hast vorab Fragen? Ruf mich an oder schreib mir:<br />
-        {praxis.name} · <Ph value={praxis.strasse} /> · <Ph value={praxis.plzOrt} /><br />
-        Telefon: <Ph value={praxis.telefon} /> · E-Mail: <Ph value={praxis.email} />
+        {praxis.name}<br />
+        Hamburg: {hamburg.adresse.join(', ')}<br />
+        Mölln: {moelln.adresse.join(', ')}<br />
+        E-Mail: <Ph value={praxis.email} />
       </p>
     </div>
   </section>
@@ -319,8 +335,9 @@ const ablauf = [
   }
 
   .hero-photo img {
-    aspect-ratio: 16 / 8;
-    max-height: 640px;
+    aspect-ratio: 16 / 9;
+    max-height: 620px;
+    object-position: center 40%;
   }
 
   @media (max-width: 640px) {
@@ -346,5 +363,9 @@ const ablauf = [
 
   .teaser-photo img {
     max-height: 460px;
+  }
+
+  .cta-tel {
+    font-weight: 700;
   }
 </style>

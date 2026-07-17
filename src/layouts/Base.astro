@@ -1,10 +1,9 @@
 ---
 import '@fontsource-variable/inter';
-import '@fontsource-variable/fraunces';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { praxis } from '../config';
+import { praxis, hamburg, moelln } from '../config';
 
 interface Props {
   title: string;
@@ -13,22 +12,39 @@ interface Props {
 
 const { title, description } = Astro.props;
 
-// LocalBusiness-Schema (Abschnitt 5.3 des Konzepts) – Platzhalter vor Livegang ersetzen
+// LocalBusiness-Schema (Abschnitt 5.3 des Konzepts) mit beiden Standorten
 const localBusiness = {
   '@context': 'https://schema.org',
   '@type': 'MedicalBusiness',
   name: praxis.name,
   founder: praxis.inhaber,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: praxis.strasse,
-    addressLocality: praxis.plzOrt,
-    addressCountry: 'DE',
-  },
-  telephone: praxis.telefon,
-  email: praxis.email,
   url: Astro.site?.toString(),
   priceRange: praxis.preis,
+  location: [
+    {
+      '@type': 'Place',
+      name: `${praxis.name} – Standort Hamburg`,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Durchschnitt 21, The Plaece Two',
+        postalCode: '20146',
+        addressLocality: 'Hamburg',
+        addressCountry: 'DE',
+      },
+    },
+    {
+      '@type': 'Place',
+      name: `${praxis.name} – Standort Mölln`,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Wasserkrüger Weg 127a',
+        postalCode: '23879',
+        addressLocality: 'Mölln',
+        addressCountry: 'DE',
+      },
+      telephone: moelln.telefon,
+    },
+  ],
 };
 ---
 

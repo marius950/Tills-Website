@@ -4,6 +4,7 @@ import CtaBlock from '../components/CtaBlock.astro';
 import { praxis } from '../config';
 
 const werdegang = [
+  { jahr: '2017–2019', text: 'Physiotherapeut bei den Hamburg Towers, Nachwuchsleistungszentrum' },
   { jahr: '2019', text: 'Staatsexamen zum Physiotherapeuten' },
   { jahr: '2019–2024', text: 'Physiotherapeut im Nachwuchsleistungszentrum (NLZ) des FC St. Pauli' },
   { jahr: '2021', text: 'Beginn der Osteopathie-Ausbildung und des Studiums Bachelor of Science Osteopathie' },
@@ -26,29 +27,30 @@ const fortbildungen = [
 ---
 
 <Base
-  title={`Über mich | Till Schneider – Osteopath in ${praxis.standort}`}
+  title="Über mich | Till Schneider – Osteopath in Hamburg & Mölln"
   description="Osteopath, staatlich geprüfter Physiotherapeut & Heilpraktiker. 5 Jahre Physiotherapeut im NLZ des FC St. Pauli. Lern meinen Behandlungsansatz kennen."
 >
   <section class="section">
     <div class="wrap intro-grid">
       <div>
         <span class="eyebrow">Über mich</span>
-        <h1>Moin, ich bin Till Schneider.</h1>
+        <h1>Moin, ich bin Till.</h1>
         <p class="lead mt-2">
-          Osteopath, staatlich geprüfter Physiotherapeut und Heilpraktiker – und überzeugt davon,
-          dass gute Behandlung damit anfängt, richtig zuzuhören.
+          Osteopath, staatlich geprüfter Physiotherapeut und Heilpraktiker. Ich bin überzeugt:
+          Gute Behandlung fängt damit an, richtig zuzuhören.
         </p>
         <p>
-          Bevor ich mich der Osteopathie zugewandt habe, habe ich fünf Jahre als Physiotherapeut im
+          Vor meiner osteopathischen Tätigkeit habe ich als Physiotherapeut unter anderem im
+          Nachwuchsleistungszentrum der Hamburg Towers und mehrere Jahre im
           Nachwuchsleistungszentrum des FC St. Pauli gearbeitet. Wer junge Leistungssportler
           betreut, lernt zwei Dinge sehr schnell: Erstens, dass der Körper kein Baukasten aus
           Einzelteilen ist. Und zweitens, dass Behandlung nur dann nachhaltig wirkt, wenn man die
-          Ursachen versteht – nicht nur die Symptome.
+          Ursachen versteht, nicht nur die Symptome.
         </p>
         <p>Genau diese Haltung bringe ich heute in meine osteopathische Arbeit ein.</p>
       </div>
       <figure class="photo-wrap intro-photo">
-        <img src="/images/till-portrait.webp" alt="Till Schneider im Millerntor-Stadion" loading="eager" />
+        <img src="/images/till-portrait.jpg" alt="Till Schneider, Osteopath in Hamburg und Mölln" loading="eager" />
       </figure>
     </div>
   </section>
@@ -57,20 +59,27 @@ const fortbildungen = [
     <div class="wrap content-center">
       <h2>Warum Osteopathie?</h2>
       <p class="mt-2">
-        Osteopathie fängt für mich da an, wo Physiotherapie aufhört – und beide ergänzen sich
+        Osteopathie fängt für mich da an, wo Physiotherapie aufhört, und beide ergänzen sich
         hervorragend. Während die Physiotherapie gezielt an Bewegung, Kraft und Funktion arbeitet,
         erweitert die Osteopathie den Blick auf Zusammenhänge im Körper: Wie beeinflussen sich
         verschiedene Regionen gegenseitig? Warum kehren Beschwerden immer wieder zurück, obwohl
         die betroffene Stelle längst behandelt wurde?
       </p>
       <p>
+        Osteopathie interessiert mich, weil sie den Blick auf Zusammenhänge erweitert. Beschwerden
+        entstehen nicht immer nur dort, wo sie spürbar sind. So kann bei Rückenschmerzen zum
+        Beispiel nicht nur die Wirbelsäule eine Rolle spielen, sondern auch Atmung, Beweglichkeit,
+        Spannung im Bauchraum oder die Funktion innerer Organe. Genau dieses Zusammenspiel zu
+        untersuchen und verständlich zu erklären, macht die osteopathische Arbeit für mich
+        besonders wertvoll.
+      </p>
+      <p>
         Durch meine Erfahrung in beiden Bereichen verbinde ich funktionelles Arbeiten mit einem
         ganzheitlichen, evidenzbewussten Behandlungsansatz. Das heißt konkret: Ich nutze das Beste
-        aus beiden Welten – und bleibe dabei auf dem Boden dessen, was fachlich gut begründbar ist.
+        aus beiden Welten.
       </p>
       <figure class="photo-wrap praxis-photo mt-2">
-        <img src="/images/praxisraum.jpg" alt="Behandlungsraum mit Liege (Platzhalter für Praxisfoto)" loading="lazy" />
-        <figcaption class="photo-note">Platzhalter-Foto (Unsplash)</figcaption>
+        <img src="/images/hamburg-praxis-3.jpg" alt="Behandlungsraum der Praxis The Plaece in Hamburg" loading="lazy" />
       </figure>
     </div>
   </section>
@@ -114,17 +123,17 @@ const fortbildungen = [
       <p class="mt-2">
         Meine Behandlungsphilosophie basiert auf einem evidenzbewussten und individuellen Ansatz.
         Mir ist wichtig, Beschwerden nicht isoliert zu betrachten, sondern mögliche Zusammenhänge
-        im Körper zu erkennen, einzuordnen – und verständlich zu erklären.
+        im Körper zu erkennen, einzuordnen und verständlich zu erklären.
       </p>
       <p>
         Ich möchte, dass du nicht nur behandelt wirst, sondern verstehst, was in deinem Körper
-        passiert. Und dass du weißt, was ich tun kann – und was du selbst tun kannst, um eine
+        passiert. Und dass du weißt, was ich tun kann und was du selbst tun kannst, um eine
         Verbesserung deiner Beschwerden zu erreichen. Denn die besten Ergebnisse entstehen dann,
         wenn wir gemeinsam an einem Strang ziehen.
       </p>
       <p>
         Was du bei mir nicht bekommst: Wunderversprechen, Pauschalerklärungen oder Behandlungen
-        nach Schema F. Was du bekommst: Zeit, Sorgfalt, eine ehrliche Einschätzung – und einen
+        nach Schema F. Was du bekommst: Zeit, Sorgfalt, eine ehrliche Einschätzung und einen
         Behandlungsplan, der zu dir passt.
       </p>
       <CtaBlock text="Klingt nach dem richtigen Ansatz für dich?" button="Termin über Doctolib buchen" />

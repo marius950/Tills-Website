@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
+import StandortKarten from '../components/StandortKarten.astro';
 import Ph from '../components/Ph.astro';
-import { praxis, doctolibAktiv } from '../config';
+import { praxis, moelln } from '../config';
 
 const checkliste = [
   {
@@ -18,43 +19,30 @@ const checkliste = [
   },
   {
     titel: 'Bequeme Kleidung',
-    text: 'in der du dich gut bewegen kannst; für die Untersuchung ist es hilfreich, wenn du dich bis auf die Unterwäsche frei machen kannst – das besprechen wir aber immer gemeinsam und in deinem Tempo',
+    text: 'in der du dich gut bewegen kannst; für die Untersuchung ist es hilfreich, wenn du dich bis auf die Unterwäsche frei machen kannst. Das besprechen wir aber immer gemeinsam und in deinem Tempo.',
   },
 ];
 ---
 
 <Base
-  title={`Termin buchen | Osteopathie ${praxis.standort} – online via Doctolib`}
-  description={`Osteopathie-Termin in ${praxis.standort} online buchen – rund um die Uhr über Doctolib. Plus: Was du zum ersten Termin mitbringen solltest & alle Infos zu Kosten.`}
+  title="Termin buchen | Osteopathie Hamburg & Mölln – Till Schneider"
+  description="Osteopathie-Termin bei Till Schneider buchen: in Hamburg online über Doctolib, in Mölln telefonisch. Plus: Was du zum ersten Termin mitbringen solltest & alle Infos zu Kosten."
 >
   <section class="section">
-    <div class="wrap content-center">
-      <span class="eyebrow">Terminbuchung</span>
-      <h1>Termin online buchen – einfach über Doctolib</h1>
-      <p class="mt-2">
-        Meine Termine vergebe ich über Doctolib. Dort siehst du alle verfügbaren Zeiten in
-        Echtzeit, buchst in wenigen Klicks und erhältst automatisch eine Bestätigung und
-        Erinnerung – rund um die Uhr, ohne Anruf und ohne Warteschleife.
-      </p>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Terminbuchung</span>
+        <h1>Wähle deinen Standort</h1>
+        <p class="content">
+          Termine für Hamburg buchst du online über Doctolib. Termine für Mölln vereinbarst du
+          telefonisch.
+        </p>
+      </div>
+      <StandortKarten variante="buchung" />
 
-      {doctolibAktiv ? (
-        <a href={praxis.doctolib} class="btn btn--primary" target="_blank" rel="noopener">
-          Jetzt Termin über Doctolib buchen
-        </a>
-      ) : (
-        <div class="notice">
-          <p>
-            <strong><span class="ph">[Doctolib-Link einfügen]</span></strong> – sobald der Link in
-            <code>src/config.ts</code> eingetragen und <code>doctolibAktiv</code> auf
-            <code>true</code> gesetzt ist, erscheint hier der Buchungs-Button. Optional kann das
-            Doctolib-Widget direkt eingebettet werden (kein Medienbruch).
-          </p>
-        </div>
-      )}
-
-      <p class="mt-2 small">
-        Du kannst nicht online buchen oder hast Fragen vorab? Ruf mich an unter
-        <Ph value={praxis.telefon} /> oder schreib an <Ph value={praxis.email} />.
+      <p class="mt-2 small content-center">
+        Du hast vorab Fragen? Schreib an <Ph value={praxis.email} /> oder ruf für Mölln direkt
+        unter <a href={moelln.telefonLink}>{moelln.telefon}</a> an.
       </p>
     </div>
   </section>
@@ -82,10 +70,10 @@ const checkliste = [
     <div class="wrap content-center">
       <h2>Termin absagen oder verschieben</h2>
       <p class="mt-2">
-        Manchmal kommt etwas dazwischen – das ist kein Problem. Bitte sag deinen Termin
-        <strong>spätestens 24 Stunden vorher</strong> ab, entweder direkt über Doctolib oder
-        telefonisch. So kann ich den Termin an andere Patient:innen vergeben. Bei kurzfristigeren
-        Absagen ohne wichtigen Grund behalte ich mir vor, ein Ausfallhonorar zu berechnen.
+        Manchmal kommt etwas dazwischen, das ist kein Problem. Bitte sag deinen Termin
+        <strong>spätestens 24 Stunden vorher</strong> ab, entweder direkt über Doctolib (Hamburg)
+        oder telefonisch. So kann ich den Termin an andere Patient:innen vergeben. Bei
+        kurzfristigen Absagen kann ein Ausfallhonorar anfallen.
       </p>
     </div>
   </section>
@@ -106,14 +94,14 @@ const checkliste = [
         <tbody>
           <tr>
             <td>Osteopathische Behandlung</td>
-            <td><Ph value={praxis.dauer} /></td>
+            <td>{praxis.dauer}</td>
             <td>{praxis.preis}</td>
           </tr>
         </tbody>
       </table>
       <p>
         Die Abrechnung erfolgt nach der Gebührenordnung für Heilpraktiker (GebüH). Du erhältst
-        nach jeder Behandlung eine Rechnung, die du – je nach Versicherung – einreichen kannst.
+        nach jeder Behandlung eine Rechnung, die du je nach Versicherung einreichen kannst.
       </p>
 
       <h3>Wer kann sich behandeln lassen?</h3>
@@ -128,9 +116,9 @@ const checkliste = [
         in welcher Höhe deine Krankenkasse sich beteiligt, ist unterschiedlich geregelt.
         <strong>
           Bitte informiere dich vorab direkt bei deiner Krankenkasse über Voraussetzungen und
-          Erstattungshöhe
+          Erstattungshöhe.
         </strong>
-        – häufig wird z. B. eine ärztliche Empfehlung vorausgesetzt.
+        Häufig wird zum Beispiel eine ärztliche Empfehlung vorausgesetzt.
       </p>
     </div>
   </section>

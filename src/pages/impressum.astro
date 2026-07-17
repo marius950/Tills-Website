@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Ph from '../components/Ph.astro';
-import { praxis } from '../config';
+import { praxis, hamburg, moelln } from '../config';
 ---
 
 <Base title="Impressum | Praxis für Osteopathie Till Schneider" description="Impressum der Praxis für Osteopathie Till Schneider.">
@@ -21,12 +21,21 @@ import { praxis } from '../config';
       <h2 class="mt-2">Angaben gemäß § 5 DDG</h2>
       <p>
         {praxis.name}<br />
-        {praxis.inhaber}<br />
-        <Ph value={praxis.strasse} /><br />
-        <Ph value={praxis.plzOrt} />
+        {praxis.inhaber}
       </p>
       <p>
-        Telefon: <Ph value={praxis.telefon} /><br />
+        <strong>Standort Hamburg:</strong><br />
+        {hamburg.adresse[0]}<br />
+        {hamburg.adresse[1]}<br />
+        {hamburg.adresse[2]}
+      </p>
+      <p>
+        <strong>Standort Mölln:</strong><br />
+        {moelln.adresse[0]}<br />
+        {moelln.adresse[1]}<br />
+        Telefon: <a href={moelln.telefonLink}>{moelln.telefon}</a>
+      </p>
+      <p>
         E-Mail: <Ph value={praxis.email} />
       </p>
 

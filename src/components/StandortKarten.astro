@@ -1,0 +1,130 @@
+---
+// Standortauswahl für die Terminbuchung: Hamburg (Doctolib) und Mölln (Telefon).
+// Doctolib gilt ausschließlich für Hamburg; Mölln läuft immer über Telefonkontakt.
+import { praxis, hamburg, moelln } from '../config';
+
+interface Props {
+  // 'buchung': Karten mit Buchungs-Buttons (Doctolib / Anruf)
+  // 'anker':   Karten verlinken auf Abschnitte der Kontaktseite (#hamburg / #moelln)
+  variante?: 'buchung' | 'anker';
+}
+const { variante = 'buchung' } = Astro.props;
+---
+
+<div class="standorte grid grid--2">
+  <!-- Hamburg -->
+  {variante === 'anker' ? (
+    <a href="#hamburg" class="standort-karte">
+      <figure class="photo-wrap standort-bild">
+        <img src={hamburg.bild} alt="Hamburg – Elbphilharmonie" loading="lazy" />
+      </figure>
+      <div class="standort-inhalt">
+        <h3>Hamburg</h3>
+        <p>{hamburg.adresse.join(', ')}</p>
+        <span class="btn btn--primary">Zum Standort Hamburg</span>
+      </div>
+    </a>
+  ) : (
+    <div class="standort-karte">
+      <figure class="photo-wrap standort-bild">
+        <img src={hamburg.bild} alt="Hamburg – Elbphilharmonie" loading="lazy" />
+      </figure>
+      <div class="standort-inhalt">
+        <h3>Termin in Hamburg buchen</h3>
+        <p>{hamburg.buchungText}</p>
+        <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">
+          Über Doctolib buchen
+        </a>
+      </div>
+    </div>
+  )}
+
+  <!-- Mölln -->
+  {variante === 'anker' ? (
+    <a href="#moelln" class="standort-karte">
+      <figure class="photo-wrap standort-bild">
+        <img src={moelln.bild} alt="Mölln – See im Naturpark Lauenburgische Seen" loading="lazy" />
+      </figure>
+      <div class="standort-inhalt">
+        <h3>Mölln</h3>
+        <p>{moelln.adresse.join(', ')}</p>
+        <span class="btn btn--primary">Zum Standort Mölln</span>
+      </div>
+    </a>
+  ) : (
+    <div class="standort-karte">
+      <figure class="photo-wrap standort-bild">
+        <img src={moelln.bild} alt="Mölln – See im Naturpark Lauenburgische Seen" loading="lazy" />
+      </figure>
+      <div class="standort-inhalt">
+        <h3>Termin in Mölln vereinbaren</h3>
+        <p>
+          {moelln.buchungText}<br />
+          <a href={moelln.telefonLink} class="standort-telefon">{moelln.telefon}</a>
+        </p>
+        <a href={moelln.telefonLink} class="btn btn--primary">Jetzt anrufen</a>
+      </div>
+    </div>
+  )}
+</div>
+
+<style>
+  .standort-karte {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid rgba(28, 27, 26, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  :global(.section--beige) .standort-karte {
+    background: var(--bg);
+  }
+
+  a.standort-karte:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(28, 27, 26, 0.12);
+  }
+
+  .standort-bild {
+    height: 210px;
+  }
+
+  .standort-bild img {
+    border-radius: 0;
+    height: 100%;
+  }
+
+  .standort-inhalt {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 1.5rem;
+    flex: 1;
+  }
+
+  .standort-inhalt h3 {
+    margin: 0;
+  }
+
+  .standort-inhalt p {
+    margin: 0;
+  }
+
+  .standort-inhalt .btn {
+    margin-top: auto;
+  }
+
+  .standort-telefon {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--text);
+    display: inline-block;
+    margin-top: 0.35rem;
+  }
+</style>

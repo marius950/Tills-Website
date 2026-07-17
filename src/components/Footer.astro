@@ -1,5 +1,5 @@
 ---
-import { praxis } from '../config';
+import { praxis, hamburg, moelln } from '../config';
 import Ph from './Ph.astro';
 ---
 
@@ -7,27 +7,34 @@ import Ph from './Ph.astro';
   <div class="wrap footer-grid">
     <div>
       <p class="footer-logo">Till Schneider<br /><span>Osteopathie · Physiotherapeut · Heilpraktiker</span></p>
+      <p class="footer-head">Standort Hamburg</p>
       <p>
-        {praxis.name}<br />
-        <Ph value={praxis.strasse} /><br />
-        <Ph value={praxis.plzOrt} />
+        {hamburg.adresse[0]}<br />
+        {hamburg.adresse[1]}<br />
+        {hamburg.adresse[2]}
+      </p>
+      <p class="footer-head">Standort Mölln</p>
+      <p>
+        {moelln.adresse[0]}<br />
+        {moelln.adresse[1]}<br />
+        Telefon: <a href={moelln.telefonLink}>{moelln.telefon}</a>
       </p>
     </div>
 
     <div>
       <p class="footer-head">Kontakt</p>
-      <p>
-        Telefon: <Ph value={praxis.telefon} /><br />
-        E-Mail: <Ph value={praxis.email} />
-      </p>
+      <p>E-Mail: <Ph value={praxis.email} /></p>
       <p class="footer-head">Behandlungszeiten</p>
       <p><Ph value={praxis.behandlungszeiten} /><br />Termine nach Vereinbarung.</p>
     </div>
 
     <div>
       <p class="footer-head">Termin</p>
-      <p>Buch dir deinen Termin bequem online – rund um die Uhr.</p>
-      <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">Termin buchen</a>
+      <p>
+        Termine für Hamburg buchst du online über Doctolib.
+        Termine für Mölln vereinbarst du telefonisch.
+      </p>
+      <a href="/terminbuchung/" class="btn btn--primary">Termin buchen</a>
     </div>
   </div>
 
@@ -48,6 +55,10 @@ import Ph from './Ph.astro';
     font-size: 0.95rem;
   }
 
+  .site-footer a {
+    color: #d9d4cb;
+  }
+
   .footer-grid {
     display: grid;
     gap: 2rem;
@@ -61,6 +72,7 @@ import Ph from './Ph.astro';
   .footer-logo {
     font-family: var(--font-head);
     font-size: 1.3rem;
+    font-weight: 700;
     color: #f5f2ec;
     line-height: 1.3;
   }
@@ -68,6 +80,7 @@ import Ph from './Ph.astro';
   .footer-logo span {
     font-family: var(--font-body);
     font-size: 0.72rem;
+    font-weight: 500;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: #c9b8a4;
@@ -92,7 +105,6 @@ import Ph from './Ph.astro';
   .footer-bottom p { margin: 0; }
 
   .footer-bottom a {
-    color: #d9d4cb;
     margin-left: 1rem;
   }
 

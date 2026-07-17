@@ -1,5 +1,12 @@
 ---
-import { praxis } from '../config';
+import fs from 'node:fs';
+
+// Praxislogo: sobald public/images/praxis-logo.png (oder .svg) vorliegt,
+// erscheint es automatisch oben links statt des Text-Logos.
+const logoDatei = ['public/images/praxis-logo.svg', 'public/images/praxis-logo.png'].find((p) =>
+  fs.existsSync(p)
+);
+const logoUrl = logoDatei ? logoDatei.replace('public', '') : null;
 
 const nav = [
   { href: '/', label: 'Start' },
@@ -15,7 +22,10 @@ const current = Astro.url.pathname;
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a href="/" class="logo">Till Schneider<span class="logo-sub">Osteopathie</span></a>
+    <a href="/" class="logo">
+      {logoUrl && <img src={logoUrl} class="logo-mark" alt="" width="512" height="512" />}
+      <span class="logo-text">Till Schneider<span class="logo-sub">Osteopathie</span></span>
+    </a>
 
     <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
       <ul>
@@ -27,12 +37,12 @@ const current = Astro.url.pathname;
           </li>
         ))}
         <li class="nav-cta-mobile">
-          <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">Termin buchen</a>
+          <a href="/terminbuchung/" class="btn btn--primary">Termin buchen</a>
         </li>
       </ul>
     </nav>
 
-    <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary header-cta">Termin buchen</a>
+    <a href="/terminbuchung/" class="btn btn--primary header-cta">Termin buchen</a>
 
     <button class="burger" id="burger" aria-expanded="false" aria-controls="main-nav" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
@@ -41,7 +51,7 @@ const current = Astro.url.pathname;
 </header>
 
 <!-- Mobiler Sticky-CTA am unteren Bildschirmrand -->
-<a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary sticky-cta">Termin buchen</a>
+<a href="/terminbuchung/" class="btn btn--primary sticky-cta">Termin buchen</a>
 
 <script>
   const burger = document.getElementById('burger');
@@ -71,13 +81,27 @@ const current = Astro.url.pathname;
   }
 
   .logo {
-    font-family: var(--font-head);
-    font-size: 1.25rem;
-    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
     text-decoration: none;
-    line-height: 1.1;
+  }
+
+  .logo-mark {
+    height: 46px;
+    width: 46px;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
     display: flex;
     flex-direction: column;
+    color: var(--text);
   }
 
   .logo-sub {

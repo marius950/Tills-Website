@@ -10,11 +10,11 @@ const gruppen = [
     fragen: [
       {
         f: 'Was passiert beim ersten Termin?',
-        a: `Der erste Termin beginnt mit einem ausführlichen Gespräch über deine Beschwerden, deine Krankengeschichte und deinen Alltag. Danach untersuche ich dich gründlich – mit Blick auf Beweglichkeit, Spannungsverhältnisse und mögliche Zusammenhänge. Anschließend erkläre ich dir meine Einschätzung in verständlicher Sprache, und wir besprechen gemeinsam das weitere Vorgehen. In der Regel beginnt die Behandlung bereits im ersten Termin. Plane insgesamt etwa ${praxis.dauer} ein.`,
+        a: `Der erste Termin beginnt mit einem ausführlichen Gespräch über deine Beschwerden, deine Krankengeschichte und deinen Alltag. Danach untersuche ich dich gründlich, mit Blick auf Beweglichkeit, Spannungsverhältnisse und mögliche Zusammenhänge. Anschließend erkläre ich dir meine Einschätzung verständlich, und wir besprechen gemeinsam das weitere Vorgehen. In der Regel beginnt die Behandlung bereits im ersten Termin. Eine osteopathische Behandlung dauert ${praxis.dauer}.`,
       },
       {
         f: 'Brauche ich eine ärztliche Verordnung?',
-        a: 'Nein. Als staatlich geprüfter Heilpraktiker darf ich dich auch ohne ärztliche Verordnung untersuchen und behandeln. Bei unklaren, akuten oder ernsthaften Beschwerden empfehle ich dennoch, diese zunächst ärztlich abklären zu lassen. Hinweis: Wenn deine gesetzliche Krankenkasse osteopathische Behandlungen bezuschusst, verlangt sie dafür häufig eine ärztliche Empfehlung – frag im Zweifel vorab bei deiner Kasse nach.',
+        a: 'Nein. Als staatlich geprüfter Heilpraktiker darf ich dich auch ohne ärztliche Verordnung untersuchen und behandeln. Bei unklaren, akuten oder ernsthaften Beschwerden empfehle ich dennoch, diese zunächst ärztlich abklären zu lassen. Hinweis: Wenn deine gesetzliche Krankenkasse osteopathische Behandlungen bezuschusst, verlangt sie dafür häufig eine ärztliche Empfehlung. Frag im Zweifel vorab bei deiner Kasse nach.',
       },
       {
         f: 'Was sollte ich zum Termin mitbringen?',
@@ -27,15 +27,15 @@ const gruppen = [
     fragen: [
       {
         f: 'Was kostet eine Behandlung?',
-        a: `Eine osteopathische Behandlung kostet ${praxis.preis} (Dauer: ${praxis.dauer}). Du erhältst nach jeder Behandlung eine Rechnung nach der Gebührenordnung für Heilpraktiker (GebüH), die du – je nach Versicherung – zur Erstattung einreichen kannst.`,
+        a: `Eine osteopathische Behandlung kostet ${praxis.preis}. Sie dauert ${praxis.dauer}. Du erhältst nach jeder Behandlung eine Rechnung nach der Gebührenordnung für Heilpraktiker (GebüH), die du je nach Versicherung zur Erstattung einreichen kannst.`,
       },
       {
         f: 'Übernimmt meine Krankenkasse die Kosten?',
-        a: 'Das hängt von deiner Versicherung ab. Private Krankenversicherungen und viele Zusatzversicherungen erstatten osteopathische Behandlungen ganz oder teilweise – ein Blick in deinen Tarif oder eine kurze Nachfrage lohnt sich. Einige gesetzliche Krankenkassen bezuschussen Osteopathie anteilig; Voraussetzungen und Erstattungshöhe sind unterschiedlich. Bitte informiere dich vorab direkt bei deiner Krankenkasse.',
+        a: 'Das hängt von deiner Versicherung ab. Private Krankenversicherungen und viele Zusatzversicherungen erstatten osteopathische Behandlungen ganz oder teilweise. Ein Blick in deinen Tarif oder eine kurze Nachfrage lohnt sich. Einige gesetzliche Krankenkassen bezuschussen Osteopathie anteilig; Voraussetzungen und Erstattungshöhe sind unterschiedlich. Bitte informiere dich vorab direkt bei deiner Krankenkasse.',
       },
       {
         f: 'Behandelst du auch gesetzlich Versicherte?',
-        a: 'Ja – als Selbstzahlende. Die Behandlung läuft dann auf eigene Rechnung. Einige gesetzliche Krankenkassen beteiligen sich anteilig an den Kosten; bitte kläre Voraussetzungen und Erstattungshöhe vorab direkt mit deiner Kasse.',
+        a: 'Ja, als Selbstzahlende. Die Behandlung läuft dann auf eigene Rechnung. Einige gesetzliche Krankenkassen beteiligen sich anteilig an den Kosten; bitte kläre Voraussetzungen und Erstattungshöhe vorab direkt mit deiner Kasse.',
       },
     ],
   },
@@ -44,19 +44,19 @@ const gruppen = [
     fragen: [
       {
         f: 'Wie viele Behandlungen sind notwendig?',
-        a: 'Das lässt sich seriös nicht pauschal beantworten – es hängt von deinem Beschwerdebild, dessen Dauer und deiner individuellen Situation ab. Häufig zeigt sich schon nach wenigen Terminen, ob und wie gut die Behandlung anschlägt. Nach dem ersten Termin gebe ich dir eine ehrliche Einschätzung. Mein Anspruch ist, so viele Termine wie nötig und so wenige wie möglich.',
+        a: 'Das lässt sich seriös nicht pauschal beantworten: Es hängt von deinem Beschwerdebild, dessen Dauer und deiner individuellen Situation ab. Häufig zeigt sich schon nach wenigen Terminen, ob und wie gut die Behandlung anschlägt. Nach dem ersten Termin gebe ich dir eine ehrliche Einschätzung. Mein Anspruch ist, so viele Termine wie nötig und so wenige wie möglich.',
       },
       {
         f: 'Ist Osteopathie schmerzhaft?',
-        a: 'Osteopathische Techniken sind in der Regel sanft. Manche Handgriffe können an verspannten oder empfindlichen Stellen kurzzeitig unangenehm sein – ich arbeite aber immer in Abstimmung mit dir und passe die Behandlung an. Nach einer Behandlung kann der Körper vorübergehend reagieren, etwa mit einem Gefühl wie Muskelkater. Das klingt üblicherweise nach kurzer Zeit wieder ab.',
+        a: 'Osteopathische Techniken sind in der Regel sanft. Manche Handgriffe können an verspannten oder empfindlichen Stellen kurzzeitig unangenehm sein. Ich arbeite aber immer in Abstimmung mit dir und passe die Behandlung an. Nach einer Behandlung kann der Körper vorübergehend reagieren, etwa mit einem Gefühl wie Muskelkater. Das klingt üblicherweise nach kurzer Zeit wieder ab.',
       },
       {
         f: 'Für welche Beschwerden kann Osteopathie geeignet sein?',
-        a: 'Je nach Beschwerdebild kann Osteopathie unterstützend eingesetzt werden – zum Beispiel bei Rücken-, Nacken- und Schulterschmerzen, Verspannungen, Bewegungseinschränkungen, spannungsbedingten Kopfschmerzen, Kieferbeschwerden, stressbedingten körperlichen Beschwerden und funktionellen Beschwerden ohne eindeutigen strukturellen Befund. Ob Osteopathie in deinem Fall sinnvoll sein kann, lässt sich am besten im ersten Termin einschätzen.',
+        a: 'Je nach Beschwerdebild kann Osteopathie unterstützend eingesetzt werden, zum Beispiel bei Rücken-, Nacken- und Schulterschmerzen, Verspannungen, Bewegungseinschränkungen, spannungsbedingten Kopfschmerzen, Kieferbeschwerden, stressbedingten körperlichen Beschwerden, funktionellen Beschwerden, Verdauungsbeschwerden und zyklusbedingten Beschwerden. Ob Osteopathie in deinem Fall sinnvoll sein kann, lässt sich am besten im ersten Termin einschätzen.',
       },
       {
         f: 'Wann sollte ich meine Beschwerden vorher ärztlich abklären lassen?',
-        a: 'Immer dann, wenn Beschwerden akut, stark, unklar oder ungewöhnlich sind – insbesondere nach Unfällen, bei rasch zunehmenden Schmerzen oder bei Begleitsymptomen wie Fieber, ungewolltem Gewichtsverlust, Taubheitsgefühlen oder Lähmungserscheinungen. Osteopathie ersetzt keine ärztliche Diagnostik. Im Zweifel gilt: erst ärztlich abklären, dann behandeln. Wenn sich im Termin Hinweise auf einen Abklärungsbedarf ergeben, sage ich dir das offen.',
+        a: 'Immer dann, wenn Beschwerden akut, stark, unklar oder ungewöhnlich sind, insbesondere nach Unfällen, bei rasch zunehmenden Schmerzen oder bei Begleitsymptomen wie Fieber, ungewolltem Gewichtsverlust, Taubheitsgefühlen oder Lähmungserscheinungen. Osteopathie ersetzt keine ärztliche Diagnostik. Im Zweifel gilt: erst ärztlich abklären, dann behandeln. Wenn sich im Termin Hinweise auf einen Abklärungsbedarf ergeben, sage ich dir das offen.',
       },
     ],
   },
@@ -64,12 +64,12 @@ const gruppen = [
     titel: 'Buchung',
     fragen: [
       {
-        f: 'Wie läuft die Terminbuchung über Doctolib?',
-        a: 'Klick auf „Termin buchen", wähl eine freie Zeit aus und bestätige die Buchung – bei der ersten Buchung legst du ein kostenloses Doctolib-Konto an. Du erhältst automatisch eine Bestätigung per E-Mail und eine Erinnerung vor dem Termin. Buchen ist rund um die Uhr möglich.',
+        f: 'Wie buche ich einen Termin?',
+        a: 'Termine für Hamburg buchst du online über Doctolib: Klick auf „Termin buchen", wähl den Standort Hamburg, such dir eine freie Zeit aus und bestätige die Buchung. Bei der ersten Buchung legst du ein kostenloses Doctolib-Konto an; du erhältst automatisch eine Bestätigung per E-Mail und eine Erinnerung vor dem Termin. Termine für Mölln können telefonisch vereinbart werden unter +49 4542 835328.',
       },
       {
         f: 'Wie kann ich einen Termin absagen oder verschieben?',
-        a: 'Am einfachsten direkt über Doctolib (in deiner Terminbestätigung oder deinem Konto) – oder telefonisch. Bitte spätestens 24 Stunden vorher, damit ich den Termin anderweitig vergeben kann. Bei kurzfristigeren Absagen ohne wichtigen Grund kann ein Ausfallhonorar anfallen.',
+        a: 'Termine für Hamburg sagst du am einfachsten direkt über Doctolib ab (in deiner Terminbestätigung oder deinem Konto), Termine für Mölln telefonisch. Bitte spätestens 24 Stunden vorher, damit ich den Termin anderweitig vergeben kann. Bei kurzfristigen Absagen kann ein Ausfallhonorar anfallen.',
       },
     ],
   },
@@ -117,7 +117,7 @@ const faqSchema = {
       <div class="notice mt-2">
         <p>
           <strong>Deine Frage war nicht dabei?</strong> Schreib mir an
-          <Ph value={praxis.email} /> – ich antworte so schnell wie möglich.
+          <Ph value={praxis.email} />. Ich antworte so schnell wie möglich.
         </p>
       </div>
 
