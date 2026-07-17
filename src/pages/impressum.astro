@@ -3,17 +3,19 @@ import Base from '../layouts/Base.astro';
 import { praxis, hamburg, moelln } from '../config';
 ---
 
-<Base title="Impressum | Praxis für Osteopathie Till Schneider" description="Impressum der Praxis für Osteopathie Till Schneider.">
+<Base
+  title="Impressum | Praxis für Osteopathie Till Schneider"
+  description="Impressum der Praxis für Osteopathie Till Schneider in Hamburg und Mölln."
+>
   <section class="section">
-    <div class="wrap content-center">
+    <div class="wrap content-center rechtstext">
       <h1>Impressum</h1>
 
       <div class="notice mt-2">
         <p>
-          <strong>Platzhalter-Seite.</strong> Das Impressum muss vor Veröffentlichung vollständig
-          und rechtssicher erstellt werden (Angaben nach § 5 DDG, Berufsbezeichnung,
-          Aufsichtsbehörde für Heilpraktiker, ggf. Kammer-/Berufsordnungsangaben). Empfehlung:
-          anwaltlich prüfen lassen oder einen geprüften Impressum-Generator verwenden.
+          <strong>Bitte vor Veröffentlichung prüfen.</strong> Dieser Entwurf enthält alle bekannten
+          Angaben. Die gelb markierten Felder muss Till ergänzen, danach diese Box entfernen.
+          Eine kurze anwaltliche oder steuerliche Prüfung wird empfohlen.
         </p>
       </div>
 
@@ -23,26 +25,117 @@ import { praxis, hamburg, moelln } from '../config';
         {praxis.inhaber}
       </p>
       <p>
-        <strong>Standort Hamburg:</strong><br />
+        <strong>Standort Hamburg</strong><br />
         {hamburg.adresse[0]}<br />
         {hamburg.adresse[1]}<br />
         {hamburg.adresse[2]}
       </p>
       <p>
-        <strong>Standort Mölln:</strong><br />
+        <strong>Standort Mölln</strong><br />
         {moelln.adresse[0]}<br />
-        {moelln.adresse[1]}<br />
-        Telefon: <a href={moelln.telefonLink}>{moelln.telefon}</a>
-      </p>
-      <p>
-        E-Mail: <a href={`mailto:${praxis.email}`}>{praxis.email}</a>
+        {moelln.adresse[1]}
       </p>
 
-      <h2>Berufsbezeichnung</h2>
+      <h2>Kontakt</h2>
       <p>
-        Staatlich geprüfter Physiotherapeut, Heilpraktiker (verliehen in der Bundesrepublik
-        Deutschland). <span class="ph">[Zuständige Aufsichtsbehörde einfügen]</span>
+        E-Mail: <a href={`mailto:${praxis.email}`}>{praxis.email}</a><br />
+        Telefon (Standort Mölln): <a href={moelln.telefonLink}>{moelln.telefon}</a>
+      </p>
+
+      <h2>Berufsbezeichnung und berufsrechtliche Angaben</h2>
+      <p>
+        Berufsbezeichnungen (verliehen in der Bundesrepublik Deutschland):
+      </p>
+      <ul>
+        <li>Staatlich geprüfter Physiotherapeut</li>
+        <li>Heilpraktiker</li>
+        <li>Osteopath (Ausbildung über 1350 Unterrichtseinheiten, BAO-geprüft)</li>
+      </ul>
+      <p>
+        Die osteopathische und heilkundliche Tätigkeit wird auf Grundlage der Heilpraktikererlaubnis
+        ausgeübt.
+      </p>
+
+      <h2>Zuständige Aufsichtsbehörde</h2>
+      <p>
+        Erteilung der Heilpraktikererlaubnis und Aufsicht:<br />
+        <span class="ph">[Zuständiges Gesundheitsamt / Behörde inkl. Anschrift einfügen – steht auf der Heilpraktiker-Erlaubnis]</span>
+      </p>
+
+      <h2>Berufsrechtliche Regelungen</h2>
+      <ul>
+        <li>Gesetz über die berufsmäßige Ausübung der Heilkunde ohne Bestallung (Heilpraktikergesetz – HeilprG)</li>
+        <li>Erste Durchführungsverordnung zum Heilpraktikergesetz (1. DFV-HeilprG)</li>
+        <li>Gesetz über die Berufe in der Physiotherapie (Masseur- und Physiotherapeutengesetz – MPhG)</li>
+      </ul>
+      <p>
+        Die Regelungen sind einsehbar unter
+        <a href="https://www.gesetze-im-internet.de" target="_blank" rel="noopener">www.gesetze-im-internet.de</a>.
+      </p>
+
+      <h2>Umsatzsteuer</h2>
+      <p>
+        Heilbehandlungen im Bereich der Humanmedizin sind gemäß § 4 Nr. 14 UStG von der
+        Umsatzsteuer befreit.
+        <span class="ph">[Falls Umsatzsteuer-Identifikationsnummer vorhanden, hier einfügen]</span>
+      </p>
+
+      <h2>Berufshaftpflichtversicherung</h2>
+      <p>
+        <span class="ph">[Name und Sitz des Versicherers sowie räumlicher Geltungsbereich einfügen]</span>
+      </p>
+
+      <h2>Redaktionell verantwortlich (§ 18 Abs. 2 MStV)</h2>
+      <p>
+        {praxis.inhaber}<br />
+        Anschrift wie oben (Standort Hamburg)
+      </p>
+
+      <h2>EU-Streitschlichtung</h2>
+      <p>
+        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+        <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.
+        Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucher­schlichtungsstelle
+        sind wir nicht verpflichtet und nicht bereit.
+      </p>
+
+      <h2>Haftung für Inhalte</h2>
+      <p>
+        Die Inhalte dieser Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
+        Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als
+        Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen
+        verantwortlich. Die Inhalte dieser Website dienen der allgemeinen Information und ersetzen
+        keine ärztliche Beratung, Diagnose oder Behandlung.
+      </p>
+
+      <h2>Haftung für Links</h2>
+      <p>
+        Unser Angebot enthält Links zu externen Websites Dritter (zum Beispiel zur
+        Terminbuchung über Doctolib), auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte
+        der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich.
+      </p>
+
+      <h2>Urheberrecht</h2>
+      <p>
+        Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
+        dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet.
+      </p>
+
+      <h2>Bildnachweise</h2>
+      <p>
+        Praxis- und Personenfotos: Till Schneider. Standortbild Mölln: Adobe Stock. Weitere Motive
+        in den Wissens-Artikeln: Unsplash.
+        <span class="ph">[Vor Livegang prüfen, dass für alle verwendeten Bilder gültige Lizenzen/Rechte vorliegen]</span>
       </p>
     </div>
   </section>
 </Base>
+
+<style>
+  .rechtstext h2 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .rechtstext p { margin-bottom: 0.75rem; }
+</style>

@@ -1,0 +1,173 @@
+---
+import Base from '../layouts/Base.astro';
+import { praxis, moelln } from '../config';
+---
+
+<Base
+  title="Leichte Sprache | Praxis für Osteopathie Till Schneider"
+  description="Informationen über die Praxis für Osteopathie Till Schneider in Leichter Sprache: Was ist Osteopathie, wo sind die Praxen und wie bekommst du einen Termin."
+>
+  <section class="section">
+    <div class="wrap ls">
+      <span class="eyebrow">Leichte Sprache</span>
+      <h1>Willkommen</h1>
+
+      <p>
+        Das hier ist die Internet-Seite von Till Schneider.
+        Diese Seite ist in Leichter Sprache.
+        Leichte Sprache ist gut zu verstehen.
+      </p>
+
+      <h2>Wer ist Till Schneider?</h2>
+      <p>
+        Till Schneider ist Osteopath.
+        Er hilft Menschen mit Schmerzen.
+        Zum Beispiel bei Rücken-Schmerzen oder Nacken-Schmerzen.
+      </p>
+      <p class="ls-info">
+        <strong>Was ist ein Osteopath?</strong><br />
+        Ein Osteopath untersucht und behandelt den Körper mit den Händen.
+        Er sucht die Ursache von Beschwerden.
+        Ursache heißt: Woher kommen die Schmerzen?
+      </p>
+
+      <h2>Wobei kann Osteopathie helfen?</h2>
+      <p>Osteopathie kann zum Beispiel helfen bei:</p>
+      <ul>
+        <li>Rücken-Schmerzen und Nacken-Schmerzen</li>
+        <li>Verspannungen</li>
+        <li>Kopf-Schmerzen</li>
+        <li>Schmerzen im Kiefer</li>
+        <li>Stress</li>
+        <li>Schmerzen nach dem Sport</li>
+      </ul>
+
+      <h2 class="ls-wichtig-titel">Wichtig</h2>
+      <div class="ls-info">
+        <p>
+          Osteopathie ist kein Ersatz für den Arzt.
+          Hast du starke Schmerzen?
+          Oder weißt du nicht, woher die Schmerzen kommen?
+          Dann geh bitte zuerst zum Arzt.
+        </p>
+      </div>
+
+      <h2>Es gibt 2 Praxen</h2>
+      <p>Till Schneider arbeitet an 2 Orten:</p>
+      <ul>
+        <li><strong>Praxis in Hamburg</strong></li>
+        <li><strong>Praxis in Mölln</strong></li>
+      </ul>
+      <p>Eine Praxis ist der Ort für die Behandlung.</p>
+
+      <h2>So bekommst du einen Termin</h2>
+      <p>Ein Termin ist eine feste Zeit für deinen Besuch.</p>
+      <p>
+        <strong>Termin in Hamburg:</strong><br />
+        Du buchst den Termin im Internet.
+        Das geht über die Seite Doctolib.
+        Doctolib ist eine Internet-Seite für Termine.
+      </p>
+      <p>
+        <strong>Termin in Mölln:</strong><br />
+        Du rufst an.
+        Die Telefon-Nummer ist:<br />
+        <a href={moelln.telefonLink} class="ls-tel">{moelln.telefon}</a>
+      </p>
+
+      <h2>Was kostet eine Behandlung?</h2>
+      <p>
+        Eine Behandlung kostet {praxis.preis}.
+        Eine Behandlung dauert ungefähr 50 Minuten.
+      </p>
+
+      <h2>So erreichst du Till Schneider</h2>
+      <p>
+        Du kannst eine E-Mail schreiben.
+        Die E-Mail-Adresse ist:<br />
+        <a href={`mailto:${praxis.email}`}>{praxis.email}</a>
+      </p>
+      <p>
+        Du kannst auch anrufen.
+        Die Telefon-Nummer für Mölln ist:<br />
+        <a href={moelln.telefonLink} class="ls-tel">{moelln.telefon}</a>
+      </p>
+
+      <div class="ls-cta">
+        <a href="/terminbuchung/" class="btn btn--primary">Zur Termin-Buchung</a>
+        <a href="/" class="btn btn--secondary">Zur normalen Start-Seite</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Leichte Sprache: große Schrift, viel Abstand, schmale Textspalte, linksbündig */
+  .ls {
+    max-width: 680px;
+    font-size: 1.25rem;
+    line-height: 1.8;
+  }
+
+  .ls h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .ls h2 {
+    font-size: 1.6rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .ls p {
+    margin-bottom: 1.25rem;
+  }
+
+  .ls ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  .ls li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .ls li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+    font-weight: 700;
+  }
+
+  .ls-info {
+    background: var(--bg-accent);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .ls-info p:last-child { margin-bottom: 0; }
+
+  .ls-wichtig-titel {
+    color: var(--primary);
+  }
+
+  .ls-tel {
+    font-weight: 700;
+    font-size: 1.4rem;
+    display: inline-block;
+    margin-top: 0.25rem;
+  }
+
+  .ls-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+  }
+</style>

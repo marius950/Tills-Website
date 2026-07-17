@@ -43,6 +43,7 @@ import { praxis, hamburg, moelln } from '../config';
   <div class="wrap footer-bottom">
     <p>© {new Date().getFullYear()} {praxis.name}</p>
     <nav aria-label="Rechtliches">
+      <a href="/leichte-sprache/" class="ls-link">Leichte Sprache</a>
       <a href="/impressum/">Impressum</a>
       <a href="/datenschutz/">Datenschutz</a>
     </nav>
@@ -106,9 +107,24 @@ import { praxis, hamburg, moelln } from '../config';
 
   .footer-bottom p { margin: 0; }
 
-  .footer-bottom a {
+  .footer-bottom nav a {
     margin-left: 1rem;
   }
 
-  .footer-bottom a:first-child { margin-left: 0; }
+  .footer-bottom nav a:first-child { margin-left: 0; }
+
+  /* Leichte-Sprache-Link als kleiner Button hervorgehoben */
+  .ls-link {
+    display: inline-block;
+    border: 1px solid rgba(245, 242, 236, 0.4);
+    border-radius: 999px;
+    padding: 0.25rem 0.85rem;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .ls-link:hover {
+    background: #f5f2ec;
+    color: var(--dark);
+  }
 </style>
