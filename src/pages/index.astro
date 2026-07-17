@@ -78,32 +78,34 @@ const ablauf = [
   title="Osteopathie in Hamburg & Mölln | Praxis Till Schneider"
   description="Evidenzbewusste Osteopathie bei Schmerzen, Stress & funktionellen Beschwerden in Hamburg und Mölln. Physiotherapeut, Heilpraktiker & Osteopath. Jetzt Termin buchen."
 >
-  <!-- Hero: großes Statement + vollbreites Bild (Referenz: osteopathiewerkstatt.de) -->
+  <!-- Hero: Statement-Text + Portrait von Till -->
   <section class="section hero">
-    <div class="wrap">
-      <p class="eyebrow">Osteopathie in Hamburg &amp; Mölln</p>
-      <h1 class="hero-title">Osteopathie, die Zusammenhänge versteht.</h1>
-      <p class="hero-sub">
-        Evidenzbewusste osteopathische Behandlung bei Schmerzen, Stress und funktionellen
-        Beschwerden. Individuell, verständlich und auf Augenhöhe.
-      </p>
-      <div class="hero-buttons">
-        <a href="#termin" class="btn btn--primary">Termin buchen</a>
-        <a href="/was-ist-osteopathie/" class="btn btn--secondary">Mehr über Osteopathie erfahren</a>
+    <div class="wrap hero-layout">
+      <div class="hero-text">
+        <p class="eyebrow">Osteopathie in Hamburg &amp; Mölln</p>
+        <h1 class="hero-title">Osteopathie, die Zusammenhänge versteht.</h1>
+        <p class="hero-sub">
+          Evidenzbewusste osteopathische Behandlung bei Schmerzen, Stress und funktionellen
+          Beschwerden. Individuell, verständlich und auf Augenhöhe.
+        </p>
+        <div class="hero-buttons">
+          <a href="#termin" class="btn btn--primary">Termin buchen</a>
+          <a href="/was-ist-osteopathie/" class="btn btn--secondary">Mehr über Osteopathie erfahren</a>
+        </div>
+        <p class="hero-intro">
+          Schmerzen haben selten nur eine Ursache. Als Osteopath und Physiotherapeut schaue ich
+          genau hin: Wo kommen deine Beschwerden her, was hängt womit zusammen und was können wir
+          gemeinsam dagegen tun? Ohne leere Versprechen, dafür mit Erfahrung, Sorgfalt und einem
+          Behandlungsansatz, der sich an aktuellem Wissen orientiert.
+        </p>
       </div>
-      <figure class="photo-wrap hero-photo">
+      <figure class="photo-wrap hero-portrait">
         <img
-          src="/images/hamburg-praxis-1.jpg"
-          alt="Behandlungsraum der Osteopathie-Praxis in Hamburg"
+          src="/images/till-portrait.jpg"
+          alt="Till Schneider, Osteopath in Hamburg und Mölln"
           loading="eager"
         />
       </figure>
-      <p class="hero-intro">
-        Schmerzen haben selten nur eine Ursache. Als Osteopath und Physiotherapeut schaue ich
-        genau hin: Wo kommen deine Beschwerden her, was hängt womit zusammen und was können wir
-        gemeinsam dagegen tun? Ohne leere Versprechen, dafür mit Erfahrung, Sorgfalt und einem
-        Behandlungsansatz, der sich an aktuellem Wissen orientiert.
-      </p>
     </div>
   </section>
 
@@ -215,7 +217,7 @@ const ablauf = [
   <section class="section section--beige">
     <div class="wrap hero-grid">
       <figure class="photo-wrap teaser-photo">
-        <img src="/images/till-portrait.jpg" alt="Till Schneider, Osteopath in Hamburg und Mölln" loading="lazy" />
+        <img src="/images/till-stadion.jpg" alt="Till Schneider im Stadion – Hintergrund als Physiotherapeut im NLZ des FC St. Pauli" loading="lazy" />
       </figure>
       <div>
         <span class="eyebrow">Über mich</span>
@@ -304,15 +306,23 @@ const ablauf = [
 </Base>
 
 <style>
+  .hero-layout {
+    display: grid;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .hero-layout { grid-template-columns: 1.1fr 0.9fr; }
+  }
+
   .hero-title {
-    font-size: clamp(2.4rem, 6.5vw, 4.3rem);
-    max-width: 1000px;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
   }
 
   .hero-sub {
     font-size: clamp(1.15rem, 2vw, 1.35rem);
     font-weight: 500;
-    max-width: 720px;
     margin-block: 1.5rem 1.75rem;
     text-wrap: pretty;
   }
@@ -323,24 +333,15 @@ const ablauf = [
     gap: 0.75rem;
   }
 
-  .hero-photo {
-    margin-top: clamp(2rem, 5vw, 3.5rem);
-  }
-
-  .hero-photo img {
-    aspect-ratio: 16 / 9;
-    max-height: 620px;
-    object-position: center 40%;
-  }
-
-  @media (max-width: 640px) {
-    .hero-photo img { aspect-ratio: 4 / 3; }
+  .hero-portrait img {
+    width: 100%;
+    max-height: 580px;
+    object-position: center 30%;
   }
 
   .hero-intro {
-    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-    max-width: 720px;
-    margin-top: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    margin-top: 1.75rem;
   }
 
   /* Über-mich-Teaser: zweispaltiges Layout */
