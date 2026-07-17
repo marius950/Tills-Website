@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import StandortKarten from '../components/StandortKarten.astro';
-import Ph from '../components/Ph.astro';
 import { praxis, moelln } from '../config';
 
 const checkliste = [
@@ -41,7 +40,7 @@ const checkliste = [
       <StandortKarten variante="buchung" />
 
       <p class="mt-2 small content-center">
-        Du hast vorab Fragen? Schreib an <Ph value={praxis.email} /> oder ruf für Mölln direkt
+        Du hast vorab Fragen? Schreib an <a href={`mailto:${praxis.email}`}>{praxis.email}</a> oder ruf für Mölln direkt
         unter <a href={moelln.telefonLink}>{moelln.telefon}</a> an.
       </p>
     </div>

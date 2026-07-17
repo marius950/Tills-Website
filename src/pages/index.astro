@@ -2,7 +2,6 @@
 import Base from '../layouts/Base.astro';
 import CtaBlock from '../components/CtaBlock.astro';
 import StandortKarten from '../components/StandortKarten.astro';
-import Ph from '../components/Ph.astro';
 import { praxis, hamburg, moelln } from '../config';
 
 const beschwerden = [
@@ -304,7 +303,7 @@ const ablauf = [
         {praxis.name}<br />
         Hamburg: {hamburg.adresse.join(', ')}<br />
         Mölln: {moelln.adresse.join(', ')}<br />
-        E-Mail: <Ph value={praxis.email} />
+        E-Mail: <a href={`mailto:${praxis.email}`}>{praxis.email}</a>
       </p>
     </div>
   </section>

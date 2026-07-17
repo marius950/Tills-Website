@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import Ph from '../components/Ph.astro';
 import { praxis } from '../config';
 ---
 
@@ -145,7 +144,7 @@ import { praxis } from '../config';
       <p class="mt-2">
         <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">Termin über Doctolib buchen</a>
       </p>
-      <p class="small">Oder schreib mir: <Ph value={praxis.email} /></p>
+      <p class="small">Oder schreib mir: <a href={`mailto:${praxis.email}`}>{praxis.email}</a></p>
     </div>
   </section>
 </Base>

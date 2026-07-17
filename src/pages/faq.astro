@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import CtaBlock from '../components/CtaBlock.astro';
-import Ph from '../components/Ph.astro';
 import { praxis } from '../config';
 
 const gruppen = [
@@ -117,7 +116,7 @@ const faqSchema = {
       <div class="notice mt-2">
         <p>
           <strong>Deine Frage war nicht dabei?</strong> Schreib mir an
-          <Ph value={praxis.email} />. Ich antworte so schnell wie möglich.
+          <a href={`mailto:${praxis.email}`}>{praxis.email}</a>. Ich antworte so schnell wie möglich.
         </p>
       </div>
 

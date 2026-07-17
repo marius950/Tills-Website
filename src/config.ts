@@ -5,7 +5,7 @@
 export const praxis = {
   name: 'Praxis für Osteopathie Till Schneider',
   inhaber: 'Till Schneider',
-  email: '[E-Mail-Adresse mit eigener Domain einfügen]',
+  email: 'info@osteopathie-hamburg-till.de',
   doctolib: 'https://www.doctolib.de/osteopath/hamburg/schneider-till',
   preis: '130 €',
   dauer: 'ca. 50 Minuten',

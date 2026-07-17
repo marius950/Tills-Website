@@ -50,7 +50,7 @@ import { praxis, hamburg, moelln } from '../config';
           <p><Ph value={praxis.behandlungszeiten} /><br />Termine nach Vereinbarung.</p>
 
           <h3>E-Mail</h3>
-          <p><Ph value={praxis.email} /></p>
+          <p><a href={`mailto:${praxis.email}`}>{praxis.email}</a></p>
         </div>
 
         <div class="standort-fotos">

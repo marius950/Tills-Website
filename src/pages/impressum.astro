@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import Ph from '../components/Ph.astro';
 import { praxis, hamburg, moelln } from '../config';
 ---
 
@@ -36,7 +35,7 @@ import { praxis, hamburg, moelln } from '../config';
         Telefon: <a href={moelln.telefonLink}>{moelln.telefon}</a>
       </p>
       <p>
-        E-Mail: <Ph value={praxis.email} />
+        E-Mail: <a href={`mailto:${praxis.email}`}>{praxis.email}</a>
       </p>
 
       <h2>Berufsbezeichnung</h2>

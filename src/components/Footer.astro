@@ -23,7 +23,7 @@ import Ph from './Ph.astro';
 
     <div>
       <p class="footer-head">Kontakt</p>
-      <p>E-Mail: <Ph value={praxis.email} /></p>
+      <p>E-Mail: <a href={`mailto:${praxis.email}`}>{praxis.email}</a></p>
       <p class="footer-head">Behandlungszeiten</p>
       <p><Ph value={praxis.behandlungszeiten} /><br />Termine nach Vereinbarung.</p>
     </div>
