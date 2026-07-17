@@ -4,7 +4,7 @@ description: 'Unterschied zwischen Kopfschmerzarten, typische Auslöser von Span
 pubDate: 2026-05-15
 lesedauer: '6 Min.'
 kategorie: 'Kopfschmerzen'
-bild: '/images/wissen-kopfschmerzen.jpg'
+bild: '/images/wissen-kopfschmerzen.webp'
 ---
 
 Ein dumpfer, drückender Schmerz, oft beidseitig, wie ein zu enges Band um den Kopf, so beschreiben viele Menschen Spannungskopfschmerzen. Sie sind die häufigste Kopfschmerzform überhaupt und in den meisten Fällen harmlos. Lästig sind sie trotzdem, besonders wenn sie regelmäßig wiederkommen.

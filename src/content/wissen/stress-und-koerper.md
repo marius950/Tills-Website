@@ -4,7 +4,7 @@ description: 'Die körperliche Seite von Dauerstress: erhöhte Muskelspannung, f
 pubDate: 2026-06-01
 lesedauer: '7 Min.'
 kategorie: 'Stress'
-bild: '/images/wissen-stress.jpg'
+bild: '/images/wissen-stress.webp'
 ---
 
 „Das ist bestimmt nur Stress." Dieser Satz klingt oft wie eine Verharmlosung, dabei beschreibt er einen sehr realen körperlichen Zustand. Stress ist keine Einbildung, sondern eine messbare Reaktion des Nervensystems. Und wenn diese Reaktion zum Dauerzustand wird, meldet sich der Körper.

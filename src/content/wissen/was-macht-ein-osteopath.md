@@ -4,7 +4,7 @@ description: 'Ein ehrlicher Blick hinter die Kulissen: Wie eine osteopathische U
 pubDate: 2026-03-15
 lesedauer: '8 Min.'
 kategorie: 'Osteopathie erklärt'
-bild: '/images/wissen-osteopath.jpg'
+bild: '/images/wissen-osteopath.webp'
 ---
 
 Wer noch nie bei einem Osteopathen war, hat oft nur eine vage Vorstellung davon, was dort eigentlich passiert. Irgendwas mit Händen? Einrenken? Sanftes Streichen? Zeit für einen ehrlichen Blick hinter die Kulissen, ohne Mystik und ohne Werbesprache.

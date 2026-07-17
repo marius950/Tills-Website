@@ -4,7 +4,7 @@ description: 'Was sagt die Forschung zur Osteopathie, differenziert nach Anwendu
 pubDate: 2026-02-15
 lesedauer: '8 Min.'
 kategorie: 'Evidenz'
-bild: '/images/wissen-evidenz.jpg'
+bild: '/images/wissen-evidenz.webp'
 ---
 
 Wer im Internet nach Osteopathie sucht, findet zwei Extreme: begeisterte Heilsversprechen auf der einen Seite, pauschale Ablehnung als „Pseudowissenschaft" auf der anderen. Beides wird der Sache nicht gerecht. Die ehrliche Antwort auf die Frage „Wirkt Osteopathie?" lautet: **Es kommt darauf an und für vieles wissen wir es noch nicht gut genug.**

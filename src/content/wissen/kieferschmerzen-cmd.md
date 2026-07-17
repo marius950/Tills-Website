@@ -4,7 +4,7 @@ description: 'Craniomandibuläre Dysfunktion verständlich erklärt: Symptome, Z
 pubDate: 2026-05-01
 lesedauer: '6 Min.'
 kategorie: 'Kiefer & CMD'
-bild: '/images/wissen-kiefer.jpg'
+bild: '/images/wissen-kiefer.webp'
 ---
 
 Knacken beim Kauen, Verspannung im Gesicht, morgendliche Kopfschmerzen oder ein Kiefer, der sich einfach nie ganz locker anfühlt: Kieferbeschwerden sind erstaunlich verbreitet und werden oft erst spät als solche erkannt, weil sich die Symptome an ganz anderen Stellen zeigen können.

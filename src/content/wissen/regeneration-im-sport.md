@@ -4,7 +4,7 @@ description: 'Erkenntnisse aus fünf Jahren Arbeit im Nachwuchsleistungszentrum:
 pubDate: 2026-04-01
 lesedauer: '7 Min.'
 kategorie: 'Sport & Regeneration'
-bild: '/images/wissen-sport.jpg'
+bild: '/images/wissen-sport.webp'
 ---
 
 Fünf Jahre habe ich als Physiotherapeut im Nachwuchsleistungszentrum des FC St. Pauli gearbeitet. Wenn ich eine Sache aus dieser Zeit mitgenommen habe, dann diese: Der Unterschied zwischen guten und sehr guten Entwicklungen liegt selten im Training allein, sondern oft in dem, was zwischen den Einheiten passiert.

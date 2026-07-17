@@ -4,7 +4,7 @@ description: 'Entscheidungshilfe für Unentschlossene: typische Beschwerdebilder
 pubDate: 2026-03-01
 lesedauer: '6 Min.'
 kategorie: 'Entscheidungshilfe'
-bild: '/images/wissen-entscheidung.jpg'
+bild: '/images/wissen-entscheidung.webp'
 ---
 
 „Bringt das bei mir überhaupt was?" Das ist vermutlich die ehrlichste Frage, die man vor einem Osteopathie-Termin stellen kann. Und sie verdient eine ehrlichere Antwort als ein pauschales „Klar!". Hier ist eine sachliche Entscheidungshilfe.

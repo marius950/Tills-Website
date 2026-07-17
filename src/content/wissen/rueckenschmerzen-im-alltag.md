@@ -4,7 +4,7 @@ description: 'Warum Rückenschmerzen selten nur eine Ursache haben, welche Rolle
 pubDate: 2026-07-01
 lesedauer: '7 Min.'
 kategorie: 'Rückenschmerzen'
-bild: '/images/blog-ruecken.jpg'
+bild: '/images/blog-ruecken.webp'
 ---
 
 Rückenschmerzen gehören zu den häufigsten Gründen, warum Menschen ärztliche oder therapeutische Hilfe suchen. Die gute Nachricht vorweg: In den meisten Fällen steckt keine ernsthafte Erkrankung dahinter. Die weniger gute: Genau deshalb lohnt es sich, genauer hinzuschauen, denn „nichts Ernstes" heißt nicht „nichts zu tun".

@@ -27,16 +27,6 @@ const datumFormat = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
         <Content />
       </div>
 
-      <!-- Autorenbox -->
-      <div class="card autorenbox mt-2">
-        <p>
-          <strong>Über den Autor:</strong> Till Schneider ist Osteopath, staatlich geprüfter
-          Physiotherapeut und Heilpraktiker. Fünf Jahre arbeitete er als Physiotherapeut im
-          Nachwuchsleistungszentrum des FC St. Pauli.
-          <a href="/ueber-mich/">Mehr über mich →</a>
-        </p>
-      </div>
-
       <!-- Pflicht-Disclaimer laut rechtlichem Leitfaden -->
       <p class="small disclaimer">
         Dieser Artikel dient der allgemeinen Information und ersetzt keine ärztliche Beratung,
@@ -72,8 +62,6 @@ const datumFormat = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
   .artikel-inhalt :global(blockquote p:last-child) {
     margin-bottom: 0;
   }
-
-  .autorenbox p { margin: 0; }
 
   .disclaimer {
     border-top: 1px solid rgba(28, 27, 26, 0.12);

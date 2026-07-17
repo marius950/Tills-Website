@@ -12,18 +12,23 @@ interface Props {
 
 const { title, description } = Astro.props;
 
-// LocalBusiness-Schema (Abschnitt 5.3 des Konzepts) mit beiden Standorten
-const localBusiness = {
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage = new URL('/og-image.jpg', Astro.site).toString();
+
+// Zwei eigenständige LocalBusiness-Einträge (je Standort) – besser für lokale SEO
+const schema = {
   '@context': 'https://schema.org',
-  '@type': 'MedicalBusiness',
-  name: praxis.name,
-  founder: praxis.inhaber,
-  url: Astro.site?.toString(),
-  priceRange: praxis.preis,
-  location: [
+  '@graph': [
     {
-      '@type': 'Place',
-      name: `${praxis.name} – Standort Hamburg`,
+      '@type': ['MedicalBusiness', 'Physiotherapy'],
+      '@id': `${siteUrl}/#hamburg`,
+      name: `${praxis.name} – Hamburg`,
+      founder: praxis.inhaber,
+      url: siteUrl,
+      email: praxis.email,
+      priceRange: praxis.preis,
+      medicalSpecialty: 'Osteopathic',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Durchschnitt 21, The Plaece Two',
@@ -31,10 +36,26 @@ const localBusiness = {
         addressLocality: 'Hamburg',
         addressCountry: 'DE',
       },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: 'Tuesday',
+          opens: '07:30',
+          closes: '13:30',
+        },
+      ],
+      sameAs: [praxis.doctolib],
     },
     {
-      '@type': 'Place',
-      name: `${praxis.name} – Standort Mölln`,
+      '@type': ['MedicalBusiness', 'Physiotherapy'],
+      '@id': `${siteUrl}/#moelln`,
+      name: `${praxis.name} – Mölln`,
+      founder: praxis.inhaber,
+      url: siteUrl,
+      telephone: moelln.telefon,
+      email: moelln.email,
+      priceRange: praxis.preis,
+      medicalSpecialty: 'Osteopathic',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Wasserkrüger Weg 127a',
@@ -42,7 +63,6 @@ const localBusiness = {
         addressLocality: 'Mölln',
         addressCountry: 'DE',
       },
-      telephone: moelln.telefon,
     },
   ],
 };
@@ -57,12 +77,21 @@ const localBusiness = {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="canonical" href={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
-    <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+    <meta property="og:site_name" content={praxis.name} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
   <body>
     <Header />

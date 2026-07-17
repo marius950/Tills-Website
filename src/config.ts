@@ -14,7 +14,7 @@ export const praxis = {
 export const hamburg = {
   name: 'Hamburg',
   adresse: ['Durchschnitt 21', 'The Plaece Two', '20146 Hamburg'],
-  bild: '/images/standort-hamburg.jpg',
+  bild: '/images/standort-hamburg.webp',
   buchungText: 'Die Terminbuchung für Hamburg erfolgt online über Doctolib.',
   zeiten: 'Dienstag, 7:30–13:30 Uhr',
 };
@@ -22,7 +22,7 @@ export const hamburg = {
 export const moelln = {
   name: 'Mölln',
   adresse: ['Wasserkrüger Weg 127a', '23879 Mölln'],
-  bild: '/images/standort-moelln.jpg',
+  bild: '/images/standort-moelln.webp',
   telefon: '+49 4542 835328',
   telefonLink: 'tel:+494542835328',
   email: 'info@osteo-moelln.de',

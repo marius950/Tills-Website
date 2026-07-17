@@ -4,7 +4,7 @@ description: 'Zusammenhänge zwischen Nacken, Brustwirbelsäule, Kiefer und Halt
 pubDate: 2026-06-15
 lesedauer: '6 Min.'
 kategorie: 'Nackenschmerzen'
-bild: '/images/wissen-nacken.jpg'
+bild: '/images/wissen-nacken.webp'
 ---
 
 Verspannter Nacken, ziehende Schultern, ein steifes Gefühl beim Umdrehen: Kaum eine Beschwerde ist im Büroalltag so verbreitet. Und kaum eine wird so oft nur dort behandelt, wo sie wehtut. Dabei ist der Nacken häufig eher der Ort, an dem sich ein Problem zeigt, als der Ort, an dem es entsteht.

@@ -4,7 +4,7 @@ description: 'Warum schlechter Schlaf und körperliche Anspannung sich gegenseit
 pubDate: 2026-04-15
 lesedauer: '6 Min.'
 kategorie: 'Schlaf'
-bild: '/images/wissen-schlaf.jpg'
+bild: '/images/wissen-schlaf.webp'
 ---
 
 Eigentlich sollte man erholt aufwachen. Stattdessen: steifer Nacken, verspannter Rücken, müde in den Tag. Wer regelmäßig verspannt aufwacht, sucht die Ursache oft bei Matratze oder Kissen, dabei ist das nächtliche Geschehen meist nur ein Teil eines größeren Musters.

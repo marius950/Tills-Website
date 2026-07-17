@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://osteopathie-till-schneider.de/sitemap-index.xml
