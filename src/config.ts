@@ -9,7 +9,6 @@ export const praxis = {
   doctolib: 'https://www.doctolib.de/osteopath/hamburg/schneider-till',
   preis: '130 €',
   dauer: 'ca. 50 Minuten',
-  behandlungszeiten: '[Behandlungszeiten einfügen – z. B. Mo–Fr 8:00–19:00 Uhr]',
 };
 
 export const hamburg = {
@@ -17,6 +16,7 @@ export const hamburg = {
   adresse: ['Durchschnitt 21', 'The Plaece Two', '20146 Hamburg'],
   bild: '/images/standort-hamburg.jpg',
   buchungText: 'Die Terminbuchung für Hamburg erfolgt online über Doctolib.',
+  zeiten: 'Dienstag, 7:30–13:30 Uhr',
 };
 
 export const moelln = {
@@ -27,4 +27,5 @@ export const moelln = {
   telefonLink: 'tel:+494542835328',
   email: 'info@osteo-moelln.de',
   buchungText: 'Termine in Mölln können telefonisch vereinbart werden.',
+  zeiten: 'Flexibel nach Vereinbarung',
 };

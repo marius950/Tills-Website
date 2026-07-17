@@ -1,6 +1,5 @@
 ---
 import { praxis, hamburg, moelln } from '../config';
-import Ph from './Ph.astro';
 ---
 
 <footer class="site-footer">
@@ -25,7 +24,10 @@ import Ph from './Ph.astro';
       <p class="footer-head">Kontakt</p>
       <p>E-Mail: <a href={`mailto:${praxis.email}`}>{praxis.email}</a></p>
       <p class="footer-head">Behandlungszeiten</p>
-      <p><Ph value={praxis.behandlungszeiten} /><br />Termine nach Vereinbarung.</p>
+      <p>
+        Hamburg: {hamburg.zeiten}<br />
+        Mölln: {moelln.zeiten}
+      </p>
     </div>
 
     <div>

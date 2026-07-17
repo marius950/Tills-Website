@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import StandortKarten from '../components/StandortKarten.astro';
-import Ph from '../components/Ph.astro';
 import { praxis, hamburg, moelln } from '../config';
 ---
 
@@ -47,7 +46,7 @@ import { praxis, hamburg, moelln } from '../config';
           </a>
 
           <h3>Behandlungszeiten</h3>
-          <p><Ph value={praxis.behandlungszeiten} /><br />Termine nach Vereinbarung.</p>
+          <p>{hamburg.zeiten}</p>
 
           <h3>E-Mail</h3>
           <p><a href={`mailto:${praxis.email}`}>{praxis.email}</a></p>
@@ -89,6 +88,9 @@ import { praxis, hamburg, moelln } from '../config';
           <h3>Terminbuchung</h3>
           <p>Termine für Mölln können telefonisch vereinbart werden.</p>
           <a href={moelln.telefonLink} class="btn btn--primary">Jetzt anrufen</a>
+
+          <h3>Behandlungszeiten</h3>
+          <p>{moelln.zeiten}</p>
 
           <h3>Kontakt</h3>
           <p>
