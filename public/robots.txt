@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://osteopathie-till-schneider.de/sitemap-index.xml
+Sitemap: https://www.osteopathie-hamburg-till.de/sitemap-index.xml
