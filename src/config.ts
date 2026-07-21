@@ -6,7 +6,7 @@ export const praxis = {
   name: 'Praxis für Osteopathie Till Schneider',
   inhaber: 'Till Schneider',
   email: 'info@osteopathie-hamburg-till.de',
-  doctolib: 'https://www.doctolib.de/osteopath/hamburg/schneider-till',
+  doctolib: 'https://www.doctolib.de/osteopath/hamburg/till-schneider-hamburg',
   preis: '130 €',
   dauer: 'ca. 50 Minuten',
 };
@@ -17,6 +17,8 @@ export const hamburg = {
   bild: '/images/standort-hamburg.webp',
   buchungText: 'Die Terminbuchung für Hamburg erfolgt online über Doctolib.',
   zeiten: 'Dienstag, 7:30–13:30 Uhr',
+  telefon: '+49 177 4680535',
+  telefonLink: 'tel:+491774680535',
 };
 
 export const moelln = {

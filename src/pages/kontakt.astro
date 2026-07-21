@@ -48,8 +48,11 @@ import { praxis, hamburg, moelln } from '../config';
           <h3>Behandlungszeiten</h3>
           <p>{hamburg.zeiten}</p>
 
-          <h3>E-Mail</h3>
-          <p><a href={`mailto:${praxis.email}`}>{praxis.email}</a></p>
+          <h3>Kontakt</h3>
+          <p>
+            Telefon: <a href={hamburg.telefonLink}>{hamburg.telefon}</a><br />
+            E-Mail: <a href={`mailto:${praxis.email}`}>{praxis.email}</a>
+          </p>
         </div>
 
         <div class="standort-fotos">
