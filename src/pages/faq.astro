@@ -1,9 +1,26 @@
 ---
 import Base from '../layouts/Base.astro';
 import CtaBlock from '../components/CtaBlock.astro';
-import { praxis } from '../config';
+import { praxis, hamburg, moelln } from '../config';
 
 const gruppen = [
+  {
+    titel: 'Standorte & Termine',
+    fragen: [
+      {
+        f: 'Wo finde ich die Praxis in Hamburg?',
+        a: `Die Hamburger Praxis liegt im The Plaece Two, ${hamburg.adresse[0]}, ${hamburg.adresse[2]}, im Stadtteil Rotherbaum am Grindelviertel. Die Bushaltestellen Grindelhof und Universität/Staatsbibliothek sind rund 250 Meter entfernt, die U-Bahn-Stationen Schlump und Sternschanze etwa 700 Meter. Behandlungszeiten in Hamburg: ${hamburg.zeiten}. Termine buchst du online über Doctolib.`,
+      },
+      {
+        f: 'Wie bekomme ich einen Termin in Mölln?',
+        a: `Termine in Mölln vereinbarst du telefonisch unter ${moelln.telefon}, flexibel nach Absprache. Eine Online-Buchung gibt es für Mölln nicht. Die Praxis liegt am ${moelln.adresse[0]} in ${moelln.adresse[1]}, gut erreichbar auch aus Ratzeburg, Schwarzenbek und Lauenburg.`,
+      },
+      {
+        f: 'Behandelst du an beiden Standorten gleich?',
+        a: `Ja. Ablauf, Behandlungsdauer (${praxis.dauer}) und Preis (${praxis.preis}) sind in Hamburg und Mölln identisch. Der Unterschied liegt nur in der Terminvereinbarung: Hamburg online über Doctolib, Mölln telefonisch.`,
+      },
+    ],
+  },
   {
     titel: 'Erster Termin',
     fragen: [

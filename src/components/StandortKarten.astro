@@ -35,6 +35,7 @@ const { variante = 'buchung' } = Astro.props;
         <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">
           Über Doctolib buchen
         </a>
+        <a href={hamburg.seite} class="standort-mehr">Praxis Hamburg-Rotherbaum ansehen</a>
       </div>
     </div>
   )}
@@ -63,6 +64,7 @@ const { variante = 'buchung' } = Astro.props;
           <a href={moelln.telefonLink} class="standort-telefon">{moelln.telefon}</a>
         </p>
         <a href={moelln.telefonLink} class="btn btn--primary">Jetzt anrufen</a>
+        <a href={moelln.seite} class="standort-mehr">Praxis Mölln ansehen</a>
       </div>
     </div>
   )}
@@ -126,5 +128,12 @@ const { variante = 'buchung' } = Astro.props;
     color: var(--text);
     display: inline-block;
     margin-top: 0.35rem;
+  }
+
+  .standort-mehr {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--secondary);
+    margin-top: 0.85rem;
   }
 </style>

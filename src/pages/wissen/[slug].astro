@@ -11,6 +11,27 @@ export async function getStaticPaths() {
 const { artikel } = Astro.props;
 const { Content } = await render(artikel);
 const datumFormat = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
+
+// Thematisch verwandte Artikel: Beschwerdebilder, die häufig zusammenhängen.
+// Ergänzt die interne Verlinkung, ohne dass Links im Text gepflegt werden müssen.
+const themenCluster: Record<string, string[]> = {
+  'nackenschmerzen-verspannungen': ['spannungskopfschmerzen', 'kieferschmerzen-cmd', 'stress-und-koerper'],
+  spannungskopfschmerzen: ['nackenschmerzen-verspannungen', 'kieferschmerzen-cmd', 'stress-und-koerper'],
+  'kieferschmerzen-cmd': ['spannungskopfschmerzen', 'nackenschmerzen-verspannungen', 'stress-und-koerper'],
+  'stress-und-koerper': ['schlaf-und-anspannung', 'spannungskopfschmerzen', 'nackenschmerzen-verspannungen'],
+  'schlaf-und-anspannung': ['stress-und-koerper', 'nackenschmerzen-verspannungen', 'rueckenschmerzen-im-alltag'],
+  'rueckenschmerzen-im-alltag': ['nackenschmerzen-verspannungen', 'regeneration-im-sport', 'wann-osteopathie-sinnvoll'],
+  'regeneration-im-sport': ['rueckenschmerzen-im-alltag', 'schlaf-und-anspannung', 'was-macht-ein-osteopath'],
+  'was-macht-ein-osteopath': ['wie-wirksam-ist-osteopathie', 'wann-osteopathie-sinnvoll', 'rueckenschmerzen-im-alltag'],
+  'wann-osteopathie-sinnvoll': ['was-macht-ein-osteopath', 'wie-wirksam-ist-osteopathie', 'rueckenschmerzen-im-alltag'],
+  'wie-wirksam-ist-osteopathie': ['was-macht-ein-osteopath', 'wann-osteopathie-sinnvoll', 'rueckenschmerzen-im-alltag'],
+};
+
+const alle = await getCollection('wissen');
+const verwandteIds = themenCluster[artikel.id] ?? [];
+const verwandte = verwandteIds
+  .map((id) => alle.find((a) => a.id === id))
+  .filter((a): a is (typeof alle)[number] => Boolean(a));
 ---
 
 <Base title={`${artikel.data.title} | Wissen – Till Schneider`} description={artikel.data.description}>
@@ -27,6 +48,20 @@ const datumFormat = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
         <Content />
       </div>
 
+      {verwandte.length > 0 && (
+        <aside class="verwandt">
+          <h2>Passend zum Thema</h2>
+          <ul>
+            {verwandte.map((v) => (
+              <li>
+                <a href={`/wissen/${v.id}/`}>{v.data.title}</a>
+                <span class="verwandt-meta">{v.data.kategorie} · {v.data.lesedauer}</span>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
+
       <!-- Pflicht-Disclaimer laut rechtlichem Leitfaden -->
       <p class="small disclaimer">
         Dieser Artikel dient der allgemeinen Information und ersetzt keine ärztliche Beratung,
@@ -34,7 +69,7 @@ const datumFormat = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
         deine Ärztin oder deinen Arzt.
       </p>
 
-      <CtaBlock text="Beschwerden, die du kennst?" button="Termin vereinbaren" />
+      <CtaBlock text="Beschwerden, die du kennst?" button="Termin vereinbaren" standorte={true} />
     </div>
   </article>
 </Base>
@@ -67,5 +102,41 @@ const datumFormat = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
     border-top: 1px solid rgba(28, 27, 26, 0.12);
     padding-top: 1rem;
     margin-top: 2rem;
+  }
+
+  .verwandt {
+    margin-top: 2.5rem;
+    background: var(--bg-accent);
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+
+  .verwandt h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .verwandt ul {
+    list-style: none;
+    margin: 0;
+  }
+
+  .verwandt li {
+    padding-block: 0.45rem;
+    border-bottom: 1px solid rgba(28, 27, 26, 0.08);
+  }
+
+  .verwandt li:last-child {
+    border-bottom: none;
+  }
+
+  .verwandt a {
+    font-weight: 600;
+    display: block;
+  }
+
+  .verwandt-meta {
+    font-size: 0.82rem;
+    color: var(--muted);
   }
 </style>

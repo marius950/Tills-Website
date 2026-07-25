@@ -1,16 +1,26 @@
 ---
 // Dezenter CTA-Baustein nach inhaltlichen Abschnitten.
 // Führt zur Standortauswahl (Hamburg via Doctolib / Mölln telefonisch).
+// Mit standorte={true} werden zusätzlich die beiden Standortseiten verlinkt.
+import { hamburg, moelln } from '../config';
+
 interface Props {
   text?: string;
   button?: string;
+  standorte?: boolean;
 }
-const { text, button = 'Termin buchen' } = Astro.props;
+const { text, button = 'Termin buchen', standorte = false } = Astro.props;
 ---
 
 <div class="cta-block">
   {text && <p>{text}</p>}
   <a href="/terminbuchung/" class="btn btn--primary">{button}</a>
+  {standorte && (
+    <p class="cta-standorte">
+      Behandlung in <a href={hamburg.seite}>Hamburg-Rotherbaum</a> (dienstags, online buchbar)
+      oder <a href={moelln.seite}>Mölln</a> (telefonisch nach Vereinbarung).
+    </p>
+  )}
 </div>
 
 <style>
@@ -23,5 +33,13 @@ const { text, button = 'Termin buchen' } = Astro.props;
     font-family: var(--font-head);
     font-size: 1.25rem;
     margin-bottom: 1rem;
+  }
+
+  .cta-standorte {
+    font-size: 0.98rem !important;
+    font-weight: 500;
+    color: var(--muted);
+    margin-top: 1rem;
+    margin-bottom: 0 !important;
   }
 </style>

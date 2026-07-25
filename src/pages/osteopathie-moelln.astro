@@ -1,0 +1,260 @@
+---
+import Base from '../layouts/Base.astro';
+import { praxis, hamburg, moelln, mapsLink } from '../config';
+
+const ablauf = [
+  {
+    titel: 'Anruf',
+    text: `Du rufst unter ${moelln.telefon} an und wir finden einen Termin, der zu dir passt.`,
+  },
+  {
+    titel: 'Erster Termin',
+    text: 'Ausführliches Gespräch, gründliche Untersuchung, verständliche Einordnung und in der Regel schon die erste Behandlung.',
+  },
+  {
+    titel: 'Weiteres Vorgehen',
+    text: 'Wir besprechen, ob und wann Folgetermine sinnvoll sind und was du selbst tun kannst. So viele Termine wie nötig, so wenige wie möglich.',
+  },
+];
+---
+
+<Base
+  title="Osteopathie in Mölln – Praxis Till Schneider"
+  description="Osteopathische Behandlung in Mölln, Wasserkrüger Weg 127a. Termine flexibel nach Vereinbarung, telefonisch unter +49 4542 835328. 50 Minuten für 130 €."
+>
+  <section class="section">
+    <div class="wrap standort-hero">
+      <div>
+        <span class="eyebrow">Standort Mölln</span>
+        <h1>Osteopathie in Mölln</h1>
+        <p class="lead mt-2">
+          In Mölln behandle ich am Wasserkrüger Weg, gut erreichbar aus der Eulenspiegelstadt und
+          dem Umland. Termine vereinbaren wir flexibel und persönlich am Telefon.
+        </p>
+        <p>
+          Mein Ansatz ist evidenzbewusst und individuell: Ich schaue mir Zusammenhänge im Körper
+          an, erkläre dir meine Einschätzung verständlich und sage offen, wenn Osteopathie nicht
+          das passende Werkzeug ist.
+        </p>
+        <div class="hero-buttons">
+          <a href={moelln.telefonLink} class="btn btn--primary">Jetzt anrufen</a>
+          <a href="/was-ist-osteopathie/" class="btn btn--secondary">Was ist Osteopathie?</a>
+        </div>
+        <p class="telefon-gross">
+          <a href={moelln.telefonLink}>{moelln.telefon}</a>
+        </p>
+      </div>
+      <figure class="photo-wrap standort-foto">
+        <img src={moelln.praxisbild} alt="Behandlungsraum der Osteopathie-Praxis in Mölln" loading="eager" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Termin & Praxisdaten -->
+  <section class="section section--beige">
+    <div class="wrap">
+      <div class="grid grid--3">
+        <div class="card">
+          <h2>Adresse</h2>
+          <p>
+            {praxis.name}<br />
+            {moelln.adresse[0]}<br />
+            {moelln.adresse[1]}
+          </p>
+          <p class="mt-1">
+            <a href={mapsLink(moelln)} target="_blank" rel="noopener">Route planen</a>
+          </p>
+        </div>
+        <div class="card">
+          <h2>Termine</h2>
+          <p>{moelln.zeiten}</p>
+          <p>
+            In Mölln gibt es keine Online-Buchung. Ruf einfach an unter
+            <a href={moelln.telefonLink}>{moelln.telefon}</a>, dann finden wir gemeinsam einen
+            Termin.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Kosten &amp; Dauer</h2>
+          <p>
+            Eine osteopathische Behandlung dauert {praxis.dauer} und kostet {praxis.preis}.
+          </p>
+          <p>
+            Ich behandle Privatpatient:innen und Selbstzahlende. Die Rechnung erfolgt nach der
+            Gebührenordnung für Heilpraktiker (GebüH).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Praxis im Haus -->
+  <section class="section">
+    <div class="wrap content-center">
+      <span class="eyebrow">Gut zu wissen</span>
+      <h2>Die Praxis am Wasserkrüger Weg</h2>
+      <p class="mt-2">
+        In Mölln behandle ich in den Räumen einer bestehenden Praxis für Osteopathie und
+        Naturheilkunde. Deshalb läuft die Terminvereinbarung über die Telefonnummer der Praxis
+        vor Ort. Behandelt wirst du von mir persönlich, mit demselben Ansatz und denselben
+        Konditionen wie in Hamburg.
+      </p>
+      <p>
+        Falls du unsicher bist, ob Osteopathie für dein Anliegen passt: Ruf gern an, wir klären
+        das vorab in wenigen Minuten. Eine ehrliche Einschätzung kostet nichts.
+      </p>
+    </div>
+  </section>
+
+  <!-- Ablauf -->
+  <section class="section section--beige">
+    <div class="wrap content-center">
+      <span class="eyebrow">Ablauf</span>
+      <h2>Von der Terminanfrage bis zur Behandlung</h2>
+      <ol class="steps mt-2">
+        {ablauf.map((s) => (
+          <li>
+            <strong>{s.titel}</strong>
+            {s.text}
+          </li>
+        ))}
+      </ol>
+      <p class="mt-2">
+        Bring zum ersten Termin gerne vorhandene Befunde, eine Medikamentenliste, ein großes
+        Handtuch und bequeme Kleidung mit. Alle Details stehen unter
+        <a href="/terminbuchung/">Terminbuchung</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Anfahrt & Einzugsgebiet -->
+  <section class="section">
+    <div class="wrap content-center">
+      <span class="eyebrow">Anfahrt</span>
+      <h2>Mölln und Umgebung</h2>
+      <p class="mt-2">
+        Die Praxis liegt am Wasserkrüger Weg im Möllner Stadtteil Waldstadt, südlich der
+        Altstadt. Aus dem Kreis Herzogtum Lauenburg bist du schnell da, etwa aus Ratzeburg,
+        Schwarzenbek, Lauenburg/Elbe, Grambek oder Breitenfelde.
+      </p>
+      <ul class="anfahrt">
+        <li>
+          <strong>Mit dem Bus:</strong> Die Haltestelle Mölln, Friedenstraße liegt rund 50 Meter
+          entfernt, die Haltestelle Berliner Straße etwa 150 Meter.
+        </li>
+        <li>
+          <strong>Mit dem Auto:</strong> Der Wasserkrüger Weg ist eine der Hauptachsen durch
+          Mölln und aus allen Richtungen gut erreichbar.
+        </li>
+        <li>
+          <strong>Zu Fuß und mit dem Rad:</strong> Aus der Möllner Innenstadt und den umliegenden
+          Wohngebieten in wenigen Minuten erreichbar.
+        </li>
+      </ul>
+      <p>
+        <a href={mapsLink(moelln)} target="_blank" rel="noopener">Route zur Praxis in Mölln planen</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Wobei unterstützen -->
+  <section class="section section--beige">
+    <div class="wrap content-center">
+      <span class="eyebrow">Behandlungsanlässe</span>
+      <h2>Wobei Osteopathie unterstützen kann</h2>
+      <p class="mt-2">
+        Je nach Beschwerdebild kann eine osteopathische Behandlung unterstützend eingesetzt
+        werden, zum Beispiel bei:
+      </p>
+      <ul>
+        <li>Rücken-, Nacken- und Schulterschmerzen</li>
+        <li>Verspannungen und Bewegungseinschränkungen</li>
+        <li>Spannungsbedingten Kopfschmerzen und Kieferbeschwerden</li>
+        <li>Stressbedingten körperlichen Beschwerden</li>
+        <li>Verdauungsbeschwerden und zyklusbedingten Beschwerden</li>
+        <li>Belastungsbeschwerden im Sport</li>
+      </ul>
+      <div class="notice">
+        <p>
+          <strong>Wichtig:</strong> Osteopathie ersetzt keine ärztliche Diagnostik. Bei akuten,
+          unklaren oder ernsthaften Beschwerden lass diese bitte zuerst ärztlich abklären.
+        </p>
+      </div>
+      <p>
+        Mehr zu den einzelnen Themen findest du in meinen
+        <a href="/wissen/">Wissens-Artikeln</a>, etwa zu
+        <a href="/wissen/rueckenschmerzen-im-alltag/">Rückenschmerzen im Alltag</a> oder
+        <a href="/wissen/kieferschmerzen-cmd/">Kieferbeschwerden und CMD</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Abschluss-CTA -->
+  <section class="section section--dark">
+    <div class="wrap content-center center">
+      <h2>Termin in Mölln vereinbaren</h2>
+      <p class="mt-2">
+        Termine in Mölln vereinbaren wir telefonisch, flexibel nach Absprache.
+      </p>
+      <a href={moelln.telefonLink} class="btn btn--primary">Jetzt anrufen: {moelln.telefon}</a>
+      <p class="small mt-2">
+        Du bist in Hamburg unterwegs? Dienstags behandle ich dort:
+        <a href={hamburg.seite}>Osteopathie in Hamburg</a>.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .standort-hero {
+    display: grid;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .standort-hero { grid-template-columns: 1.1fr 0.9fr; }
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  .telefon-gross {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+  }
+
+  .telefon-gross a {
+    text-decoration: none;
+  }
+
+  .standort-foto img {
+    max-height: 480px;
+  }
+
+  .card h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .mt-1 { margin-top: 0.75rem; }
+
+  .anfahrt {
+    list-style: none;
+    margin-top: 1.25rem;
+  }
+
+  .anfahrt li {
+    padding-block: 0.5rem;
+  }
+</style>

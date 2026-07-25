@@ -44,6 +44,9 @@ import { praxis, hamburg, moelln } from '../config';
           <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">
             Termin in Hamburg buchen
           </a>
+          <p class="mehr-link">
+            <a href={hamburg.seite}>Praxis Hamburg-Rotherbaum: Anfahrt und Details</a>
+          </p>
 
           <h3>Behandlungszeiten</h3>
           <p>{hamburg.zeiten}</p>
@@ -91,6 +94,9 @@ import { praxis, hamburg, moelln } from '../config';
           <h3>Terminbuchung</h3>
           <p>Termine für Mölln können telefonisch vereinbart werden.</p>
           <a href={moelln.telefonLink} class="btn btn--primary">Jetzt anrufen</a>
+          <p class="mehr-link">
+            <a href={moelln.seite}>Praxis Mölln: Anfahrt und Details</a>
+          </p>
 
           <h3>Behandlungszeiten</h3>
           <p>{moelln.zeiten}</p>
@@ -139,6 +145,12 @@ import { praxis, hamburg, moelln } from '../config';
 
   .standort-info .btn {
     margin-top: 0.25rem;
+  }
+
+  .mehr-link {
+    margin-top: 0.85rem !important;
+    font-size: 0.95rem;
+    font-weight: 600;
   }
 
   .standort-fotos {

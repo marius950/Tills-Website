@@ -3,7 +3,7 @@ import '@fontsource-variable/inter';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { praxis, hamburg, moelln } from '../config';
+import { praxis, hamburg, moelln, mapsLink } from '../config';
 
 interface Props {
   title: string;
@@ -16,27 +16,41 @@ const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 const ogImage = new URL('/og-image.jpg', Astro.site).toString();
 
-// Zwei eigenständige LocalBusiness-Einträge (je Standort) – besser für lokale SEO
+// Strukturierte Daten: ein eigenständiger LocalBusiness-Eintrag je Standort
+// (stärkstes On-Page-Signal für lokale Suchen) plus Person-Eintrag für E-E-A-T.
+const standortSchema = (s: typeof hamburg | typeof moelln, id: string, extras = {}) => ({
+  '@type': ['MedicalBusiness', 'Physiotherapy'],
+  '@id': `${siteUrl}/#${id}`,
+  name: `${praxis.name} – ${s.name}`,
+  founder: { '@id': `${siteUrl}/#till-schneider` },
+  url: new URL(s.seite, Astro.site).toString(),
+  email: praxis.email,
+  telephone: s.telefon,
+  priceRange: praxis.preis,
+  medicalSpecialty: 'Osteopathic',
+  currenciesAccepted: 'EUR',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: s.strasse,
+    postalCode: s.plz,
+    addressLocality: s.ort,
+    addressCountry: 'DE',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: s.geo.lat,
+    longitude: s.geo.lon,
+  },
+  image: new URL(s.praxisbild, Astro.site).toString(),
+  hasMap: mapsLink(s),
+  ...extras,
+});
+
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
-    {
-      '@type': ['MedicalBusiness', 'Physiotherapy'],
-      '@id': `${siteUrl}/#hamburg`,
-      name: `${praxis.name} – Hamburg`,
-      founder: praxis.inhaber,
-      url: siteUrl,
-      telephone: hamburg.telefon,
-      email: praxis.email,
-      priceRange: praxis.preis,
-      medicalSpecialty: 'Osteopathic',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Durchschnitt 21, The Plaece Two',
-        postalCode: '20146',
-        addressLocality: 'Hamburg',
-        addressCountry: 'DE',
-      },
+    standortSchema(hamburg, 'hamburg', {
+      areaServed: ['Hamburg-Rotherbaum', 'Eimsbüttel', 'Harvestehude', 'Hamburg'],
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',
@@ -46,24 +60,30 @@ const schema = {
         },
       ],
       sameAs: [praxis.doctolib],
-    },
-    {
-      '@type': ['MedicalBusiness', 'Physiotherapy'],
-      '@id': `${siteUrl}/#moelln`,
-      name: `${praxis.name} – Mölln`,
-      founder: praxis.inhaber,
-      url: siteUrl,
-      telephone: moelln.telefon,
-      email: moelln.email,
-      priceRange: praxis.preis,
-      medicalSpecialty: 'Osteopathic',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Wasserkrüger Weg 127a',
-        postalCode: '23879',
-        addressLocality: 'Mölln',
-        addressCountry: 'DE',
+      potentialAction: {
+        '@type': 'ReserveAction',
+        target: praxis.doctolib,
+        name: 'Termin in Hamburg über Doctolib buchen',
       },
+    }),
+    standortSchema(moelln, 'moelln', {
+      areaServed: ['Mölln', 'Ratzeburg', 'Schwarzenbek', 'Lauenburg', 'Kreis Herzogtum Lauenburg'],
+    }),
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#till-schneider`,
+      name: praxis.inhaber,
+      url: new URL('/ueber-mich/', Astro.site).toString(),
+      image: new URL('/images/till-portrait.webp', Astro.site).toString(),
+      jobTitle: ['Osteopath', 'Physiotherapeut', 'Heilpraktiker'],
+      knowsAbout: [
+        'Osteopathie',
+        'Physiotherapie',
+        'Sportphysiotherapie',
+        'Manuelle Therapie',
+        'Craniomandibuläre Dysfunktion',
+      ],
+      worksFor: [{ '@id': `${siteUrl}/#hamburg` }, { '@id': `${siteUrl}/#moelln` }],
     },
   ],
 };

@@ -1,0 +1,237 @@
+---
+import Base from '../layouts/Base.astro';
+import { praxis, hamburg, moelln, mapsLink } from '../config';
+
+const beschwerden = [
+  'Rücken- und Nackenschmerzen durch langes Sitzen am Schreibtisch',
+  'Verspannungen und Bewegungseinschränkungen',
+  'Spannungsbedingte Kopfschmerzen und Kieferbeschwerden',
+  'Stressbedingte körperliche Beschwerden',
+  'Belastungsbeschwerden aus Sport und Training',
+  'Funktionelle Beschwerden ohne eindeutigen Befund',
+];
+---
+
+<Base
+  title="Osteopathie in Hamburg (Rotherbaum) – Praxis Till Schneider"
+  description="Osteopathische Behandlung in Hamburg-Rotherbaum, im The Plaece am Grindel. Evidenzbewusst, 50 Minuten für 130 €. Termine dienstags, online buchbar über Doctolib."
+>
+  <section class="section">
+    <div class="wrap standort-hero">
+      <div>
+        <span class="eyebrow">Standort Hamburg</span>
+        <h1>Osteopathie in Hamburg-Rotherbaum</h1>
+        <p class="lead mt-2">
+          Meine Hamburger Praxis liegt im The Plaece am Durchschnitt, mitten im Grindelviertel
+          zwischen Universität und Messe. Hier behandle ich dienstags Privatpatient:innen und
+          Selbstzahlende.
+        </p>
+        <p>
+          Osteopathie bedeutet für mich: genau hinschauen, Zusammenhänge verstehen und
+          verständlich erklären, was in deinem Körper passiert. Ohne Heilversprechen, dafür mit
+          einer ehrlichen Einschätzung.
+        </p>
+        <div class="hero-buttons">
+          <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">
+            Termin in Hamburg buchen
+          </a>
+          <a href="/was-ist-osteopathie/" class="btn btn--secondary">Was ist Osteopathie?</a>
+        </div>
+      </div>
+      <figure class="photo-wrap standort-foto">
+        <img src={hamburg.praxisbild} alt="Behandlungsraum der Osteopathie-Praxis in Hamburg-Rotherbaum" loading="eager" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Praxisdaten -->
+  <section class="section section--beige">
+    <div class="wrap">
+      <div class="grid grid--3">
+        <div class="card">
+          <h2>Adresse</h2>
+          <p>
+            {praxis.name}<br />
+            {hamburg.adresse[0]}<br />
+            {hamburg.adresse[1]}<br />
+            {hamburg.adresse[2]}
+          </p>
+          <p class="mt-1">
+            <a href={mapsLink(hamburg)} target="_blank" rel="noopener">Route planen</a>
+          </p>
+        </div>
+        <div class="card">
+          <h2>Behandlungszeiten</h2>
+          <p>{hamburg.zeiten}</p>
+          <p>
+            Termine buchst du rund um die Uhr online über Doctolib. Da ich in Hamburg nur
+            dienstags behandle, lohnt sich eine frühzeitige Buchung.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Kosten &amp; Dauer</h2>
+          <p>
+            Eine osteopathische Behandlung dauert {praxis.dauer} und kostet {praxis.preis}.
+          </p>
+          <p>
+            Abrechnung nach der Gebührenordnung für Heilpraktiker (GebüH). Einige gesetzliche
+            Krankenkassen bezuschussen anteilig, bitte frag vorab bei deiner Kasse nach.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Anfahrt -->
+  <section class="section">
+    <div class="wrap content-center">
+      <span class="eyebrow">Anfahrt</span>
+      <h2>So findest du die Praxis</h2>
+      <p class="mt-2">
+        Die Praxis liegt im The Plaece Two am Durchschnitt, wenige Schritte vom Grindelhof und dem
+        Campus der Universität Hamburg entfernt. Aus Rotherbaum, dem Grindelviertel, Eimsbüttel
+        und Harvestehude bist du in wenigen Minuten da.
+      </p>
+      <ul class="anfahrt">
+        <li>
+          <strong>Mit dem Bus:</strong> Die Haltestellen Grindelhof und
+          Universität/Staatsbibliothek liegen rund 250 Meter entfernt, ebenso die Haltestelle
+          Heinrich-Hertz-Turm.
+        </li>
+        <li>
+          <strong>Mit der U-Bahn:</strong> Von Schlump (U2/U3) und Sternschanze sind es jeweils
+          etwa 700 Meter zu Fuß, die Station Hallerstraße (U1) liegt rund einen Kilometer entfernt.
+        </li>
+        <li>
+          <strong>Mit dem Rad:</strong> Das Grindelviertel ist gut angebunden, StadtRad-Stationen
+          gibt es im Umfeld von Universität und Messe.
+        </li>
+        <li>
+          <strong>Mit dem Auto:</strong> In den Straßen um den Durchschnitt gilt überwiegend
+          Parkraumbewirtschaftung. Plane etwas Zeit für die Parkplatzsuche ein oder komm mit
+          Bus und Bahn.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Beschwerdebilder -->
+  <section class="section section--beige">
+    <div class="wrap content-center">
+      <span class="eyebrow">Behandlungsanlässe</span>
+      <h2>Weshalb Patient:innen nach Hamburg kommen</h2>
+      <p class="mt-2">
+        Viele meiner Hamburger Patient:innen arbeiten am Schreibtisch, studieren im Grindelviertel
+        oder sind sportlich aktiv. Entsprechend häufig geht es um:
+      </p>
+      <ul>
+        {beschwerden.map((b) => <li>{b}</li>)}
+      </ul>
+      <div class="notice">
+        <p>
+          <strong>Wichtig:</strong> Osteopathie ersetzt keine ärztliche Diagnostik. Bei akuten,
+          unklaren oder ernsthaften Beschwerden ist die ärztliche Abklärung der erste Schritt.
+          Wenn ich das im Termin so einschätze, sage ich es dir offen.
+        </p>
+      </div>
+      <p>
+        Ausführlich beschrieben findest du die Beschwerdebilder unter
+        <a href="/was-ist-osteopathie/">Was ist Osteopathie?</a> und in meinen
+        <a href="/wissen/">Wissens-Artikeln</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sport & Evidenz: Hamburg-spezifische Positionierung -->
+  <section class="section">
+    <div class="wrap content-center">
+      <span class="eyebrow">Mein Hintergrund</span>
+      <h2>Erfahrung aus dem Leistungssport</h2>
+      <p class="mt-2">
+        Bevor ich osteopathisch gearbeitet habe, war ich als Physiotherapeut in den
+        Nachwuchsleistungszentren der Hamburg Towers und des FC St. Pauli tätig. Aus dieser Zeit
+        nehme ich zwei Dinge mit: einen genauen Blick auf Belastung und Regeneration, und die
+        Erfahrung, dass Behandlung dann nachhaltig wirkt, wenn man die Ursachen versteht.
+      </p>
+      <p>
+        Für sportlich aktive Patient:innen heißt das konkret: Wir schauen nicht nur auf die
+        schmerzende Stelle, sondern auch auf Trainingsumfang, Belastungssteuerung und Erholung.
+        Mehr dazu in meinem Artikel
+        <a href="/wissen/regeneration-im-sport/">Regeneration im Sport</a>.
+      </p>
+      <p>
+        Und weil Osteopathie zu Recht kritisch hinterfragt wird: Wie ich die Studienlage einordne,
+        habe ich in
+        <a href="/wissen/wie-wirksam-ist-osteopathie/">Wie wirksam ist Osteopathie?</a>
+        transparent aufgeschrieben.
+      </p>
+      <p class="mt-2">
+        <a href="/ueber-mich/" class="btn btn--secondary">Mehr über mich</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Abschluss-CTA -->
+  <section class="section section--dark">
+    <div class="wrap content-center center">
+      <h2>Termin in Hamburg buchen</h2>
+      <p class="mt-2">
+        Die Terminbuchung für Hamburg läuft online über Doctolib. Du siehst alle freien Zeiten in
+        Echtzeit und erhältst automatisch eine Bestätigung.
+      </p>
+      <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">
+        Über Doctolib buchen
+      </a>
+      <p class="small mt-2">
+        Fragen vorab? Schreib an <a href={`mailto:${praxis.email}`}>{praxis.email}</a> oder ruf an
+        unter <a href={hamburg.telefonLink}>{hamburg.telefon}</a>.<br />
+        Du wohnst näher an Mölln? Dort behandle ich ebenfalls:
+        <a href={moelln.seite}>Osteopathie in Mölln</a>.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .standort-hero {
+    display: grid;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .standort-hero { grid-template-columns: 1.1fr 0.9fr; }
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  .standort-foto img {
+    max-height: 480px;
+  }
+
+  .card h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .mt-1 { margin-top: 0.75rem; }
+
+  .anfahrt {
+    list-style: none;
+    margin-top: 1.25rem;
+  }
+
+  .anfahrt li {
+    padding-block: 0.5rem;
+  }
+</style>
