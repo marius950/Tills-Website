@@ -168,14 +168,54 @@ zweiten Behandlung persönlich fragen, QR-Code auf der Terminkarte. Keine Anreiz
 
 ---
 
-## 7. Nächster Content-Schritt (optional, Monat 2)
+## 7. Umland-Keywords: Ratzeburg und Schwarzenbek
 
-Die Landingpage deckt „Osteopathie Mölln" ab. Für das Umland lohnt später ein eigener
-Artikel mit echtem Mehrwert statt Ortsnamen-Austausch, zum Beispiel:
+SERP-Check (Sistrix, 03.08.2026) mit ehrlicher Einordnung:
 
-„Osteopathie im Kreis Herzogtum Lauenburg: Wann sich der Weg lohnt und wann nicht"
-mit Anfahrt aus Ratzeburg/Schwarzenbek/Lauenburg, realistischer Einordnung und
-Terminlogistik. Zielt auf „osteopathie ratzeburg" (kaum Anbieter).
+| Keyword | Lage auf Seite 1 | Einschätzung |
+|---|---|---|
+| osteopathie mölln | 6 von 9 Plätzen sind Verzeichnisse | **beste Chance**, Landingpage live |
+| osteopath mölln | kein Sistrix-Ergebnis | praktisch frei |
+| osteopathie **ratzeburg** | 4 spezialisierte Praxen (Ankerplatz, Anke Vollmer, Patrick Pfeifer, Julia Fleck) + Doctolib, Gelbe Seiten, osteopathie.de | **hart**, kein Quick Win |
+| osteopathie **schwarzenbek** | überwiegend Physio-Praxen mit Osteopathie als Nebenleistung, nur 2 spezialisierte Anbieter | **machbar**, mittelfristig |
+| osteopathie herzogtum lauenburg | kein Sistrix-Ergebnis | kein messbares Volumen |
+
+Beide Orte werden bewusst bearbeitet, mit realistischer Erwartung: Sie tragen kurzfristig
+kaum organischen Traffic, helfen aber bei der Conversion von Umland-Besuchern und bauen
+mittelfristig Ortsrelevanz auf.
+
+**Umgesetzt:**
+
+- Artikel [„Osteopathie im Kreis Herzogtum Lauenburg"](../src/content/wissen/osteopathie-moelln-umland.md)
+  mit eigenen H2-Abschnitten für Ratzeburg und Schwarzenbek, verifizierten Fahrzeiten
+  (OSRM: Ratzeburg 15 km/20 Min, Schwarzenbek 22 km/25–30 Min, Büchen 24 km, Trittau 25 km,
+  Lauenburg 37 km/40 Min) und ehrlicher Abgrenzung, wann eine Praxis vor Ort besser ist.
+- `areaServed` im Mölln-Schema enthält Ratzeburg, Schwarzenbek, Lauenburg und den Kreis.
+
+**Was den Orten mehr hilft als Onpage-Text:**
+
+1. **GBP-Einzugsgebiet:** im Mölln-Profil unter „Servicegebiete" Ratzeburg, Schwarzenbek,
+   Büchen und Lauenburg eintragen. Wirkt stärker als jede Ortsnennung im Text.
+2. **Verzeichnisse mit Ortsbezug:** Gelbe Seiten und Das Örtliche listen nach Ort, ein
+   Eintrag erscheint auch in Umgebungssuchen.
+3. **Bewertungen, in denen Patient:innen den Ort selbst nennen** („komme aus Ratzeburg").
+   Nicht steuerbar, aber sehr wirksam, wenn es passiert.
+4. **Ein lokaler Backlink aus Ratzeburg oder Schwarzenbek**, etwa Sportverein, Fitnessstudio
+   oder Lokalpresse. Ein einziger guter Link schlägt zehn Ortsnennungen im Text.
+
+**Nicht empfohlen:** eigene Landingpages `/osteopathie-ratzeburg/` und
+`/osteopathie-schwarzenbek/`. Ohne Praxis vor Ort wären das Doorway Pages, die Google
+abstraft, und die eigene Mölln-Seite würde kannibalisiert.
+
+## 8. Weiterer Content mit größerem Hebel
+
+Der Kosten-Artikel ist umgesetzt: „Was kostet Osteopathie? Preise, Erstattung und
+Krankenkassen-Zuschüsse ehrlich erklärt" (laut Strategiepapier rund 2.000 Suchanfragen pro
+Monat, transaktional, bundesweit). Er verlinkt beide Standortseiten und ist mit der
+FAQ-Kostenfrage verzahnt.
+
+Nächste Kandidaten aus der Roadmap: Sportler-Artikel (Nische mit glaubwürdiger NLZ-Story)
+und „Schreibtisch-Nacken" für die Hamburger Zielgruppe.
 
 ---
 

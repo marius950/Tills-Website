@@ -22,10 +22,11 @@ const themenCluster: Record<string, string[]> = {
   'schlaf-und-anspannung': ['stress-und-koerper', 'nackenschmerzen-verspannungen', 'rueckenschmerzen-im-alltag'],
   'rueckenschmerzen-im-alltag': ['nackenschmerzen-verspannungen', 'regeneration-im-sport', 'wann-osteopathie-sinnvoll'],
   'regeneration-im-sport': ['rueckenschmerzen-im-alltag', 'schlaf-und-anspannung', 'was-macht-ein-osteopath'],
-  'was-macht-ein-osteopath': ['wie-wirksam-ist-osteopathie', 'wann-osteopathie-sinnvoll', 'rueckenschmerzen-im-alltag'],
-  'wann-osteopathie-sinnvoll': ['was-macht-ein-osteopath', 'wie-wirksam-ist-osteopathie', 'osteopathie-moelln-umland'],
-  'wie-wirksam-ist-osteopathie': ['was-macht-ein-osteopath', 'wann-osteopathie-sinnvoll', 'rueckenschmerzen-im-alltag'],
-  'osteopathie-moelln-umland': ['wann-osteopathie-sinnvoll', 'was-macht-ein-osteopath', 'rueckenschmerzen-im-alltag'],
+  'was-macht-ein-osteopath': ['wie-wirksam-ist-osteopathie', 'wann-osteopathie-sinnvoll', 'was-kostet-osteopathie'],
+  'wann-osteopathie-sinnvoll': ['was-kostet-osteopathie', 'was-macht-ein-osteopath', 'wie-wirksam-ist-osteopathie'],
+  'wie-wirksam-ist-osteopathie': ['was-macht-ein-osteopath', 'wann-osteopathie-sinnvoll', 'was-kostet-osteopathie'],
+  'osteopathie-moelln-umland': ['was-kostet-osteopathie', 'wann-osteopathie-sinnvoll', 'was-macht-ein-osteopath'],
+  'was-kostet-osteopathie': ['wann-osteopathie-sinnvoll', 'was-macht-ein-osteopath', 'osteopathie-moelln-umland'],
 };
 
 const alle = await getCollection('wissen');
