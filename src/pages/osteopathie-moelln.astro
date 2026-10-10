@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import GoogleBewertungen from '../components/GoogleBewertungen.astro';
 import { praxis, hamburg, moelln, mapsLink } from '../config';
 
 const ablauf = [
@@ -190,6 +191,13 @@ const ablauf = [
   </section>
 
   <!-- Abschluss-CTA -->
+  <!-- Google-Bewertungen -->
+  <section class="section">
+    <div class="wrap">
+      <GoogleBewertungen variante="zitate" />
+    </div>
+  </section>
+
   <section class="section section--dark">
     <div class="wrap content-center center">
       <h2>Termin in Mölln vereinbaren</h2>
@@ -197,6 +205,7 @@ const ablauf = [
         Termine in Mölln vereinbaren wir telefonisch, flexibel nach Absprache.
       </p>
       <a href={moelln.telefonLink} class="btn btn--primary">Jetzt anrufen: {moelln.telefon}</a>
+      <p class="mt-2"><GoogleBewertungen variante="badge" /></p>
       <p class="small mt-2">
         Du bist in Hamburg unterwegs? Dienstags und mittwochs behandle ich dort:
         <a href={hamburg.seite}>Osteopathie in Hamburg</a>.

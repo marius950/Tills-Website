@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import StandortKarten from '../components/StandortKarten.astro';
+import GoogleBewertungen from '../components/GoogleBewertungen.astro';
 import { praxis, moelln } from '../config';
 
 const checkliste = [
@@ -38,6 +39,8 @@ const checkliste = [
         </p>
       </div>
       <StandortKarten variante="buchung" />
+
+      <p class="center mt-2"><GoogleBewertungen variante="badge" /></p>
 
       <p class="mt-2 small content-center">
         Du hast vorab Fragen? Schreib an <a href={`mailto:${praxis.email}`}>{praxis.email}</a> oder ruf für Mölln direkt
