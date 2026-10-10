@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import CtaBlock from '../components/CtaBlock.astro';
 import StandortKarten from '../components/StandortKarten.astro';
+import GoogleBewertungen from '../components/GoogleBewertungen.astro';
 import { praxis, hamburg, moelln } from '../config';
 
 const beschwerden = [
@@ -92,6 +93,7 @@ const ablauf = [
           <a href="#termin" class="btn btn--primary">Termin buchen</a>
           <a href="/was-ist-osteopathie/" class="btn btn--secondary">Mehr über Osteopathie erfahren</a>
         </div>
+        <p class="hero-proof"><GoogleBewertungen variante="badge" /></p>
         <p class="hero-intro">
           Schmerzen haben selten nur eine Ursache. Als Osteopath und Physiotherapeut schaue ich
           genau hin: Wo kommen deine Beschwerden her, was hängt womit zusammen und was können wir
@@ -121,6 +123,13 @@ const ablauf = [
         </p>
       </div>
       <StandortKarten variante="buchung" />
+    </div>
+  </section>
+
+  <!-- Google-Bewertungen -->
+  <section class="section">
+    <div class="wrap">
+      <GoogleBewertungen variante="zitate" />
     </div>
   </section>
 
@@ -331,6 +340,10 @@ const ablauf = [
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+  }
+
+  .hero-proof {
+    margin-top: 1rem;
   }
 
   .hero-portrait img {

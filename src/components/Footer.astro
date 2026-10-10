@@ -1,6 +1,7 @@
 ---
 import { praxis, hamburg, moelln } from '../config';
 import Behandlungszeiten from './Behandlungszeiten.astro';
+import GoogleBewertungen from './GoogleBewertungen.astro';
 ---
 
 <footer class="site-footer">
@@ -40,6 +41,7 @@ import Behandlungszeiten from './Behandlungszeiten.astro';
         Termine für Mölln vereinbarst du telefonisch.
       </p>
       <a href="/terminbuchung/" class="btn btn--primary">Termin buchen</a>
+      <p class="footer-proof"><GoogleBewertungen variante="badge" /></p>
     </div>
   </div>
 
@@ -90,6 +92,12 @@ import Behandlungszeiten from './Behandlungszeiten.astro';
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: #c9b8a4;
+  }
+
+  .footer-proof {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: 0.9rem;
   }
 
   .footer-head {

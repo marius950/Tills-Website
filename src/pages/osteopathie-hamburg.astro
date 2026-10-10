@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Behandlungszeiten from '../components/Behandlungszeiten.astro';
+import GoogleBewertungen from '../components/GoogleBewertungen.astro';
 import { praxis, hamburg, moelln, mapsLink } from '../config';
 
 const beschwerden = [
@@ -173,6 +174,13 @@ const beschwerden = [
   </section>
 
   <!-- Abschluss-CTA -->
+  <!-- Google-Bewertungen -->
+  <section class="section section--beige">
+    <div class="wrap">
+      <GoogleBewertungen variante="zitate" />
+    </div>
+  </section>
+
   <section class="section section--dark">
     <div class="wrap content-center center">
       <h2>Termin in Hamburg buchen</h2>
@@ -183,6 +191,7 @@ const beschwerden = [
       <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">
         Über Doctolib buchen
       </a>
+      <p class="mt-2"><GoogleBewertungen variante="badge" /></p>
       <p class="small mt-2">
         Fragen vorab? Schreib an <a href={`mailto:${praxis.email}`}>{praxis.email}</a> oder ruf an
         unter <a href={hamburg.telefonLink}>{hamburg.telefon}</a>.<br />
