@@ -11,6 +11,7 @@ Website-Konzept (Google Doc / `website-konzept-draft.md.docx`).
 | `npm run dev` | Dev-Server auf http://localhost:4321 |
 | `npm run build` | Produktions-Build nach `dist/` |
 | `npm run preview` | Build lokal testen |
+| `npm test` | Unit-Tests (Vitest) |
 
 ## Wo was gepflegt wird
 
@@ -59,3 +60,20 @@ Website-Konzept (Google Doc / `website-konzept-draft.md.docx`).
 
 Die Seite ist rein statisch und kann später ohne Änderungen zu jedem anderen Hoster
 umziehen (Inhalt von `dist/` = die komplette Website).
+
+## Google Ads & Cookie-Banner (optional)
+
+Cookie-Banner und Google-Ads-Tag sind nur aktiv, wenn in Vercel die Umgebungsvariable
+`PUBLIC_GOOGLE_ADS_ID` (Format `AW-123456789`) gesetzt ist. Ohne sie setzt die Seite keine
+Cookies und zeigt keinen Banner. Alle Variablen stehen in `.env.example`:
+
+| Variable | Wirkung |
+|---|---|
+| `PUBLIC_GOOGLE_ADS_ID` | aktiviert Banner und Tag (Consent Mode v2, Basis-Modus: Google lädt erst nach Einwilligung) |
+| `PUBLIC_ADS_LABEL_DOCTOLIB` | Conversion-Label für Klicks auf Doctolib-Links |
+| `PUBLIC_ADS_LABEL_ANRUF` | Conversion-Label für Klicks auf Telefonnummern |
+
+Ohne Labels werden die Klicks als Events `doctolib_klick` / `anruf_klick` gemeldet. Bei
+Änderungen an den Cookie-Kategorien `revision` in `src/scripts/consent.ts` hochzählen, damit
+Besucher:innen erneut gefragt werden. Die Datenschutzerklärung blendet die Abschnitte zu Cookies
+und Google Ads automatisch ein, sobald die Variable gesetzt ist.
