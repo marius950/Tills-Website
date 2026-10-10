@@ -1,0 +1,95 @@
+---
+// Schlanker Kopf für Anzeigen-Landingpages: Logo, Telefon und ein CTA, keine Navigation,
+// damit Besucher:innen aus der Anzeige nicht vom Buchungsziel abwandern.
+import { hamburg, praxis } from '../config';
+---
+
+<header class="lp-header">
+  <div class="wrap lp-header-inner">
+    <a href="/" class="lp-logo" aria-label="Zur Startseite">
+      Till Schneider<span>Osteopathie</span>
+    </a>
+    <div class="lp-header-actions">
+      <a href={hamburg.telefonLink} class="lp-tel">{hamburg.telefon}</a>
+      <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">
+        Termin buchen
+      </a>
+    </div>
+  </div>
+</header>
+
+<a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary lp-sticky-cta">
+  Termin bei Doctolib buchen
+</a>
+
+<style>
+  .lp-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 247, 242, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(28, 27, 26, 0.08);
+  }
+
+  .lp-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.85rem;
+  }
+
+  .lp-logo {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .lp-logo span {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--secondary);
+  }
+
+  .lp-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .lp-tel {
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .lp-sticky-cta { display: none; }
+
+  @media (max-width: 640px) {
+    .lp-header-actions .btn { display: none; }
+
+    .lp-sticky-cta {
+      display: block;
+      position: fixed;
+      bottom: 0.75rem;
+      left: 1rem;
+      right: 1rem;
+      z-index: 40;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(28, 27, 26, 0.25);
+    }
+
+    :global(body) { padding-bottom: 4.5rem; }
+  }
+</style>
