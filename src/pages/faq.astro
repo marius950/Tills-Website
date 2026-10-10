@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import CtaBlock from '../components/CtaBlock.astro';
-import { praxis, hamburg, moelln } from '../config';
+import { praxis, hamburg, moelln, zeitenSatz } from '../config';
 
 const gruppen = [
   {
@@ -9,7 +9,7 @@ const gruppen = [
     fragen: [
       {
         f: 'Wo finde ich die Praxis in Hamburg?',
-        a: `Die Hamburger Praxis liegt im The Plaece Two, ${hamburg.adresse[0]}, ${hamburg.adresse[2]}, im Stadtteil Rotherbaum am Grindelviertel. Die Bushaltestellen Grindelhof und Universität/Staatsbibliothek sind rund 250 Meter entfernt, die U-Bahn-Stationen Schlump und Sternschanze etwa 700 Meter. Behandlungszeiten in Hamburg: ${hamburg.zeiten}. Termine buchst du online über Doctolib.`,
+        a: `Die Hamburger Praxis liegt im The Plaece Two, ${hamburg.adresse[0]}, ${hamburg.adresse[2]}, im Stadtteil Rotherbaum am Grindelviertel. Die Bushaltestellen Grindelhof und Universität/Staatsbibliothek sind rund 250 Meter entfernt, die U-Bahn-Stationen Schlump und Sternschanze etwa 700 Meter. Behandlungszeiten in Hamburg: ${zeitenSatz(hamburg.zeiten)}. Termine buchst du online über Doctolib.`,
       },
       {
         f: 'Wie bekomme ich einen Termin in Mölln?',

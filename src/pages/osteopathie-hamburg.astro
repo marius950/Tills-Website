@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Behandlungszeiten from '../components/Behandlungszeiten.astro';
 import { praxis, hamburg, moelln, mapsLink } from '../config';
 
 const beschwerden = [
@@ -14,7 +15,7 @@ const beschwerden = [
 
 <Base
   title="Osteopathie in Hamburg (Rotherbaum) – Praxis Till Schneider"
-  description="Osteopathische Behandlung in Hamburg-Rotherbaum, im The Plaece am Grindel. Evidenzbewusst, 50 Minuten für 130 €. Termine dienstags, online buchbar über Doctolib."
+  description="Osteopathie in Hamburg-Rotherbaum, The Plaece am Grindel. Evidenzbewusst, 50 Minuten für 130 €. Termine dienstags und mittwochs, online buchbar über Doctolib."
 >
   <section class="section">
     <div class="wrap standort-hero">
@@ -23,7 +24,7 @@ const beschwerden = [
         <h1>Osteopathie in Hamburg-Rotherbaum</h1>
         <p class="lead mt-2">
           Meine Hamburger Praxis liegt im The Plaece am Durchschnitt, mitten im Grindelviertel
-          zwischen Universität und Messe. Hier behandle ich dienstags Privatpatient:innen und
+          zwischen Universität und Messe. Hier behandle ich dienstags und mittwochs Privatpatient:innen und
           Selbstzahlende.
         </p>
         <p>
@@ -62,10 +63,10 @@ const beschwerden = [
         </div>
         <div class="card">
           <h2>Behandlungszeiten</h2>
-          <p>{hamburg.zeiten}</p>
+          <p><Behandlungszeiten zeiten={hamburg.zeiten} /></p>
           <p>
             Termine buchst du rund um die Uhr online über Doctolib. Da ich in Hamburg nur
-            dienstags behandle, lohnt sich eine frühzeitige Buchung.
+            dienstags und mittwochs behandle, lohnt sich eine frühzeitige Buchung.
           </p>
         </div>
         <div class="card">

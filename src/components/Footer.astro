@@ -1,5 +1,6 @@
 ---
 import { praxis, hamburg, moelln } from '../config';
+import Behandlungszeiten from './Behandlungszeiten.astro';
 ---
 
 <footer class="site-footer">
@@ -26,9 +27,10 @@ import { praxis, hamburg, moelln } from '../config';
       <p>E-Mail: <a href={`mailto:${praxis.email}`}>{praxis.email}</a></p>
       <p class="footer-head">Behandlungszeiten</p>
       <p>
-        Hamburg: {hamburg.zeiten}<br />
-        Mölln: {moelln.zeiten}
+        Hamburg:<br />
+        <Behandlungszeiten zeiten={hamburg.zeiten} />
       </p>
+      <p>Mölln: {moelln.zeiten}</p>
     </div>
 
     <div>

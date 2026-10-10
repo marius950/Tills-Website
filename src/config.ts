@@ -10,6 +10,13 @@ export const praxis = {
   dauer: 'ca. 50 Minuten',
 };
 
+export interface Behandlungszeit {
+  tag: string; // Anzeige, z. B. 'Dienstag'
+  dayOfWeek: string; // schema.org, z. B. 'Tuesday'
+  von: string; // 'H:MM', z. B. '7:30'
+  bis: string;
+}
+
 export const hamburg = {
   name: 'Hamburg',
   seite: '/osteopathie-hamburg/',
@@ -23,7 +30,10 @@ export const hamburg = {
   bild: '/images/standort-hamburg.webp',
   praxisbild: '/images/hamburg-praxis-1.webp',
   buchungText: 'Die Terminbuchung für Hamburg erfolgt online über Doctolib.',
-  zeiten: 'Dienstag, 7:30–13:30 Uhr',
+  zeiten: [
+    { tag: 'Dienstag', dayOfWeek: 'Tuesday', von: '7:30', bis: '13:30' },
+    { tag: 'Mittwoch', dayOfWeek: 'Wednesday', von: '13:30', bis: '20:00' },
+  ] as Behandlungszeit[],
   telefon: '+49 177 4680535',
   telefonLink: 'tel:+491774680535',
 };
@@ -51,3 +61,13 @@ export const mapsLink = (s: typeof hamburg | typeof moelln) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     `${s.strasse}, ${s.plz} ${s.ort}`
   )}`;
+
+// „Dienstag, 7:30–13:30 Uhr" – eine Zeile je Tag (Karten, Footer)
+export const zeitenZeile = (zeit: Behandlungszeit) => `${zeit.tag}, ${zeit.von}–${zeit.bis} Uhr`;
+
+// „Dienstag 7:30–13:30 Uhr und Mittwoch 13:30–20:00 Uhr" – für Fließtext
+export const zeitenSatz = (zeiten: Behandlungszeit[]) =>
+  zeiten.map((zeit) => `${zeit.tag} ${zeit.von}–${zeit.bis} Uhr`).join(' und ');
+
+// schema.org erwartet Uhrzeiten im 24-Stunden-Format mit führender Null ('07:30')
+export const schemaZeit = (zeit: string) => zeit.padStart(5, '0');
