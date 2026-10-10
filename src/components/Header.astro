@@ -36,12 +36,16 @@ const current = Astro.url.pathname;
             </a>
           </li>
         ))}
+        <li class="nav-ls-mobile">
+          <a href="/leichte-sprache/" class="ls-button">Leichte Sprache</a>
+        </li>
         <li class="nav-cta-mobile">
           <a href="/terminbuchung/" class="btn btn--primary">Termin buchen</a>
         </li>
       </ul>
     </nav>
 
+    <a href="/leichte-sprache/" class="ls-button header-ls">Leichte Sprache</a>
     <a href="/terminbuchung/" class="btn btn--primary header-cta">Termin buchen</a>
 
     <button class="burger" id="burger" aria-expanded="false" aria-controls="main-nav" aria-label="Menü öffnen">
@@ -120,7 +124,7 @@ const current = Astro.url.pathname;
     list-style: none;
   }
 
-  .main-nav a:not(.btn) {
+  .main-nav a:not(.btn):not(.ls-button) {
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
@@ -129,12 +133,36 @@ const current = Astro.url.pathname;
     border-bottom: 2px solid transparent;
   }
 
-  .main-nav a:not(.btn):hover,
-  .main-nav a[aria-current='page']:not(.btn) {
+  .main-nav a:not(.btn):not(.ls-button):hover,
+  .main-nav a[aria-current='page']:not(.btn):not(.ls-button) {
     border-bottom-color: var(--primary);
   }
 
   .nav-cta-mobile { display: none; }
+  .nav-ls-mobile { display: none; }
+
+  /* Leichte Sprache als Pill-Button, wie der Link im Footer */
+  .ls-button {
+    display: inline-block;
+    border: 1px solid rgba(28, 27, 26, 0.35);
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .ls-button:hover {
+    background: var(--bg-accent);
+    border-color: var(--secondary);
+  }
+
+  .header-ls {
+    margin-left: auto;
+  }
 
   .burger {
     display: none;
@@ -154,8 +182,9 @@ const current = Astro.url.pathname;
 
   .sticky-cta { display: none; }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1080px) {
     .header-cta { display: none; }
+    .header-ls { display: none; }
     .burger { display: flex; }
 
     .main-nav {
@@ -177,10 +206,15 @@ const current = Astro.url.pathname;
       gap: 0.25rem;
     }
 
-    .main-nav a:not(.btn) {
+    .main-nav a:not(.btn):not(.ls-button) {
       display: block;
       padding: 0.6rem 0;
       font-size: 1.05rem;
+    }
+
+    .nav-ls-mobile {
+      display: block;
+      margin-top: 1rem;
     }
 
     .nav-cta-mobile {
