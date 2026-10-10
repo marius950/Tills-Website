@@ -1,0 +1,29 @@
+---
+// Cookie-Banner und Google-Ads-Tag. Nur aktiv, wenn PUBLIC_GOOGLE_ADS_ID gesetzt ist
+// (Feature-Flag per Konfiguration): Ohne Google-Tag setzt die Website keine Cookies,
+// dann braucht sie auch keinen Banner.
+const trackingAktiv = Boolean(import.meta.env.PUBLIC_GOOGLE_ADS_ID);
+---
+
+{trackingAktiv && <script src="../scripts/consent.ts"></script>}
+
+<style is:global>
+  /* Banner-Farben an die Design-Tokens der Website angleichen */
+  #cc-main {
+    --cc-font-family: var(--font-body);
+    --cc-bg: #fff;
+    --cc-primary-color: var(--text);
+    --cc-secondary-color: var(--muted);
+    --cc-btn-primary-bg: var(--primary);
+    --cc-btn-primary-border-color: var(--primary);
+    --cc-btn-primary-hover-bg: var(--primary-dark);
+    --cc-btn-primary-hover-border-color: var(--primary-dark);
+    --cc-btn-secondary-bg: var(--bg-accent);
+    --cc-btn-secondary-border-color: var(--bg-accent);
+    --cc-btn-secondary-hover-bg: #d9cdbd;
+    --cc-btn-secondary-hover-border-color: #d9cdbd;
+    --cc-toggle-on-bg: var(--primary);
+    --cc-modal-border-radius: 10px;
+    --cc-btn-border-radius: 999px;
+  }
+</style>
