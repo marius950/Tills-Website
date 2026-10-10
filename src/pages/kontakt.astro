@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import StandortKarten from '../components/StandortKarten.astro';
+import Behandlungszeiten from '../components/Behandlungszeiten.astro';
 import { praxis, hamburg, moelln } from '../config';
 ---
 
@@ -49,7 +50,7 @@ import { praxis, hamburg, moelln } from '../config';
           </p>
 
           <h3>Behandlungszeiten</h3>
-          <p>{hamburg.zeiten}</p>
+          <p><Behandlungszeiten zeiten={hamburg.zeiten} /></p>
 
           <h3>Kontakt</h3>
           <p>

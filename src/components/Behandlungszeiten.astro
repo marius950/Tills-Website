@@ -1,0 +1,18 @@
+---
+// Behandlungszeiten zeilenweise (ein Tag je Zeile) – für Karten und Footer.
+import { zeitenZeile, type Behandlungszeit } from '../config';
+
+interface Props {
+  zeiten: Behandlungszeit[];
+}
+const { zeiten } = Astro.props;
+---
+
+{
+  zeiten.map((zeit, index) => (
+    <>
+      {index > 0 && <br />}
+      {zeitenZeile(zeit)}
+    </>
+  ))
+}

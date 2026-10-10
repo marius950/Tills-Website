@@ -1,11 +1,26 @@
 ---
 import Base from '../layouts/Base.astro';
-import { praxis, moelln } from '../config';
+import { praxis, hamburg, moelln } from '../config';
+
+// Leichte Sprache schreibt Zeiträume aus („von 7:30 Uhr bis 13:30 Uhr") statt mit Gedankenstrich.
+const zeitLeicht = (von: string, bis: string) => `von ${von} Uhr bis ${bis} Uhr`;
+
+const inhalt = [
+  { href: '#till', text: 'Wer ist Till Schneider?' },
+  { href: '#osteopathie', text: 'Was ist Osteopathie?' },
+  { href: '#ablauf', text: 'So läuft eine Behandlung ab' },
+  { href: '#kosten', text: 'Was kostet eine Behandlung?' },
+  { href: '#hamburg', text: 'Die Praxis in Hamburg' },
+  { href: '#moelln', text: 'Die Praxis in Mölln' },
+  { href: '#mitbringen', text: 'Das bringst du zum Termin mit' },
+  { href: '#absagen', text: 'Du kannst nicht kommen?' },
+  { href: '#kontakt', text: 'So erreichst du Till Schneider' },
+];
 ---
 
 <Base
   title="Leichte Sprache | Praxis für Osteopathie Till Schneider"
-  description="Informationen über die Praxis für Osteopathie Till Schneider in Leichter Sprache: Was ist Osteopathie, wo sind die Praxen und wie bekommst du einen Termin."
+  description="Informationen über die Praxis für Osteopathie Till Schneider in Leichter Sprache: Was ist Osteopathie, wo sind die Praxen in Hamburg und Mölln, was kostet eine Behandlung und wie bekommst du einen Termin."
 >
   <section class="section">
     <div class="wrap ls">
@@ -13,28 +28,55 @@ import { praxis, moelln } from '../config';
       <h1>Willkommen</h1>
 
       <p>
-        Das hier ist die Internet-Seite von Till Schneider.
-        Diese Seite ist in Leichter Sprache.
+        Das ist die Internet-Seite von Till Schneider.<br />
+        Till Schneider ist Osteopath.<br />
+        Diese Seite ist in Leichter Sprache.<br />
         Leichte Sprache ist gut zu verstehen.
       </p>
 
-      <h2>Wer ist Till Schneider?</h2>
+      <p>Das steht auf dieser Seite:</p>
+      <ul>
+        {inhalt.map((punkt) => (
+          <li><a href={punkt.href}>{punkt.text}</a></li>
+        ))}
+      </ul>
+
+      <h2 id="till">Wer ist Till Schneider?</h2>
+      <figure class="ls-foto">
+        <img src="/images/till-portrait.webp" alt="Till Schneider" width="623" height="831" loading="lazy" />
+        <figcaption>Das ist Till Schneider.</figcaption>
+      </figure>
       <p>
-        Till Schneider ist Osteopath.
-        Er hilft Menschen mit Schmerzen.
-        Zum Beispiel bei Rücken-Schmerzen oder Nacken-Schmerzen.
+        Till Schneider ist Osteopath.<br />
+        Er hilft Menschen mit Schmerzen.<br />
+        Zum Beispiel bei Rücken-Schmerzen.<br />
+        Oder bei Nacken-Schmerzen.
       </p>
-      <p class="ls-info">
-        <strong>Was ist ein Osteopath?</strong><br />
-        Ein Osteopath untersucht und behandelt den Körper mit den Händen.
-        Er sucht die Ursache von Beschwerden.
-        Ursache heißt: Woher kommen die Schmerzen?
+      <p>
+        Till Schneider hat 3 Ausbildungen:<br />
+        Physiotherapeut, Heilpraktiker und Osteopath.<br />
+        Das heißt: Er kennt sich gut mit dem Körper aus.
+      </p>
+      <p>
+        Till Schneider hat 2 Praxen.<br />
+        Eine Praxis ist in Hamburg.<br />
+        Eine Praxis ist in Mölln.<br />
+        Eine Praxis ist der Ort für die Behandlung.
       </p>
 
-      <h2>Wobei kann Osteopathie helfen?</h2>
+      <h2 id="osteopathie">Was ist Osteopathie?</h2>
+      <p>
+        Osteopathie ist eine Behandlung mit den Händen.<br />
+        Der Osteopath untersucht deinen Körper mit den Händen.<br />
+        Er sucht die Ursache für deine Schmerzen.<br />
+        Ursache heißt: Woher kommen die Schmerzen?<br />
+        Dann behandelt er dich mit den Händen.<br />
+        Die Behandlung ist meistens sanft.
+      </p>
       <p>Osteopathie kann zum Beispiel helfen bei:</p>
       <ul>
-        <li>Rücken-Schmerzen und Nacken-Schmerzen</li>
+        <li>Rücken-Schmerzen</li>
+        <li>Nacken-Schmerzen</li>
         <li>Verspannungen</li>
         <li>Kopf-Schmerzen</li>
         <li>Schmerzen im Kiefer</li>
@@ -42,71 +84,259 @@ import { praxis, moelln } from '../config';
         <li>Schmerzen nach dem Sport</li>
       </ul>
 
-      <h2 class="ls-wichtig-titel">Wichtig</h2>
-      <div class="ls-info">
+      <div class="ls-wichtig">
+        <h2 id="wichtig">Wichtig</h2>
         <p>
-          Osteopathie ist kein Ersatz für den Arzt.
-          Hast du starke Schmerzen?
-          Oder weißt du nicht, woher die Schmerzen kommen?
+          Till Schneider ist kein Arzt.<br />
+          Hast du sehr starke Schmerzen?<br />
+          Oder weißt du nicht: Woher kommen die Schmerzen?<br />
           Dann geh bitte zuerst zum Arzt.
+        </p>
+        <p>
+          Hast du einen Notfall?<br />
+          Zum Beispiel einen Unfall?<br />
+          Oder plötzlich sehr starke Schmerzen?<br />
+          Dann ruf sofort die 112 an.<br />
+          Die 112 ist die Telefon-Nummer für den Notruf.
         </p>
       </div>
 
-      <h2>Es gibt 2 Praxen</h2>
-      <p>Till Schneider arbeitet an 2 Orten:</p>
+      <h2 id="ablauf">So läuft eine Behandlung ab</h2>
+      <ol>
+        <li>
+          <strong>Ihr sprecht zusammen.</strong><br />
+          Du erzählst von deinen Schmerzen.<br />
+          Du erzählst von deinem Alltag.<br />
+          Hast du Berichte vom Arzt? Bring sie bitte mit.
+        </li>
+        <li>
+          <strong>Till Schneider untersucht dich.</strong><br />
+          Er schaut: Wie bewegst du dich?<br />
+          Er fühlt mit den Händen: Wo ist dein Körper verspannt?
+        </li>
+        <li>
+          <strong>Till Schneider erklärt dir alles.</strong><br />
+          Er sagt dir, was er gefunden hat.<br />
+          Er sagt dir auch: Kann Osteopathie dir helfen?<br />
+          Oder ist der Arzt besser für dich?
+        </li>
+        <li>
+          <strong>Die Behandlung.</strong><br />
+          Till Schneider behandelt dich mit den Händen.<br />
+          Die Behandlung ist meistens sanft.
+        </li>
+        <li>
+          <strong>Zum Schluss.</strong><br />
+          Ihr besprecht zusammen: Wie geht es weiter?<br />
+          Brauchst du noch einen Termin?<br />
+          Was kannst du selbst tun?
+        </li>
+      </ol>
+      <p>Eine Behandlung dauert ungefähr 50 Minuten.</p>
+
+      <h2 id="kosten">Was kostet eine Behandlung?</h2>
+      <p>
+        Eine Behandlung kostet {praxis.preis}.<br />
+        Du bezahlst die Behandlung selbst.<br />
+        Du bekommst eine Rechnung.
+      </p>
+      <p>
+        Manche Kranken-Kassen geben einen Teil vom Geld zurück.<br />
+        Frag vorher bei deiner Kranken-Kasse.<br />
+        Hast du eine private Kranken-Versicherung?<br />
+        Dann bezahlt die Versicherung oft einen Teil.<br />
+        Frag auch dort vorher nach.
+      </p>
+
+      <h2 id="hamburg">Die Praxis in Hamburg</h2>
+      <figure class="ls-foto">
+        <img
+          src={hamburg.praxisbild}
+          alt="Behandlungs-Raum in der Praxis in Hamburg"
+          width="1400"
+          height="1865"
+          loading="lazy"
+        />
+        <figcaption>Das ist die Praxis in Hamburg.</figcaption>
+      </figure>
+      <p>
+        Die Adresse ist:<br />
+        <strong>
+          {hamburg.adresse[0]}<br />
+          {hamburg.adresse[1]}<br />
+          {hamburg.adresse[2]}
+        </strong>
+      </p>
+      <p>
+        Die Praxis ist in dem Haus „The Plaece Two".<br />
+        Der Stadt-Teil heißt Rotherbaum.
+      </p>
+
+      <h3>So kommst du hin</h3>
+      <p>
+        <strong>Mit dem Bus:</strong><br />
+        Die Bus-Haltestelle heißt Grindelhof.<br />
+        Oder: Universität/Staatsbibliothek.<br />
+        Von dort gehst du ungefähr 3 Minuten.
+      </p>
+      <p>
+        <strong>Mit der U-Bahn:</strong><br />
+        Die U-Bahn-Haltestelle heißt Schlump.<br />
+        Oder: Sternschanze.<br />
+        Von dort gehst du ungefähr 10 Minuten.
+      </p>
+      <p>
+        <strong>Mit dem Auto:</strong><br />
+        Es gibt nur wenige Park-Plätze.<br />
+        Komm lieber mit Bus oder Bahn.
+      </p>
+
+      <h3>Behandlungs-Zeiten in Hamburg</h3>
       <ul>
-        <li><strong>Praxis in Hamburg</strong></li>
-        <li><strong>Praxis in Mölln</strong></li>
+        {hamburg.zeiten.map((zeit) => (
+          <li>
+            {zeit.tag}: {zeitLeicht(zeit.von, zeit.bis)}
+          </li>
+        ))}
       </ul>
-      <p>Eine Praxis ist der Ort für die Behandlung.</p>
 
-      <h2>So bekommst du einen Termin</h2>
-      <p>Ein Termin ist eine feste Zeit für deinen Besuch.</p>
+      <h3>So bekommst du einen Termin in Hamburg</h3>
       <p>
-        <strong>Termin in Hamburg:</strong><br />
-        Du buchst den Termin im Internet.
-        Das geht über die Seite Doctolib.
-        Doctolib ist eine Internet-Seite für Termine.
+        Ein Termin ist eine feste Zeit für deinen Besuch.<br />
+        Du buchst den Termin im Internet.<br />
+        Das geht auf der Internet-Seite Doctolib.<br />
+        Doctolib ist eine Internet-Seite für Termine.<br />
+        Die Seite Doctolib ist nicht in Leichter Sprache.
       </p>
+      <a href={praxis.doctolib} target="_blank" rel="noopener" class="btn btn--primary">
+        Termin bei Doctolib buchen
+      </a>
+      <p class="ls-hinweis">Die Seite Doctolib öffnet sich in einem neuen Fenster.</p>
       <p>
-        <strong>Termin in Mölln:</strong><br />
-        Du rufst an.
-        Die Telefon-Nummer ist:<br />
-        <a href={moelln.telefonLink} class="ls-tel">{moelln.telefon}</a>
-      </p>
-
-      <h2>Was kostet eine Behandlung?</h2>
-      <p>
-        Eine Behandlung kostet {praxis.preis}.
-        Eine Behandlung dauert ungefähr 50 Minuten.
+        Das Buchen im Internet ist schwer für dich?<br />
+        Dann ruf an.<br />
+        Die Telefon-Nummer für Hamburg ist:<br />
+        <a href={hamburg.telefonLink} class="ls-tel">{hamburg.telefon}</a>
       </p>
 
-      <h2>So erreichst du Till Schneider</h2>
+      <h2 id="moelln">Die Praxis in Mölln</h2>
+      <figure class="ls-foto">
+        <img src={moelln.praxisbild} alt="Die Praxis in Mölln" width="1128" height="731" loading="lazy" />
+        <figcaption>Das ist die Praxis in Mölln.</figcaption>
+      </figure>
       <p>
-        Du kannst eine E-Mail schreiben.
-        Die E-Mail-Adresse ist:<br />
-        <a href={`mailto:${praxis.email}`}>{praxis.email}</a>
+        Die Adresse ist:<br />
+        <strong>
+          {moelln.adresse[0]}<br />
+          {moelln.adresse[1]}
+        </strong>
+      </p>
+
+      <h3>So kommst du hin</h3>
+      <p>
+        <strong>Mit dem Bus:</strong><br />
+        Die Bus-Haltestelle heißt Mölln, Friedenstraße.<br />
+        Sie ist direkt bei der Praxis.<br />
+        Du gehst nur 1 Minute.
       </p>
       <p>
-        Du kannst auch anrufen.
+        <strong>Mit dem Auto:</strong><br />
+        Die Praxis ist am Wasserkrüger Weg.<br />
+        Das ist eine große Straße in Mölln.
+      </p>
+
+      <h3>Behandlungs-Zeiten in Mölln</h3>
+      <p>
+        In Mölln gibt es keine festen Zeiten.<br />
+        Du machst die Zeit am Telefon aus.
+      </p>
+
+      <h3>So bekommst du einen Termin in Mölln</h3>
+      <p>
+        Du rufst an.<br />
         Die Telefon-Nummer für Mölln ist:<br />
         <a href={moelln.telefonLink} class="ls-tel">{moelln.telefon}</a>
       </p>
 
+      <h2 id="mitbringen">Das bringst du zum Termin mit</h2>
+      <ul>
+        <li>Berichte vom Arzt. Zum Beispiel Röntgen-Bilder. Wenn du welche hast.</li>
+        <li>Eine Liste mit deinen Medikamenten. Wenn du Medikamente nimmst.</li>
+        <li>Ein großes Handtuch. Das Handtuch ist für die Liege.</li>
+        <li>Bequeme Kleidung.</li>
+      </ul>
+      <p>
+        Bei der Untersuchung ziehst du vielleicht einen Teil von der Kleidung aus.<br />
+        Till Schneider bespricht das vorher mit dir.<br />
+        Du bestimmst das Tempo.
+      </p>
+      <p>Komm bitte ein paar Minuten früher.</p>
+
+      <h2 id="absagen">Du kannst nicht kommen?</h2>
+      <p>
+        Dann sag den Termin bitte ab.<br />
+        Sag spätestens 24 Stunden vorher ab.<br />
+        Das heißt: 1 Tag vorher.
+      </p>
+      <p>
+        Termin in Hamburg: Sag bei Doctolib ab. Oder ruf an.<br />
+        Termin in Mölln: Ruf an.
+      </p>
+      <p>
+        Sagst du zu spät ab?<br />
+        Dann musst du vielleicht trotzdem Geld bezahlen.
+      </p>
+
+      <h2 id="kontakt">So erreichst du Till Schneider</h2>
+      <p>
+        Du kannst eine E-Mail schreiben.<br />
+        Die E-Mail-Adresse ist:<br />
+        <a href={`mailto:${praxis.email}`}>{praxis.email}</a>
+      </p>
+      <p>
+        Du kannst auch anrufen.<br />
+        Telefon Hamburg: <a href={hamburg.telefonLink}>{hamburg.telefon}</a><br />
+        Telefon Mölln: <a href={moelln.telefonLink}>{moelln.telefon}</a>
+      </p>
+
+      <h2 id="text">Wer hat diesen Text geschrieben?</h2>
+      <div class="ls-info">
+        <p>
+          Diesen Text hat ein Computer-Programm mit geschrieben.<br />
+          Das Programm ist eine Künstliche Intelligenz. Kurz: KI.<br />
+          Till Schneider hat den Text gelesen und geprüft.<br />
+          Eine Prüf-Gruppe hat den Text noch nicht geprüft.<br />
+          Eine Prüf-Gruppe sind Menschen mit Lern-Schwierigkeiten.<br />
+          Sie prüfen: Ist der Text gut zu verstehen?
+        </p>
+        <p>
+          Du verstehst etwas nicht?<br />
+          Dann ruf an. Oder schreib eine E-Mail.
+        </p>
+      </div>
+
       <div class="ls-cta">
-        <a href="/terminbuchung/" class="btn btn--primary">Zur Termin-Buchung</a>
-        <a href="/" class="btn btn--secondary">Zur normalen Start-Seite</a>
+        <a href="/" class="btn btn--secondary">Zur Start-Seite in Alltags-Sprache</a>
       </div>
     </div>
   </section>
 </Base>
 
 <style>
-  /* Leichte Sprache: große Schrift, viel Abstand, schmale Textspalte, linksbündig */
+  /* Leichte Sprache: große Schrift, viel Abstand, schmale Textspalte, linksbündig,
+     keine Silbentrennung, keine Versalien (daher der Eyebrow ohne Uppercase). */
   .ls {
     max-width: 680px;
     font-size: 1.25rem;
     line-height: 1.8;
+    text-align: left;
+    hyphens: manual;
+  }
+
+  .ls .eyebrow {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 1.1rem;
   }
 
   .ls h1 {
@@ -118,30 +348,48 @@ import { praxis, moelln } from '../config';
     font-size: 1.6rem;
     margin-top: 2.5rem;
     margin-bottom: 0.75rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .ls h3 {
+    font-size: 1.3rem;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
   }
 
   .ls p {
     margin-bottom: 1.25rem;
   }
 
-  .ls ul {
-    list-style: none;
-    padding: 0;
+  .ls ul,
+  .ls ol {
+    padding-left: 1.6rem;
     margin-bottom: 1.25rem;
   }
 
   .ls li {
-    position: relative;
-    padding-left: 2rem;
     margin-bottom: 0.75rem;
   }
 
-  .ls li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--secondary);
-    font-weight: 700;
+  .ls ol li {
+    margin-bottom: 1rem;
+  }
+
+  .ls-foto {
+    margin: 0 0 1.5rem;
+  }
+
+  .ls-foto img {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .ls-foto figcaption {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--muted);
   }
 
   .ls-info {
@@ -153,8 +401,29 @@ import { praxis, moelln } from '../config';
 
   .ls-info p:last-child { margin-bottom: 0; }
 
-  .ls-wichtig-titel {
+  .ls-wichtig {
+    background: var(--bg-accent);
+    border-left: 6px solid var(--primary);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .ls-wichtig h2 {
+    margin-top: 0;
     color: var(--primary);
+  }
+
+  .ls-wichtig p:last-child { margin-bottom: 0; }
+
+  .ls .btn {
+    font-size: 1.15rem;
+  }
+
+  .ls-hinweis {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-top: 0.75rem;
   }
 
   .ls-tel {
