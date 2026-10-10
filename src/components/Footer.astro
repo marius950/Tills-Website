@@ -2,6 +2,9 @@
 import { praxis, hamburg, moelln } from '../config';
 import Behandlungszeiten from './Behandlungszeiten.astro';
 import GoogleBewertungen from './GoogleBewertungen.astro';
+
+// Cookie-Einstellungen-Link nur, wenn der Banner aktiv ist (siehe Consent.astro)
+const trackingAktiv = Boolean(import.meta.env.PUBLIC_GOOGLE_ADS_ID);
 ---
 
 <footer class="site-footer">
@@ -51,6 +54,11 @@ import GoogleBewertungen from './GoogleBewertungen.astro';
       <a href="/leichte-sprache/" class="ls-link">Leichte Sprache</a>
       <a href="/impressum/">Impressum</a>
       <a href="/datenschutz/">Datenschutz</a>
+      {trackingAktiv && (
+        <button type="button" class="cc-link" data-cc="show-preferencesModal">
+          Cookie-Einstellungen
+        </button>
+      )}
     </nav>
   </div>
 </footer>
@@ -123,6 +131,17 @@ import GoogleBewertungen from './GoogleBewertungen.astro';
   }
 
   .footer-bottom nav a:first-child { margin-left: 0; }
+
+  .cc-link {
+    margin-left: 1rem;
+    padding: 0;
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 
   /* Leichte-Sprache-Link als kleiner Button hervorgehoben */
   .ls-link {

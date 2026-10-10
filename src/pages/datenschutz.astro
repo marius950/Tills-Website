@@ -1,6 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import { praxis, hamburg, moelln } from '../config';
+
+// Abschnitte zu Cookies und Google Ads nur, wenn das Tracking konfiguriert ist (siehe Consent.astro)
+const trackingAktiv = Boolean(import.meta.env.PUBLIC_GOOGLE_ADS_ID);
 ---
 
 <Base
@@ -73,7 +76,41 @@ import { praxis, hamburg, moelln } from '../config';
         Termine am Standort Mölln werden ausschließlich telefonisch vereinbart.
       </p>
 
-      <h2>7. Deine Rechte</h2>
+      {trackingAktiv && (
+        <>
+          <h2>7. Cookies und Einwilligung</h2>
+          <p>
+            Beim ersten Besuch dieser Website erscheint ein Hinweis zur Cookie-Nutzung. Technisch
+            notwendig ist nur ein Cookie („cc_cookie", Speicherdauer 6 Monate), das deine Auswahl
+            speichert; Rechtsgrundlage ist § 25 Abs. 2 Nr. 2 TDDDG. Alle weiteren Cookies setzen
+            wir ausschließlich mit deiner Einwilligung (§ 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a
+            DSGVO). Du kannst deine Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen
+            oder anpassen – über den Link „Cookie-Einstellungen" am Seitenende.
+          </p>
+
+          <h2>8. Google Ads Conversion-Tracking</h2>
+          <p>
+            Mit deiner Einwilligung nutzen wir Google Ads Conversion-Tracking der Google Ireland
+            Limited, Gordon House, Barrow Street, Dublin 4, Irland („Google"). Damit messen wir, ob
+            Besucher:innen, die über eine Google-Anzeige auf diese Website gekommen sind, auf
+            „Termin buchen" (Doctolib) oder auf eine Telefonnummer klicken. Google setzt dafür
+            Cookies (insbesondere „_gcl_au" und „_gcl_aw", Speicherdauer 90 Tage) und verarbeitet
+            technische Daten wie IP-Adresse, Browserinformationen und Zeitpunkt des Klicks. Wir
+            erhalten nur zusammengefasste Statistiken ohne Personenbezug.
+          </p>
+          <p>
+            Ohne Einwilligung werden keine Google-Dienste geladen und keine Daten an Google
+            übertragen (Google Consent Mode, Basis-Modus). Eine Übermittlung in die USA ist
+            möglich; Google LLC ist nach dem EU-US Data Privacy Framework zertifiziert.
+            Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO. Weitere Informationen:
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung von Google</a>
+            und
+            <a href="https://adssettings.google.com/" target="_blank" rel="noopener">Einstellungen für Werbung</a>.
+          </p>
+        </>
+      )}
+
+      <h2>{trackingAktiv ? 9 : 7}. Deine Rechte</h2>
       <p>Du hast im Rahmen der gesetzlichen Vorgaben jederzeit das Recht auf:</p>
       <ul>
         <li>Auskunft über deine gespeicherten Daten (Art. 15 DSGVO)</li>
@@ -88,14 +125,14 @@ import { praxis, hamburg, moelln } from '../config';
         Kontaktdaten.
       </p>
 
-      <h2>8. Beschwerderecht bei der Aufsichtsbehörde</h2>
+      <h2>{trackingAktiv ? 10 : 8}. Beschwerderecht bei der Aufsichtsbehörde</h2>
       <p>
         Dir steht ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu, insbesondere beim
         Hamburgischen Beauftragten für Datenschutz und Informationsfreiheit (HmbBfDI),
         Ludwig-Erhard-Straße 22, 20459 Hamburg.
       </p>
 
-      <h2>9. SSL-/TLS-Verschlüsselung</h2>
+      <h2>{trackingAktiv ? 11 : 9}. SSL-/TLS-Verschlüsselung</h2>
       <p>
         Diese Website nutzt aus Sicherheitsgründen eine SSL-/TLS-Verschlüsselung. Eine
         verschlüsselte Verbindung erkennst du an „https://" in der Adresszeile deines Browsers.
