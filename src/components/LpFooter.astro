@@ -1,0 +1,58 @@
+---
+// Schlanker Fuß für Anzeigen-Landingpages: Pflichtlinks und Adresse, sonst nichts.
+import { hamburg, praxis } from '../config';
+
+const trackingAktiv = Boolean(import.meta.env.PUBLIC_GOOGLE_ADS_ID);
+---
+
+<footer class="lp-footer">
+  <div class="wrap lp-footer-inner">
+    <p>
+      © {new Date().getFullYear()} {praxis.name} · {hamburg.strasse}, {hamburg.plz} {hamburg.ort}
+    </p>
+    <nav aria-label="Rechtliches">
+      <a href="/impressum/">Impressum</a>
+      <a href="/datenschutz/">Datenschutz</a>
+      {trackingAktiv && (
+        <button type="button" class="lp-cc" data-cc="show-preferencesModal">
+          Cookie-Einstellungen
+        </button>
+      )}
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .lp-footer {
+    background: var(--dark);
+    color: #d9d4cb;
+    font-size: 0.85rem;
+  }
+
+  .lp-footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    padding-block: 1.25rem;
+  }
+
+  .lp-footer p { margin: 0; }
+
+  .lp-footer a,
+  .lp-cc {
+    color: #d9d4cb;
+    margin-left: 1rem;
+  }
+
+  .lp-footer nav a:first-child { margin-left: 0; }
+
+  .lp-cc {
+    padding: 0;
+    background: none;
+    border: none;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+</style>
