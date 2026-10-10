@@ -7,5 +7,6 @@ export default defineConfig({
   redirects: {
     '/blog': '/wissen',
   },
-  integrations: [sitemap()],
+  // Anzeigen-Landingpages unter /lp/ sind noindex und bleiben aus der Sitemap
+  integrations: [sitemap({ filter: (page) => !page.includes('/lp/') })],
 });
