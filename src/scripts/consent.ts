@@ -19,7 +19,7 @@ const aktiviereMarketing = () => {
   window.gtag('consent', 'update', {
     ad_storage: 'granted',
     ad_user_data: 'granted',
-    ad_personalization: 'granted',
+    ad_personalization: 'denied',
   });
   if (!conversionsGebunden) {
     bindeConversions(adsId, labels);
