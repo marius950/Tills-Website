@@ -54,7 +54,9 @@ export const ladeGoogleTag = (adsId: string) => {
     analytics_storage: 'denied',
   });
   window.gtag('js', new Date());
-  window.gtag('config', adsId);
+  // Kein Remarketing: Google verbietet personalisierte Werbung bei Gesundheitsthemen,
+  // und die Datenschutzerklärung deckt nur Conversion-Messung ab.
+  window.gtag('config', adsId, { allow_ad_personalization_signals: false });
 
   const script = document.createElement('script');
   script.async = true;
