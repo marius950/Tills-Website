@@ -1,7 +1,6 @@
 ---
 import { praxis, hamburg, moelln } from '../config';
 import Behandlungszeiten from './Behandlungszeiten.astro';
-import GoogleBewertungen from './GoogleBewertungen.astro';
 
 // Cookie-Einstellungen-Link nur, wenn der Banner aktiv ist (siehe Consent.astro)
 const trackingAktiv = Boolean(import.meta.env.PUBLIC_GOOGLE_ADS_ID);
@@ -44,7 +43,6 @@ const trackingAktiv = Boolean(import.meta.env.PUBLIC_GOOGLE_ADS_ID);
         Termine für Mölln vereinbarst du telefonisch.
       </p>
       <a href="/terminbuchung/" class="btn btn--primary">Termin buchen</a>
-      <p class="footer-proof"><GoogleBewertungen variante="badge" /></p>
     </div>
   </div>
 
@@ -100,12 +98,6 @@ const trackingAktiv = Boolean(import.meta.env.PUBLIC_GOOGLE_ADS_ID);
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: #c9b8a4;
-  }
-
-  .footer-proof {
-    margin-top: 1rem;
-    margin-bottom: 0;
-    font-size: 0.9rem;
   }
 
   .footer-head {
