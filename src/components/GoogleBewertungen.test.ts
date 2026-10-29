@@ -38,8 +38,9 @@ describe('googleBewertungen (Datenpflege)', () => {
     expect(googleBewertungen.zitate.length).toBeGreaterThanOrEqual(3);
     expect(googleBewertungen.zitate.length).toBeLessThanOrEqual(5);
     for (const zitat of googleBewertungen.zitate) {
-      // Nur Vorname + Initiale, keine vollen Nachnamen auf der Website
-      expect(zitat.name).toMatch(/^[A-ZÄÖÜ][a-zäöüß]+ [A-ZÄÖÜ]\.$/);
+      // Nur Vorname + Initiale, keine vollen Nachnamen auf der Website. Zeigt das Profil
+      // keinen Vornamen (z. B. „a Toms"), stehen zwei Initialen.
+      expect(zitat.name).toMatch(/^([A-ZÄÖÜ][a-zäöüß]+|[A-ZÄÖÜ]\.) [A-ZÄÖÜ]\.$/);
       expect(zitat.text.length).toBeGreaterThan(20);
     }
   });

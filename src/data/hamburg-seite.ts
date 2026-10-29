@@ -1,5 +1,6 @@
 // Inhalte der Standortseite Hamburg, die auch ins strukturierte FAQ-Schema einfließen.
-// Wegangaben nur aus verifizierten Daten der Anfahrtsbeschreibung übernehmen.
+// Wegangaben verifiziert am 29.10.2026: Linien laut HVV-Fahrplan 2025/26, Entfernungen als
+// Luftlinie aus OpenStreetMap (Grindelhof ca. 280 m, Bundesstraße ca. 620 m, Schlump ca. 730 m).
 import { praxis, hamburg, zeitenSatz } from '../config';
 import type { FaqEintrag } from '../scripts/faq-schema';
 
@@ -11,15 +12,15 @@ export interface Stadtteil {
 export const stadtteile: Stadtteil[] = [
   {
     name: 'Rotherbaum & Grindelviertel',
-    text: 'Die Praxis liegt mitten in Rotherbaum, im Grindelviertel zwischen Universität und Messe. Vom Grindelhof und vom Campus bist du in wenigen Minuten zu Fuß da.',
+    text: 'Die Praxis liegt mitten in Rotherbaum, im Grindelviertel zwischen Universität und Messe. Die Buslinien 4 und 5 halten an der Haltestelle Grindelhof, rund 300 Meter entfernt.',
   },
   {
     name: 'Harvestehude',
-    text: 'Aus Harvestehude fährst du mit der U1 bis Hallerstraße, von dort sind es rund ein Kilometer zu Fuß. Mit dem Rad bist du noch schneller.',
+    text: 'Harvestehude grenzt direkt an Rotherbaum. Die Buslinie 15 fährt von der Alsterchaussee über Hallerstraße und Parkallee bis zur Haltestelle Bundesstraße, von dort sind es rund 600 Meter. Mit dem Rad bist du in wenigen Minuten da.',
   },
   {
     name: 'Eimsbüttel',
-    text: 'Eimsbüttel liegt gleich nebenan: Mit der U2 bis Schlump, dann etwa 700 Meter zu Fuß. Auch die Haltestelle Sternschanze ist rund 700 Meter entfernt.',
+    text: 'Eimsbüttel liegt gleich nebenan. Von der Weidenallee bringt dich die Buslinie 15 bis zur Bundesstraße, die U2 und U3 halten am Schlump. Von beiden Haltestellen sind es rund 600 bis 700 Meter zu Fuß.',
   },
   {
     name: 'Aus ganz Hamburg mit dem Auto',

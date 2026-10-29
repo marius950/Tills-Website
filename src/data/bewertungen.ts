@@ -14,11 +14,16 @@ export interface Bewertung {
 
 export const googleBewertungen = {
   schnitt: 5.0,
-  anzahl: 17,
-  stand: '10. Oktober 2026',
+  anzahl: 19,
+  stand: '29. Oktober 2026',
   profilUrl: 'https://www.google.com/maps/place/?q=place_id:ChIJmz27rjOPsUcR9zcvDpr40rM',
   bewertenUrl: 'https://search.google.com/local/writereview?placeid=ChIJmz27rjOPsUcR9zcvDpr40rM',
   zitate: [
+    {
+      name: 'A. T.',
+      datum: 'Oktober 2026',
+      text: 'Supernetter, zugewandter, kompetenter Osteopath. … Klare Empfehlung.',
+    },
     {
       name: 'Jan P.',
       datum: 'August 2026',
