@@ -4,6 +4,9 @@ import CtaBlock from '../components/CtaBlock.astro';
 import StandortKarten from '../components/StandortKarten.astro';
 import GoogleBewertungen from '../components/GoogleBewertungen.astro';
 import { praxis, hamburg, moelln } from '../config';
+import { googleBewertungen } from '../data/bewertungen';
+
+const sterne = googleBewertungen.schnitt.toLocaleString('de-DE', { minimumFractionDigits: 1 });
 
 const beschwerden = [
   {
@@ -76,8 +79,8 @@ const ablauf = [
 ---
 
 <Base
-  title="Osteopathie in Hamburg & Mölln | Praxis Till Schneider"
-  description="Evidenzbewusste Osteopathie bei Schmerzen, Stress & funktionellen Beschwerden in Hamburg und Mölln. Physiotherapeut, Heilpraktiker & Osteopath. Jetzt Termin buchen."
+  title="Osteopath in Hamburg-Rotherbaum & Mölln | Till Schneider"
+  description={`Evidenzbewusste Osteopathie in Hamburg-Rotherbaum am Grindel und in Mölln: ${praxis.dauer} für ${praxis.preis}, Hamburg online über Doctolib buchbar. ${sterne} ★ bei Google.`}
 >
   <!-- Hero: Statement-Text + Portrait von Till -->
   <section class="section hero">
@@ -98,7 +101,9 @@ const ablauf = [
           Schmerzen haben selten nur eine Ursache. Als Osteopath und Physiotherapeut schaue ich
           genau hin: Wo kommen deine Beschwerden her, was hängt womit zusammen und was können wir
           gemeinsam dagegen tun? Ohne leere Versprechen, dafür mit Erfahrung, Sorgfalt und einem
-          Behandlungsansatz, der sich an aktuellem Wissen orientiert.
+          Behandlungsansatz, der sich an aktuellem Wissen orientiert. Du findest mich in meiner
+          Praxis für <a href={hamburg.seite}>Osteopathie in Hamburg-Rotherbaum</a> am Grindel und in
+          <a href={moelln.seite}>Mölln</a>.
         </p>
       </div>
       <figure class="photo-wrap hero-portrait">
