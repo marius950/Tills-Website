@@ -12,15 +12,15 @@ export interface Stadtteil {
 export const stadtteile: Stadtteil[] = [
   {
     name: 'Rotherbaum & Grindelviertel',
-    text: 'Die Praxis liegt mitten in Rotherbaum, im Grindelviertel zwischen Universität und Messe. Die Metrobusse 4 und 5 halten an der Haltestelle Grindelhof, rund 300 Meter entfernt.',
+    text: 'Die Praxis liegt mitten in Rotherbaum, im Grindelviertel zwischen Universität und Messe. Die Buslinien 4 und 5 halten an der Haltestelle Grindelhof, rund 300 Meter entfernt.',
   },
   {
     name: 'Harvestehude',
-    text: 'Harvestehude grenzt direkt an Rotherbaum. Der Metrobus 15 fährt von der Alsterchaussee über Hallerstraße und Parkallee bis zur Haltestelle Bundesstraße, von dort sind es rund 600 Meter. Mit dem Rad bist du in wenigen Minuten da.',
+    text: 'Harvestehude grenzt direkt an Rotherbaum. Die Buslinie 15 fährt von der Alsterchaussee über Hallerstraße und Parkallee bis zur Haltestelle Bundesstraße, von dort sind es rund 600 Meter. Mit dem Rad bist du in wenigen Minuten da.',
   },
   {
     name: 'Eimsbüttel',
-    text: 'Eimsbüttel liegt gleich nebenan. Von der Weidenallee bringt dich der Metrobus 15 bis zur Bundesstraße, die U2 und U3 halten am Schlump. Von beiden Haltestellen sind es rund 600 bis 700 Meter zu Fuß.',
+    text: 'Eimsbüttel liegt gleich nebenan. Von der Weidenallee bringt dich die Buslinie 15 bis zur Bundesstraße, die U2 und U3 halten am Schlump. Von beiden Haltestellen sind es rund 600 bis 700 Meter zu Fuß.',
   },
   {
     name: 'Aus ganz Hamburg mit dem Auto',
