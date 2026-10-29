@@ -1,0 +1,22 @@
+---
+// Aufklappbare Fragen samt passendem FAQPage-Schema, damit sichtbarer Text und
+// strukturierte Daten nicht auseinanderlaufen (Google verlangt beides deckungsgleich).
+import { faqSchema, type FaqEintrag } from '../scripts/faq-schema';
+
+interface Props {
+  fragen: FaqEintrag[];
+}
+
+const { fragen } = Astro.props;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema(fragen))} />
+
+{fragen.map((frage) => (
+  <details class="faq-item">
+    <summary>{frage.f}</summary>
+    <div class="faq-body">
+      <p>{frage.a}</p>
+    </div>
+  </details>
+))}

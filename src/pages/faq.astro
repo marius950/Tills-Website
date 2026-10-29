@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import CtaBlock from '../components/CtaBlock.astro';
 import { praxis, hamburg, moelln, zeitenSatz } from '../config';
+import { faqSchema } from '../scripts/faq-schema';
 
 const gruppen = [
   {
@@ -91,25 +92,14 @@ const gruppen = [
   },
 ];
 
-// FAQ-Schema für Google-Rich-Snippets (FAQPage, schema.org)
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: gruppen.flatMap((g) =>
-    g.fragen.map((frage) => ({
-      '@type': 'Question',
-      name: frage.f,
-      acceptedAnswer: { '@type': 'Answer', text: frage.a },
-    }))
-  ),
-};
+const schema = faqSchema(gruppen.flatMap((g) => g.fragen));
 ---
 
 <Base
   title="FAQ Osteopathie: Kosten, Ablauf & Krankenkasse | Praxis Till Schneider"
   description="Antworten auf häufige Fragen: Was kostet Osteopathie? Zahlt die Krankenkasse? Was passiert beim ersten Termin? Ehrlich und verständlich beantwortet."
 >
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <section class="section">
     <div class="wrap content-center">

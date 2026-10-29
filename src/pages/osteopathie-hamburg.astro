@@ -2,7 +2,12 @@
 import Base from '../layouts/Base.astro';
 import Behandlungszeiten from '../components/Behandlungszeiten.astro';
 import GoogleBewertungen from '../components/GoogleBewertungen.astro';
+import FaqListe from '../components/FaqListe.astro';
 import { praxis, hamburg, moelln, mapsLink } from '../config';
+import { googleBewertungen } from '../data/bewertungen';
+import { hamburgFaq, stadtteile } from '../data/hamburg-seite';
+
+const sterne = googleBewertungen.schnitt.toLocaleString('de-DE', { minimumFractionDigits: 1 });
 
 const beschwerden = [
   'Rücken- und Nackenschmerzen durch langes Sitzen am Schreibtisch',
@@ -15,8 +20,8 @@ const beschwerden = [
 ---
 
 <Base
-  title="Osteopathie in Hamburg (Rotherbaum) – Praxis Till Schneider"
-  description="Osteopathie in Hamburg-Rotherbaum, The Plaece am Grindel. Evidenzbewusst, 50 Minuten für 130 €. Termine dienstags und mittwochs, online buchbar über Doctolib."
+  title="Osteopath in Hamburg-Rotherbaum am Grindel | Till Schneider"
+  description={`Osteopathie in Hamburg-Rotherbaum, nah an Harvestehude und Eimsbüttel: ${praxis.dauer} für ${praxis.preis}, eigene Parkplätze, Termin online über Doctolib. ${sterne} ★ bei Google.`}
 >
   <section class="section">
     <div class="wrap standort-hero">
@@ -39,6 +44,7 @@ const beschwerden = [
           </a>
           <a href="/was-ist-osteopathie/" class="btn btn--secondary">Was ist Osteopathie?</a>
         </div>
+        <p class="mt-2"><GoogleBewertungen variante="badge" /></p>
       </div>
       <figure class="photo-wrap standort-foto">
         <img src={hamburg.praxisbild} alt="Behandlungsraum der Osteopathie-Praxis in Hamburg-Rotherbaum" loading="eager" />
@@ -116,8 +122,26 @@ const beschwerden = [
     </div>
   </section>
 
-  <!-- Beschwerdebilder -->
+  <!-- Einzugsgebiet: Stadtteile, aus denen Patient:innen kommen -->
   <section class="section section--beige">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Einzugsgebiet</span>
+        <h2>Osteopathie für Rotherbaum, Harvestehude, Grindel und Eimsbüttel</h2>
+      </div>
+      <div class="grid grid--2">
+        {stadtteile.map((stadtteil) => (
+          <div class="card">
+            <h3>{stadtteil.name}</h3>
+            <p>{stadtteil.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Beschwerdebilder -->
+  <section class="section">
     <div class="wrap content-center">
       <span class="eyebrow">Behandlungsanlässe</span>
       <h2>Weshalb Patient:innen nach Hamburg kommen</h2>
@@ -144,7 +168,7 @@ const beschwerden = [
   </section>
 
   <!-- Sport & Evidenz: Hamburg-spezifische Positionierung -->
-  <section class="section">
+  <section class="section section--beige">
     <div class="wrap content-center">
       <span class="eyebrow">Mein Hintergrund</span>
       <h2>Erfahrung aus dem Leistungssport</h2>
@@ -172,7 +196,20 @@ const beschwerden = [
     </div>
   </section>
 
-  <!-- Abschluss-CTA -->
+  <section class="section">
+    <div class="wrap content-center">
+      <span class="eyebrow">FAQ</span>
+      <h2>Häufige Fragen zur Praxis in Hamburg</h2>
+      <div class="mt-2">
+        <FaqListe fragen={hamburgFaq} />
+      </div>
+      <p class="mt-2">
+        Weitere Antworten zu Ablauf, Kosten und Krankenkasse findest du in den
+        <a href="/faq/">häufigen Fragen</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- Google-Bewertungen -->
   <section class="section section--beige">
     <div class="wrap">
@@ -228,7 +265,8 @@ const beschwerden = [
     max-height: 480px;
   }
 
-  .card h2 {
+  .card h2,
+  .card h3 {
     font-size: 1.15rem;
     margin-bottom: 0.5rem;
   }
